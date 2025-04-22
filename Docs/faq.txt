@@ -1,0 +1,1098 @@
+
+
+ ___ ___ ___        ___ _    _ ___ ___ _  _ ___ ___ _  _ _          _ ___ ___ _
+|___|___|___|_    _|___|_|_ |_|___|___|_||_|___|___|_||_|_|        |_|___|___|_|
+|_|_|     |___| _|___| |_|_|_   |___|        |___|    |___|        |___|
+|___|_ ___|_|_||___|     |_|_|  |_|_|        |_|_|    |_|_|        |_|_|___ _
+|_|___|___|_|_ |_|_|___ _|___|  |___|        |___|    |___|        |___|___|_|
+|___|     |_|_||___|___|___|_|  |_|_|        |_|_|    |_|_|        |_|_|
+|_|_|___ _|___||_|_|     |___|  |___|        |___|    |___|_ ___ _ |___|_ ___ _
+|___|___|___|  |___|     |_|_|  |_|_|        |_|_|    |_|___|___|_||_|___|___|_|
+
+                 _ ___ _     ___ ___ ___   ___ ___ ___   ___     ___
+               _|_|___|_|_  |___|___|___| |___|___|___| |___|   |___|
+             _|_|_|   |_|_|     |_|_|         |_|_|     |_|_|   |_|_|
+            |_|_|               |___|         |___|     |___|_ _|___|
+            |___|               |_|_|         |_|_|       |___|___|
+            |_|_|_     _ _      |___|         |___|         |___|
+              |_|_|___|_|_|  ___|_|_|___      |_|_|         |_|_|
+                |_|___|_|   |___|___|___|     |___|         |___|
+
+
+Battle City FAQ/Walkthrough
+Copyright Namco 1985
+Written By Brian P. Sulpher
+E-mail: briansulpher@hotmail.com
+Version 1.2
+Dates Written: March 16th to March 18th, 2004
+
+I dedicate this FAQ to Jennifer Dixon.  You have been patient through my
+writing of these FAQs, and I appreciate your understanding of my hobby.  I
+just hope that it can continue to put a few funds into my pocket, as I feel
+the need to save up some money for something special for ya...
+
+Also, for Cougar, Howler, Koonce, and Gracey.  I miss you, and I hope you 
+are living it up in the afterlife as you did in this world.  You will always
+be in my memories, and you will never be forgotten.
+
+-----------
+Version 1.0
+-----------
+
+-Submitted FAQ on March 18th, 2004
+
+-----------
+Version 1.1
+-----------
+
+-Submitted guide on March 24th, 2005
+-I added in Honestgamers as a site allowed to use my FAQs
+
+-----------
+Version 1.2
+-----------
+
+-Submitted guide on June 22nd, 2005
+-I added in Retronintendo as a site allowed to use my FAQs
+-Altered the format to make it easier on the eyes of the reader
+
+----------------------------------------------------------------------------
+-----------------------------Table Of Contents------------------------------
+----------------------------------------------------------------------------
+
+1) Introduction
+2) Controls
+3) Objects
+4) Enemies
+5) Power-Ups
+6) Walkthrough
+7) Strategies
+8) Final Word
+
+----------------------------------------------------------------------------
+--------------------------------Introduction--------------------------------
+----------------------------------------------------------------------------
+
+1) Set in the urban jungle, your tanks will face off against an onslaught of
+   enemy forces!  Though they may have faster, quicker shooting, and tougher
+   tanks, your tanks can turn the tide of any battle.  They are not alone in
+   their struggle though as every flashing enemy tank that gets shot will
+   drop Power-Ups for your tans to make use of, thus evening the odds 
+   somewhat.  So, roll on out to destroy the enemy, but NEVER let them shoot
+   your headquarters up!
+
+----------------------------------------------------------------------------
+----------------------------------Controls----------------------------------
+----------------------------------------------------------------------------
+
+2) This section will look at the controls for your weapon of enemy tank
+   destruction.
+
+
+D-Pad...: Moves your tank in the direction pressed.
+
+SELECT..: No apparent use.
+
+START...: Pauses/unpauses the game.  Also confirms which stage you would
+          like to start the game on.
+
+B Button: Fires off a tank shell from your tank barrel.  Lowers the stage
+          number that you would like to begin the game on.
+
+A Button: Fires off a tank shell from your tank barrel.  Raises the stage
+          number that you would like to begin the game on.
+
+----------------------------------------------------------------------------
+-----------------------------------Objects----------------------------------
+----------------------------------------------------------------------------
+
+3) This section will look at the inanimate objects that your tanks will have
+   to maneuver around.
+
+
+                                o------------o
+                                | Brick Wall |
+                                o------------o
+
+The most common obstacle on the field of battle (usually), it can be 
+destroyed by continual battering of tank rounds.  Both sides can cut a path
+through the breakable material, so remember this as you try to hunt down the
+opposing tanks, as they can bypass your approach and go after your base 
+instead.
+
+
+                                  o-------o
+                                  | River |
+                                  o-------o
+
+These watery areas will not allow a tank to pass over them, but shots can be
+fired back and forth across them.  Use these natural barriers to your 
+advantage while you fight, remembering they are open season for firing over,
+whether it is you or the opposition lobbing the shells.
+
+
+                              o-----------------o
+                              | Slippery Ground |
+                              o-----------------o
+
+These grey patches found in a few levels will cause your tank to move two
+spaces, even if you wished it to move just one.  This makes it incredibly
+annoying to move to direct spots while fighting, so really plan ahead so
+minimal amounts of battles will take place there, as fighting from an 
+undesired position usually results in an untimely death.
+
+
+                                o------------o
+                                | Steel Wall |
+                                o------------o
+
+The other type of wall both sides will face, this wall is made of much 
+firmer stuff.  In fact, only your tank, when powered up, can bust these
+super tough walls down to size (your opponent's have no such power at any 
+point).  So, use this to your advantage, but be careful to not cut a path
+with your weaponry that gives the enemy a route to your base for the instant
+game over.
+
+
+                                o------------o
+                                | Tree Cover |
+                                o------------o
+
+These green areas do not impede the movement of any tanks, but they do give
+cover from aerial observers (which means you the player, since you are using 
+a birds-eye view in this game).  Look for a slight change in colour from the
+tree sprite as the tank underneath is still partially visible at all times,
+which is how you can spot the incoming enemy or track the movement of your 
+own Tank.
+
+----------------------------------------------------------------------------
+-----------------------------------Enemies----------------------------------
+----------------------------------------------------------------------------
+
+4) This section will take a look at the four types of Tanks found in the 
+   game, including any special abilities they have.
+
+
+                               o------------o
+                               | Small Tank |
+                               o------------o
+
+Hits..: 1
+Points: 100
+
+The most basic tank of the four, it moves slowly, fires off one round at a
+time, and it is not very aggressive in going after your home base.  This 
+tank is the equivalent of your starting tank in firepower ratio.
+
+
+                               o-------------o
+                               | Strike Tank |
+                               o-------------o
+
+Hits..: 1
+Points: 200
+
+These are the fastest moving tanks you will face, these speed demons fire 
+off few shots.  However, they will be able to come onto your tank so quickly
+that one shot is all that is required to take down your Tank.
+
+
+                               o-------------o
+                               | Medium Tank |
+                               o-------------o
+
+Hits..: 1
+Points: 300
+
+These tanks are the upgrades of the Small Tank as they are slightly faster, 
+they fire bullets at a higher rate of speed (still only one at a time 
+though), and they look just a little bit cooler.  This tank is the 
+equivalent of your level two tank in firepower ratio and speed.
+
+
+                               o------------o
+                               | Heavy Tank |
+                               o------------o
+
+Hits..: 4
+Points: 400
+
+The largest tank you will face, this behemoth requires a whopping four hits
+to destroy (each hit it takes will change it's colour), it is also the 
+slowest tank by far due to the massive armor plating it carries.  Still, 
+they use their defensive capabilities to overwhelm your tank as they attack.
+This tank is the equivalent of your level three tank in firepower ratio.
+
+----------------------------------------------------------------------------
+----------------------------------Power-Ups---------------------------------
+----------------------------------------------------------------------------
+
+5) This section will look at the Power-Ups that appear on the battlefield
+   through your struggles.
+
+   A Power-Up appears whenever an opposing tank appears on screen, flashing
+   red.  Shoot this tank once to destroy it (if it is a Heavy Tank, then it 
+   will just drop down one colour in it's armor progression) to make the 
+   flashing Power-Up appear on screen at a random location.
+
+   Also note that each item is worth a decent 500 points per pick-up, so 
+   grabbing away for some extra points never hurts.
+
+
+                                  o---------o
+                                  | Grenade |
+                                  o---------o
+
+This explosive Item will take out all of the enemy tanks on screen, with the
+sole penalty to your side of not gaining the points from the defeated tanks
+after the level ends.
+
+
+                                  o--------o
+                                  | Helmet |
+                                  o--------o
+
+This fun little Item will give your tank a protective aura, keeping it 
+invulnerable to damage for a short while.  However, this does not mean that
+you are completely invulnerable, as your headquarters can still be detonated
+at any time.
+
+                                  o--------o
+                                  | Shovel |
+                                  o--------o
+
+This useful little Item will turn your brick wall surrounding your 
+headquarters into an impregnable steel wall.  Also note that any damage 
+received by your wall previously will be repaired completely.
+
+
+                                   o------o
+                                   | Star |
+                                   o------o
+
+This ranking-up Item will cause your tank to pass through a few progressions
+of improved abilities.  They are: 
+
+Private : starting tank, it it fires one slow moving round at a time.
+Sergeant: second rank, your tank will still fire one round at a time, but
+          the bullet will move at an increased speed).
+Colonel : third rank, your tank will be able to fire two rounds at a time 
+          with this promotion.
+General : Fourth and final rank, your tank will remain the same except for 
+          the rounds fired gaining the ability to destroy steel walls.
+
+
+                                o------------o
+                                | Stop Watch |
+                                o------------o
+
+This Item will freeze all enemy tanks on screen for a short amount of time,
+allowing your side to move among the frozen tanks to pick off large amounts 
+of them in a short amount of time.
+
+
+                                   o------o
+                                   | Tank |
+                                   o------o
+
+This Item will give your side an extra tank to use against the overwhelming
+forces of the enemy.
+
+----------------------------------------------------------------------------
+----------------------------------Walkthrough-------------------------------
+----------------------------------------------------------------------------
+
+6) This section will take a look at all 35 stage types, offering up some
+   strategies to handle the incoming enemy tanks.  Remember that each stage
+   contains 20 tanks, so I will include the numbers for each stage (noting 
+   that once a player passes through the 35 stages, the tank totals change 
+   on the looping of the levels).
+
+
+                                o----------o
+                                | Stage  1 |
+                                o----------o
+
+    ~~~~~~~~~~~~~
+    ~~~ Stats ~~~
+    ~~~~~~~~~~~~~
+
+   Basic Tanks : 18
+   Strike Tanks:  2
+   Medium Tanks:  0
+   Heavy Tanks :  0
+
+The first stage you will come across, it is a simple design.  Many broad and
+open avenues exist between the brick walls, so use these long passages to 
+shoot tanks from afar.  It is also quite easy to go after Power-Ups, so be
+sure to grab as many as you can (Stars are especially useful to grab earlier
+in the game as they help your survival rating tremendously).
+
+
+                                o----------o
+                                | Stage  2 |
+                                o----------o
+
+    ~~~~~~~~~~~~~
+    ~~~ Stats ~~~
+    ~~~~~~~~~~~~~
+
+   Basic Tanks : 14
+   Strike Tanks:  4
+   Medium Tanks:  0
+   Heavy Tanks :  2
+
+Start out by shooting a path above your Headquarters so your tank can move
+across the screen to defend any incoming tanks easier and faster.  Now you
+can sit back and let the enemy navigate through the maze-like area, or you
+can move out to hunt them down.  Just remember to retreat to defend the
+home front whenever another tank starts to draw near on the far side.
+
+
+
+                                o----------o
+                                | Stage  3 |
+                                o----------o
+
+    ~~~~~~~~~~~~~
+    ~~~ Stats ~~~
+    ~~~~~~~~~~~~~
+
+   Basic Tanks : 14
+   Strike Tanks:  4
+   Medium Tanks:  0
+   Heavy Tanks :  2
+
+Shoot yourself a path to the top area quickly, moving up to take on the 
+Basic Tanks as they appear.  Once the stronger tanks start to appear, head
+back down towards your home base, using the long corridor you created to 
+channel the tanks into your firing range.
+
+
+
+                                o----------o
+                                | Stage  4 |
+                                o----------o
+
+    ~~~~~~~~~~~~~
+    ~~~ Stats ~~~
+    ~~~~~~~~~~~~~
+
+   Basic Tanks :  2
+   Strike Tanks:  5
+   Medium Tanks: 10
+   Heavy Tanks :  3
+
+A large face makes up this map, so your work will be cut out for you.  Start
+out by cutting a path across the area above your Headquarters, allowing for
+easier travel to both sides to make defense of the area easier.  Next up, 
+send your tank north to engage the enemy, using the massive amount of bricks
+to snipe from a safe area (create your own path for best results).
+
+
+
+                                o----------o
+                                | Stage  5 |
+                                o----------o
+
+    ~~~~~~~~~~~~~
+    ~~~ Stats ~~~
+    ~~~~~~~~~~~~~
+
+   Basic Tanks :  8
+   Strike Tanks:  5
+   Medium Tanks:  5
+   Heavy Tanks :  2
+
+A few steel walls and a river run through here, so use the steel walls to
+defend you from attack on one side while suing the river to corral the enemy
+tanks into a beneficial position for yourself.  Just remember to make an 
+easy access path to your head quarters for yourself so that any tanks that 
+slip by will have minimal time to work on your Headquarters defensive wall.
+
+
+                                o----------o
+                                | Stage  6 |
+                                o----------o
+
+    ~~~~~~~~~~~~~
+    ~~~ Stats ~~~
+    ~~~~~~~~~~~~~
+
+   Basic Tanks :  9
+   Strike Tanks:  2
+   Medium Tanks:  7
+   Heavy Tanks :  2
+
+For the first time, your home base has very little between it and the central
+spawning point for the enemy, so remove one side of brick wall so your tank
+has an open lane of fire at the enemy.  Keep a close eye on the side lanes,
+as the enemy will try to flank your position, so move out to kill them as
+needed.
+
+
+                                o----------o
+                                | Stage  7 |
+                                o----------o
+
+    ~~~~~~~~~~~~~
+    ~~~ Stats ~~~
+    ~~~~~~~~~~~~~
+
+   Basic Tanks : 10
+   Strike Tanks:  4
+   Medium Tanks:  6
+   Heavy Tanks :  0
+
+This is the first level where no brick walls exist, so unless you have your
+tank promoted up to General Rank, you will have to deal with the layout as
+is.  The enemy will generally concentrate their attacks down the two sides,
+so set up your defensive right around your base and pick them off as they
+straggle into battle.
+
+
+                                o----------o
+                                | Stage  8 |
+                                o----------o
+
+    ~~~~~~~~~~~~~
+    ~~~ Stats ~~~
+    ~~~~~~~~~~~~~
+
+   Basic Tanks :  7
+   Strike Tanks:  4
+   Medium Tanks:  7
+   Heavy Tanks :  2
+
+A crowded level with a ton of brick walls, there are two separate rivers 
+that cross the section.  Use the chokepoints in the two rivers to keep the 
+enemy tanks far from your home base and making for a quick victory.
+
+
+                                o----------o
+                                | Stage  9 |
+                                o----------o
+
+    ~~~~~~~~~~~~~
+    ~~~ Stats ~~~
+    ~~~~~~~~~~~~~
+
+   Basic Tanks :  6
+   Strike Tanks:  4
+   Medium Tanks:  7
+   Heavy Tanks :  3
+
+Steel walls will form a few islands for the tanks to maneuver around in the
+center of the area, with brick walls dotting the perimeter.  This is an 
+easier level to play, as you can set up near your home base and pick off the
+tanks as they struggle towards your position.
+
+
+                                o----------o
+                                | Stage 10 |
+                                o----------o
+
+    ~~~~~~~~~~~~~
+    ~~~ Stats ~~~
+    ~~~~~~~~~~~~~
+
+   Basic Tanks : 12
+   Strike Tanks:  2
+   Medium Tanks:  4
+   Heavy Tanks :  2
+
+This is a cluttered level that is really easy for you if you have a Rank of
+General (just plow a path through the steel and bricks to kill the spawning
+tanks).  Otherwise, plow a path through the brick walls and take out the
+enemy from your small cubby hole, remembering to retreat to headquarters if
+any tanks start to get close.
+
+
+                                o----------o
+                                | Stage 11 |
+                                o----------o
+
+    ~~~~~~~~~~~~~
+    ~~~ Stats ~~~
+    ~~~~~~~~~~~~~
+
+   Basic Tanks :  0
+   Strike Tanks: 10
+   Medium Tanks:  4
+   Heavy Tanks :  6
+
+The enemy tanks from the right side have the forest to obscure your view as 
+they move towards your headquarters, so concentrate on stopping them 
+quickly.  the central and left spawning locations are enclosed to start, so
+open small paths for them so you can dictate where they will approach your
+home base from.
+
+
+                                o----------o
+                                | Stage 12 |
+                                o----------o
+
+    ~~~~~~~~~~~~~
+    ~~~ Stats ~~~
+    ~~~~~~~~~~~~~
+
+   Basic Tanks :  0
+   Strike Tanks:  6
+   Medium Tanks:  8
+   Heavy Tanks :  6
+
+Steel Walls will cover your headquarters from attacks from far away, so you
+are able to roam a little more in attacking the enemy tanks.  Look for the
+enemy tanks to approach down the straight path to the right of your 
+headquarters as well as a windy path past two rivers on the left side.
+
+
+                                o----------o
+                                | Stage 13 |
+                                o----------o
+
+    ~~~~~~~~~~~~~
+    ~~~ Stats ~~~
+    ~~~~~~~~~~~~~
+
+   Basic Tanks :  0
+   Strike Tanks:  8
+   Medium Tanks:  8
+   Heavy Tanks :  4
+
+Steel walls again block the direct shots at your headquarters, so open up 
+two direct lanes for the enemy tanks to approach down.  This will allow your
+tank to snipe them as they draw near, using the steel walls to protect your 
+flank.  Just remember that when the Heavy Tanks show, try to clean out one 
+lane before switching to the other one.
+
+
+                                o----------o
+                                | Stage 14 |
+                                o----------o
+
+    ~~~~~~~~~~~~~
+    ~~~ Stats ~~~
+    ~~~~~~~~~~~~~
+
+   Basic Tanks :  0
+   Strike Tanks:  4
+   Medium Tanks: 10
+   Heavy Tanks :  6
+
+Commonly referred to as the "Skull" level, the enemy will approach around 
+the skull mainly, but as the level progresses, the enemy tanks will shoot
+away enough of the skull to get shots through.  At this point, cut a path
+for them through the skull, sit right below that path, and then defend it
+while shooting left or right for any flanking enemy tanks.
+
+
+                                o----------o
+                                | Stage 15 |
+                                o----------o
+
+    ~~~~~~~~~~~~~
+    ~~~ Stats ~~~
+    ~~~~~~~~~~~~~
+
+   Basic Tanks :  2
+   Strike Tanks: 10
+   Medium Tanks:  0
+   Heavy Tanks :  8
+
+A real mix of a level here, with forest and brick walls dominating the area.
+Carefully move around, keeping an eye out for marauding enemy tanks hiding
+in the forest.  Also note that the steel walls will protect your 
+headquarters from direct attack, but passages directly to the headquarters
+can be opened rather easily through the brick walls.
+
+
+                                o----------o
+                                | Stage 16 |
+                                o----------o
+
+    ~~~~~~~~~~~~~
+    ~~~ Stats ~~~
+    ~~~~~~~~~~~~~
+
+   Basic Tanks : 16
+   Strike Tanks:  2
+   Medium Tanks:  0
+   Heavy Tanks :  2
+
+This levelis best served by your tank moving up a bit from headquarters,
+shooting out any brick walls that exist, and then moving around to pick off
+the enemy tanks as they mill around in the top area of the screen.  If done
+correctly, your tank should never face any real danger.
+
+
+                                o----------o
+                                | Stage 17 |
+                                o----------o
+
+    ~~~~~~~~~~~~~
+    ~~~ Stats ~~~
+    ~~~~~~~~~~~~~
+
+   Basic Tanks :  8
+   Strike Tanks:  2
+   Medium Tanks:  8
+   Heavy Tanks :  2
+
+Steel walls will help block in coming shots at your headquarters, which is a
+real blessing as this is the first stage where your tanks will have to deal
+with Slippery Grounds.  Plan your moves across these annoyances ahead of time
+or you might leave your tank vulnerable to enemy fire by mistake.  Let the
+enemy tanks come to you, as they will pick paths that can easily be defended
+by camping out directly north of your headquarters.
+
+
+                                o----------o
+                                | Stage 18 |
+                                o----------o
+
+    ~~~~~~~~~~~~~
+    ~~~ Stats ~~~
+    ~~~~~~~~~~~~~
+
+   Basic Tanks :  2
+   Strike Tanks:  8
+   Medium Tanks:  6
+   Heavy Tanks :  4
+
+the steel walls here will make for a maze of confusion, provided your tank
+does not have the ability to destroy steel.  Open up the brick walls coming 
+down the central area of the map while keeping an eye out for any other
+breaches that appear in the brick walls so the enemy tanks do not slip by
+your tank.
+
+
+                                o----------o
+                                | Stage 19 |
+                                o----------o
+
+    ~~~~~~~~~~~~~
+    ~~~ Stats ~~~
+    ~~~~~~~~~~~~~
+
+   Basic Tanks :  4
+   Strike Tanks:  4
+   Medium Tanks:  4
+   Heavy Tanks :  8
+
+Tons of brick walls with a few steel walls in place so the enemy can not
+snipe at your headquarters from an extreme distance, expect the enemy to
+come stright down the central area as well as take the side routes in an 
+attempt to flank your headquarters by blasting through the brick walls.  
+Stick close to home and blast them as they draw near.
+
+
+                                o----------o
+                                | Stage 20 |
+                                o----------o
+
+    ~~~~~~~~~~~~~
+    ~~~ Stats ~~~
+    ~~~~~~~~~~~~~
+
+   Basic Tanks :  2
+   Strike Tanks:  8
+   Medium Tanks:  2
+   Heavy Tanks :  8
+
+Use the cover directly north of your headquarters (both brick and steel) by
+leaving it be while shooting up the two direct lanes that exist, leading to
+the very top of the area.  This will allow your tank to whittle down the 
+enemy forces with minimal danger.  Also use the river to your advantage as
+enemy tanks will often take multiple attempts to cross, so pop them as they
+fumble around (just be aware that the river on the right side does not need
+to be crossed because it has direct sight at the thin wall around your 
+headquarters).
+
+
+                                o----------o
+                                | Stage 21 |
+                                o----------o
+
+    ~~~~~~~~~~~~~
+    ~~~ Stats ~~~
+    ~~~~~~~~~~~~~
+
+   Basic Tanks :  6
+   Strike Tanks:  2
+   Medium Tanks:  8
+   Heavy Tanks :  4
+
+This level resembles an enemy from Dig-Dug, another Namco game.  Carefully
+cut the bricks apart around your home base, giving your tank the paths it
+needs to cover all angles of attack.  The enemy will move into the central 
+area, looking to cut a path directly south to your headquarters, so beat 
+them to it by cutting a path north through the bricks to allow your tank to
+snipe them from the safety of his foxhole.  Just note that the enemy may 
+attempt to flank, so retreating to defend the headquarters should never be
+very far from your mind.
+
+
+                                o----------o
+                                | Stage 22 |
+                                o----------o
+
+    ~~~~~~~~~~~~~
+    ~~~ Stats ~~~
+    ~~~~~~~~~~~~~
+
+   Basic Tanks :  6
+   Strike Tanks:  8
+   Medium Tanks:  2
+   Heavy Tanks :  4
+
+Very little protective cover here, as brick and steel are in short supply.
+To further complicate things, the forest is thick here, obscuring your view
+of the approaching enemy tanks.  Use the steel directly north of your 
+headquarters to position your tank, defending it from surprise sneak attacks
+from above, followed by picking off enemy tanks as they move southwards.
+
+
+                                o----------o
+                                | Stage 23 |
+                                o----------o
+
+    ~~~~~~~~~~~~~
+    ~~~ Stats ~~~
+    ~~~~~~~~~~~~~
+
+   Basic Tanks :  0
+   Strike Tanks: 10
+   Medium Tanks:  4
+   Heavy Tanks :  6
+
+Steel walls reign supreme in this area, so set your tank right above your
+headquarters, allowing the enemy tanks to wander through the steel maze to
+come into your range for easy pick-offs.
+
+
+                                o----------o
+                                | Stage 24 |
+                                o----------o
+
+    ~~~~~~~~~~~~~
+    ~~~ Stats ~~~
+    ~~~~~~~~~~~~~
+
+   Basic Tanks : 10
+   Strike Tanks:  4
+   Medium Tanks:  4
+   Heavy Tanks :  2
+
+The Slippery Ground returns here, so remember to move carefully on this 
+annoying surface.  Despite having some steel wall protecting your 
+headquarters from long range attacks, very little cover exists, allowing the
+enemy rapid movement towards your home base.  Stay very close to home, 
+picking off enemy tanks as they roll in (this will be very hectic with the
+Strike Tanks, but they quickly disappear after first appearing).
+
+
+                                o----------o
+                                | Stage 25 |
+                                o----------o
+
+    ~~~~~~~~~~~~~
+    ~~~ Stats ~~~
+    ~~~~~~~~~~~~~
+
+   Basic Tanks :  0
+   Strike Tanks:  8
+   Medium Tanks:  2
+   Heavy Tanks : 10
+
+Lots of steel walls protecting your headquarters, especially on the right
+side of the map.  Start off by making a path just above your headquarters
+(removing some of the brick wall above the symbol as it is protected from
+above, so it does not need to remain), then open a path on the left side of
+the area to allow two spawning locations access to your firing corridor.  As
+the battle progresses, move to the right side of the area to deal with the 
+enemy tanks that are starting to break through the heavy brick wall 
+concentration.
+
+
+                                o----------o
+                                | Stage 26 |
+                                o----------o
+
+    ~~~~~~~~~~~~~
+    ~~~ Stats ~~~
+    ~~~~~~~~~~~~~
+
+   Basic Tanks :  4
+   Strike Tanks:  6
+   Medium Tanks:  4
+   Heavy Tanks :  6
+
+Despite the meager amount of cover, much of it is steel walls, but the thin
+wall set-up leaves your tanks vulnerable to them shooting you when you have 
+no shot on them (refer to b) in the Strategies section for specific 
+details).  Still, your plan of attack should be one of defensive play here,
+as the enemy will move towards your headquarters in a large hurry.
+
+
+                                o----------o
+                                | Stage 27 |
+                                o----------o
+
+    ~~~~~~~~~~~~~
+    ~~~ Stats ~~~
+    ~~~~~~~~~~~~~
+
+   Basic Tanks :  2
+   Strike Tanks:  8
+   Medium Tanks:  2
+   Heavy Tanks :  8
+
+Another level where the steel walls dictate that the enemy will have to work
+their way towards your headquarters, so your best bet is to just camp out
+to the north of your home base and pick them off as they roll into range.
+
+
+                                o----------o
+                                | Stage 28 |
+                                o----------o
+
+    ~~~~~~~~~~~~~
+    ~~~ Stats ~~~
+    ~~~~~~~~~~~~~
+
+   Basic Tanks : 15
+   Strike Tanks:  2
+   Medium Tanks:  2
+   Heavy Tanks :  1
+
+A level that looks like a house, it is just covered with Slippery Ground.
+The best bet for surviving this shellacking is to shoot upwards while 
+positioned just to the left and right of the headquarters, thus keeping the
+majority of the enemy tanks from ever coming onto the Slippery Ground.  Any
+that do make it will need to be picked off as soon as possible, so drive
+carefully while doing so.
+
+
+                                o----------o
+                                | Stage 29 |
+                                o----------o
+
+    ~~~~~~~~~~~~~
+    ~~~ Stats ~~~
+    ~~~~~~~~~~~~~
+
+   Basic Tanks :  0
+   Strike Tanks:  4
+   Medium Tanks: 10
+   Heavy Tanks :  6
+
+A healthy mix of bricks, steel, and rivers for the tanks to contend with in
+This stage.  Use long range sniping to lessen the enemy forces, changing 
+tactics to hit and run as they draw near to your headquarters.  Remember to 
+use the steel walls for partial cover if the enemy fir becomes too 
+overpowering.
+
+
+                                o----------o
+                                | Stage 30 |
+                                o----------o
+
+    ~~~~~~~~~~~~~
+    ~~~ Stats ~~~
+    ~~~~~~~~~~~~~
+
+   Basic Tanks :  4
+   Strike Tanks:  8
+   Medium Tanks:  4
+   Heavy Tanks :  4
+
+A massive forest is surrounded by brick wall in this stage, with a few steel
+chunks blocking the side and central avenues.  Fire through the forest just
+to the left and right of headquarters, likely not allowing any enemy tanks 
+to even your home base.
+
+
+                                o----------o
+                                | Stage 31 |
+                                o----------o
+
+    ~~~~~~~~~~~~~
+    ~~~ Stats ~~~
+    ~~~~~~~~~~~~~
+
+   Basic Tanks :  0
+   Strike Tanks:  8
+   Medium Tanks:  6
+   Heavy Tanks :  6
+
+A level just ripe with rivers, it is a level where the enemy tanks will 
+spend most of their time getting hopelessly lost while your tanks pick them
+off with the greatest ease.  Be especially aggressive if you get a good 
+Power-Up like a Shovel, Helmet, or Stop Watch in hunting down the opposing
+ forces.
+
+
+                                o----------o
+                                | Stage 32 |
+                                o----------o
+
+    ~~~~~~~~~~~~~
+    ~~~ Stats ~~~
+    ~~~~~~~~~~~~~
+
+   Basic Tanks :  6
+   Strike Tanks:  4
+   Medium Tanks:  2
+   Heavy Tanks :  8
+
+Slippery Ground is all over the place here, but it is placed in such a way
+that your tank can likely avoid the entire mess of it.  Use the steel walls
+as protection from sniping while opening lanes for the enemy tanks to move
+down, which will allow your tank to pick them off as they roll through.  
+However, be aware that the enemy can flank by crossing the Slippery Ground,
+so be ready to move to intercept them at a moments notice.
+
+
+                                o----------o
+                                | Stage 33 |
+                                o----------o
+
+    ~~~~~~~~~~~~~
+    ~~~ Stats ~~~
+    ~~~~~~~~~~~~~
+
+   Basic Tanks :  0
+   Strike Tanks:  8
+   Medium Tanks:  4
+   Heavy Tanks :  8
+
+Steel walls abound here, so lie in wait in an area where your tank can pick
+off the straggling enemy tanks as they move forward slowly.  This strategy
+works best if your tank is positioned just to the right of exact center on
+the map, which allows your tank to cover two of the three main routes.  
+However, this means the third route is unguarded much of the time, so be 
+ready to slip down to defend against incoming enemy tanks as they advance.
+
+
+                                o----------o
+                                | Stage 34 |
+                                o----------o
+
+    ~~~~~~~~~~~~~
+    ~~~ Stats ~~~
+    ~~~~~~~~~~~~~
+
+   Basic Tanks :  0
+   Strike Tanks: 10
+   Medium Tanks:  4
+   Heavy Tanks :  6
+
+From all steel to all brick, this level is one where you can decide how to
+approach battling the enemy tanks.  Your best bet is to move north through 
+the bricks, picking off the enemy as they pass by the opening you have made.
+As the enemy starts to shoot through the bricks, retreat to a new location 
+to reset your sniper hole, negating any progress the enemy made.  Keep 
+repeating till the enemy is trounced.
+
+
+                                o----------o
+                                | Stage 35 |
+                                o----------o
+
+    ~~~~~~~~~~~~~
+    ~~~ Stats ~~~
+    ~~~~~~~~~~~~~
+
+   Basic Tanks :  0
+   Strike Tanks:  6
+   Medium Tanks:  4
+   Heavy Tanks : 10
+
+The final area boasts a larger block of bricks as well as a river with a few
+crossings.  Set up by blasting a fire line through the bricks, removing as
+many of the enemy tanks as possible.  As the enemy closes in on your 
+headquarters, take care of them as they near, remembering to watch out for
+sniping enemy tanks from afar.
+
+
+   At this point, the levels begin looping, offering up the same maps but
+   with different (and usually more difficult) enemy tank combinations.  
+   Good luck to you, but if you can get this far, then you know what you
+   are doing!
+
+----------------------------------------------------------------------------
+---------------------------------Strategies---------------------------------
+----------------------------------------------------------------------------
+
+7) This section will take a look at a few general strategies, many of which
+   depend upon specific situations to occur.
+
+a) Use the Power-Ups to your advantage.  If you get a Shovel, roam from your
+   home base to kill off more enemy tanks in a shorter amount of time (same
+   goes for the Helmet, but just backtrack to catch any tanks that move on
+   by).  The Stop Watch allows you to wipe all advances the CPU has made, 
+   followed by picking off their frozen forces as they appear.  Use the 
+   Grenade when the maximum number of enemy tanks (four) are on screen to
+   do the most damage.
+
+b) Thin walls can be very dangerous.  These walls will only block one half 
+   of a tank (yours or the enemy's) from shots, so any tank positioned 
+   properly can damage an opposing tank while remaining perfectly safe.  
+   Take the following situation for example: 
+
+_______________
+Key            |
+               |
+TK1 - Tank One |
+TL2 - Tank Two |
+ _             |
+|_| - Wall     |
+_______________|
+
+              TK1
+                _
+               |_|
+
+
+             TK2
+
+   Though it appears that Tank One (TK1) is covered from enemy fire, Tank 
+   One is in fact at a huge disadvantage.  Not only can Tank One not fire at
+   the enemy in this position, but Tank Two (TK2) can fire at and destroy 
+   Tank One.  So, use this to your advantage when you spy a place where the 
+   enemy can not slip past a single block, allowing your tank to move in and
+   shoot them without worry of retaliation.
+
+c) Rivers are a great obstacle to use against the enemy as the CPU has 
+   difficulty finding and then using the bridges across the water.  
+   Especially useful in areas where the rivers dominate the map.
+
+d) Only go for Power-Ups that are within a reasonable distance of your home
+   base (meaning that gathering them should not endanger the safety of your
+   headquarters) and those Items should be of good use to you.
+
+e) Strike tanks are highly annoying to deal with in close combat, so try to
+   get them at a distance.  Conversely, long distance attacks are good for
+   weakening Heavy Tanks, but close range fighting will rid yourself of 
+   these behemoths in a much more timely manner.
+
+----------------------------------------------------------------------------
+---------------------------------Final Word---------------------------------
+----------------------------------------------------------------------------
+
+8) As is the usual, this walkthrough is copyright property of Brian P. 
+   Sulpher, 2004.  The only website, group, person, etc. to have access to
+   post it is www.gamefaqs.com, www.ign.com, www.retronintendo.com, and 
+   www.honestgamers.com.  You must ask for permission before posting this, 
+   as doing so without consent is a violation of international copyright 
+   law.
+
+   If you liked it, hated it, have anything to add, then please E-mail me at
+   briansulpher@hotmail.com.  You can also contact me through MSN messenger
+   through the same E-mail address.
+
+   Truy a fun little diversion, 
+
+walkthrough: https://strategywiki.org/wiki/Battle_City/Walkthrough
+emulador: https://www.retrogames.cz/play_014-NES.php
