@@ -64,6 +64,16 @@ public class LevelFileLoader : MonoBehaviour
 		}
 	}
 
+	private GameObject InstantiateLevelObject(GameObject prefab, float x, float z, Vector3 translation)
+	{
+
+		var gameObject = Instantiate(prefab, new Vector3(x, 0, z), new Quaternion(0, 0f, 0f, 0f));
+
+		gameObject.transform.Translate(translation);
+		gameObject.transform.Rotate(-90, 0, 0);
+		return gameObject;
+	}
+
 	private void OnJsonLoad(string json)
 	{
 		const float TILE_WIDTH = 1.0f;
@@ -89,13 +99,23 @@ public class LevelFileLoader : MonoBehaviour
 					3 => SlipperyFloorPrefab,
 					4 => BasePrefab,
 					5 => RiverPrefab,
+					6 => TreeCoverPrefab,
 					_ => FloorPrefab,
 				};
 
+
+				/*
 				var gameObject = Instantiate(prefab, new Vector3(x, 0, z), new Quaternion(0, 0f, 0f, 0f));
 
                 gameObject.transform.Translate(translation);
                 gameObject.transform.Rotate(-90, 0, 0);
+				*/
+
+				var gameObject = InstantiateLevelObject(prefab, x, z, translation);
+				if(col == 6)
+				{
+					InstantiateLevelObject(FloorPrefab, x, z, translation);
+				}
 
                 levelObjects[nx, nz] = gameObject;
 				x += TILE_HEIGHT;
