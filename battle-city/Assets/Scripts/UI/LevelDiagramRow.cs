@@ -1,13 +1,11 @@
-using NUnit.Framework;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class LevelDiagramRow : MonoBehaviour
 {
 	[SerializeField]
-	private List<Image> RowImages;
+	private List<LevelDiagramCell> RowCells;
 	
 	private List<TileType> TileTypes;
 
@@ -19,10 +17,10 @@ public class LevelDiagramRow : MonoBehaviour
 		TileTypes.Clear();
 
 		var defaultTileType = TileType.Floor;
-		for (var k = 0; k < RowImages.Count; k++)
+		for (var k = 0; k < RowCells.Count; k++)
 		{
 			TileTypes.Add(defaultTileType);
-			RowImages[k].color = tileColors[defaultTileType];
+			RowCells[k].SetTileType(defaultTileType);
 		}
 	}
 
@@ -41,29 +39,37 @@ public class LevelDiagramRow : MonoBehaviour
 		};
 
 		TileTypes = new();
-		var images = new List<Image>(GetComponentsInChildren<Image>());
-		images.Sort(ImageCompare);
+		RowCells = new List<LevelDiagramCell>(GetComponentsInChildren<LevelDiagramCell>());
+		RowCells.Sort(CellCompare);
 
-		RowImages = new();
-		images.ForEach(RowImages.Add);
+		RowCells.ForEach(image => {
+			//image
+		});
 
 		Initialize();
 	}
 
-	private int ImageCompare(Image image1, Image image2)
+	private int CellCompare(LevelDiagramCell cell1, LevelDiagramCell cell2)
 	{
-		var index1 = GetImageIndex(image1);
-		var index2 = GetImageIndex(image2);
+		var index1 = GetCellIndex(cell1);
+		var index2 = GetCellIndex(cell2);
 		return (index1 == index2) ? 0 : (index1 < index2 ? -1 : 1);
 	}
 
-	private int GetImageIndex(Image image)
+	private int GetCellIndex(LevelDiagramCell cell)
 	{
-		var imageName = image.gameObject.name;
-		var index = int.Parse(new List<string>(imageName.Split("_")).LastOrDefault());
+		var cellName = cell.gameObject.name;
+		var index = int.Parse(new List<string>(cellName.Split("_")).LastOrDefault());
 
 		return index;
 	}
+
+	public List<TileType> GetRow()
+	{
+		return RowCells.Select(cell => cell.GetTileType()).ToList();
+	}
+
+
 
 	// Update is called once per frame
 	void Update()
