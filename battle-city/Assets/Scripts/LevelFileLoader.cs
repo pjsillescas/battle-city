@@ -56,7 +56,7 @@ public class LevelFileLoader : MonoBehaviour
 			CurrentLevel = level;
 			var fileName = $"Levels/Level-{level:D2}.json";
 			var jsonLoader = GetComponent<JsonLoader>();
-			jsonLoader.Load(fileName, OnJsonLoad);
+			jsonLoader.Load(fileName, OnJsonLoad2);
 		}
 		else
 		{
@@ -133,6 +133,65 @@ public class LevelFileLoader : MonoBehaviour
 
 		OnLevelLoaded?.Invoke(this, tiles);
     }
+
+	private Dictionary<TileType, int> serialTileTypes = new () {
+		{ TileType.Floor, 0 },
+		{ TileType.BrickWall, 1 },
+		{ TileType.SteelWall, 2 },
+		{ TileType.SlipperyFloor, 3 },
+		{ TileType.Base, 4 },
+		{ TileType.TreeCover, 5 },
+		{ TileType.River, 6 },
+		{ TileType.PlayerSpawn, 7 },
+		{ TileType.EnemySpawn, 8 },
+	};
+	
+	private int TileTypeToInt(TileType tileType)
+	{
+		return tileType switch
+		{
+			TileType.Floor => 0,
+			TileType.BrickWall => 1,
+			TileType.SteelWall => 2,
+			TileType.SlipperyFloor => 3,
+			TileType.Base => 4,
+			TileType.TreeCover => 5,
+			TileType.River => 6,
+			TileType.PlayerSpawn => 7,
+			TileType.EnemySpawn => 8,
+			_ => 0,
+		};
+	}
+
+	private void OnJsonLoad2(string json)
+	{
+		const float TILE_WIDTH = 1.0f;
+		const float TILE_HEIGHT = 1.0f;
+		var levelLines = JsonUtility.FromJson<JsonLevelObject>(json);
+
+		tiles = levelLines.lines.Select(line => new List<char>(line.ToCharArray()).Select(c => c - '0').ToList()).ToList();
+
+		float x = 0;
+		float z = 0;
+		int nx = 0;
+		int nz = 0;
+		tiles.ForEach(row => {
+			x = 0;
+			nx = 0;
+			row.ForEach(col => {
+				var translation = (col == 4) ? new Vector3(0.5f, 0, 0.5f) : Vector3.zero;
+				TileType val = TileType.Floor;
+
+				if(serialTileTypes.ContainsValue(col))
+				{
+					val = serialTileTypes.FirstOrDefault(x => x.Value == col).Key;
+				}
+
+			});
+		});
+
+		OnLevelLoaded?.Invoke(this, tiles);
+	}
 
 	private void BuildLevel(List<List<TileType>> tiles)
 	{
