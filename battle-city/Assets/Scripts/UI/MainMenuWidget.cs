@@ -1,4 +1,8 @@
+using System.Collections.Generic;
+using NUnit.Framework;
+using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class MainMenuWidget : MonoBehaviour
@@ -11,6 +15,12 @@ public class MainMenuWidget : MonoBehaviour
 	private Button ConstructionButton;
 	[SerializeField]
 	private GameObject ConstructionWidget;
+	[SerializeField]
+	private GameObject FullMainMenuWidget;
+	[SerializeField]
+	private TMP_Dropdown LevelDropdown;
+	[SerializeField]
+	private GameConfiguration Configuration;
 
 
 	// Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -21,20 +31,31 @@ public class MainMenuWidget : MonoBehaviour
 		ConstructionButton.onClick.AddListener(ConstructionClick);
 	}
 
+	private void OnFinishLoadLevel(List<List<TileType>> tiles)
+	{
+		Configuration.SetLevelTiles(tiles);
+
+		SceneManager.LoadScene("GameScene");
+	}
+
 	private void OnePlayerClick()
 	{
-		;
+		var selectedLevel = int.Parse(LevelDropdown.options[LevelDropdown.value].text);
+		LevelLoader.GetInstance().LoadLevel(selectedLevel, OnFinishLoadLevel);
 	}
 
 	private void TwoPlayerClick()
 	{
-		;
+		var selectedLevel = int.Parse(LevelDropdown.options[LevelDropdown.value].text);
+		LevelLoader.GetInstance().LoadLevel(selectedLevel, OnFinishLoadLevel);
 	}
 
 	private void ConstructionClick()
 	{
-		;
+		ConstructionWidget.SetActive(true);
+		FullMainMenuWidget.SetActive(false);
 	}
+	
 	// Update is called once per frame
 	void Update()
     {

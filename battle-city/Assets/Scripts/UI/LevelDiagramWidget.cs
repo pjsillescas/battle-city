@@ -10,6 +10,10 @@ public class LevelDiagramWidget : MonoBehaviour
 	[SerializeField]
 	private Button ButtonPlay;
 	[SerializeField]
+	private Button ButtonBack;
+	[SerializeField]
+	private GameObject MainMenuWidget;
+	[SerializeField]
 	private GameConfiguration Configuration;
 
 	private static LevelDiagramWidget instance = null;
@@ -31,6 +35,13 @@ public class LevelDiagramWidget : MonoBehaviour
 		instance = this;
 		ButtonTileTypeSelect.OnTileTypeSelect += OnTileTypeSelect;
 		ButtonPlay.onClick.AddListener(ButtonPlayClick);
+		ButtonBack.onClick.AddListener(ButtonBackClick);
+	}
+
+	private void ButtonBackClick()
+	{
+		gameObject.SetActive(false);
+		MainMenuWidget.SetActive(true);
 	}
 
 	private int TileTypeToInt(TileType tileType)

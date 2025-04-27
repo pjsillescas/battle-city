@@ -22,7 +22,7 @@ public class LevelDiagramCell : MonoBehaviour
 	private Image image;
 	private Button button;
 
-	private void Start()
+	private void Awake()
 	{
 		image = GetComponent<Image>();
 		button = GetComponent<Button>();

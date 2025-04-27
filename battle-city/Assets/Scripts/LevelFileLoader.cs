@@ -165,21 +165,12 @@ public class LevelFileLoader : MonoBehaviour
 
 	private void OnJsonLoad2(string json)
 	{
-		const float TILE_WIDTH = 1.0f;
-		const float TILE_HEIGHT = 1.0f;
 		var levelLines = JsonUtility.FromJson<JsonLevelObject>(json);
+		var tiles = levelLines.lines.Select(line => new List<char>(line.ToCharArray()).Select(c => c - '0').Select(col => serialTileTypes.FirstOrDefault(x => x.Value == col)).ToList()).ToList();
 
-		tiles = levelLines.lines.Select(line => new List<char>(line.ToCharArray()).Select(c => c - '0').ToList()).ToList();
-
-		float x = 0;
-		float z = 0;
-		int nx = 0;
-		int nz = 0;
+		/*
 		tiles.ForEach(row => {
-			x = 0;
-			nx = 0;
 			row.ForEach(col => {
-				var translation = (col == 4) ? new Vector3(0.5f, 0, 0.5f) : Vector3.zero;
 				TileType val = TileType.Floor;
 
 				if(serialTileTypes.ContainsValue(col))
@@ -189,8 +180,7 @@ public class LevelFileLoader : MonoBehaviour
 
 			});
 		});
-
-		OnLevelLoaded?.Invoke(this, tiles);
+		*/
 	}
 
 	private void BuildLevel(List<List<TileType>> tiles)
