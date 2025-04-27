@@ -4,11 +4,14 @@ public class GameManager : MonoBehaviour
 {
 	[SerializeField]
 	private LevelFileLoader LevelLoader;
+	[SerializeField]
+	private GameConfiguration Configuration;
 
 	// Start is called once before the first execution of Update after the MonoBehaviour is created
 	void Start()
 	{
-		LevelLoader.LoadLevel(1);
+		//LevelLoader.LoadLevel(1);
+		LevelLoader.LoadLevel(Configuration.levelTiles);
 	}
 
 	// Update is called once per frame

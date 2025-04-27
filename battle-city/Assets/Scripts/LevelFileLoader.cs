@@ -64,6 +64,11 @@ public class LevelFileLoader : MonoBehaviour
 		}
 	}
 
+	public void LoadLevel(List<List<TileType>> tiles)
+	{
+		BuildLevel(tiles);
+	}
+
 	private GameObject InstantiateLevelObject(GameObject prefab, float x, float z, Vector3 translation)
 	{
 
@@ -128,4 +133,56 @@ public class LevelFileLoader : MonoBehaviour
 
 		OnLevelLoaded?.Invoke(this, tiles);
     }
+
+	private void BuildLevel(List<List<TileType>> tiles)
+	{
+		const float TILE_WIDTH = 1.0f;
+		const float TILE_HEIGHT = 1.0f;
+
+		float x = 0;
+		float z = 0;
+		int nx = 0;
+		int nz = 0;
+		tiles.ForEach(row => {
+			x = 0;
+			nx = 0;
+			row.ForEach(col => {
+				var translation = (col == TileType.Base) ? new Vector3(0.5f, 0, 0.5f) : Vector3.zero;
+				var prefab = col switch
+				{
+					// 0 => FloorPrefab,
+					TileType.BrickWall => BrickWallPrefab,
+					TileType.SteelWall => SteelWallPrefab,
+					TileType.SlipperyFloor => SlipperyFloorPrefab,
+					TileType.Base => BasePrefab,
+					TileType.River => RiverPrefab,
+					TileType.TreeCover => TreeCoverPrefab,
+					_ => FloorPrefab,
+				};
+
+
+				/*
+				var gameObject = Instantiate(prefab, new Vector3(x, 0, z), new Quaternion(0, 0f, 0f, 0f));
+
+                gameObject.transform.Translate(translation);
+                gameObject.transform.Rotate(-90, 0, 0);
+				*/
+
+				var gameObject = InstantiateLevelObject(prefab, x, z, translation);
+				if (col == TileType.TreeCover)
+				{
+					InstantiateLevelObject(FloorPrefab, x, z, translation);
+				}
+
+				levelObjects[nx, nz] = gameObject;
+				x += TILE_HEIGHT;
+				nx++;
+			});
+
+			z += TILE_WIDTH;
+			nz++;
+		});
+
+		// OnLevelLoaded?.Invoke(this, tiles);
+	}
 }

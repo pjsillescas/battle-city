@@ -8,12 +8,14 @@ public class LevelDiagramCell : MonoBehaviour
 	private readonly Dictionary<TileType, Color> tileColors = new()
 		{
 			{ TileType.Floor, Color.black },
-			{ TileType.BrickWall, Color.red},
-			{ TileType.SteelWall, Color.gray},
-			{ TileType.Base, Color.yellow},
-			{ TileType.River, Color.cyan},
+			{ TileType.BrickWall, Color.red },
+			{ TileType.SteelWall, Color.gray },
+			{ TileType.Base, Color.magenta },
+			{ TileType.River, Color.cyan },
 			{ TileType.TreeCover, Color.green },
 			{ TileType.SlipperyFloor, Color.white },
+			{ TileType.PlayerSpawn, Color.yellow },
+			{ TileType.EnemySpawn, Color.blue },
 		};
 	
 	private TileType tileType;

@@ -520,6 +520,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LevelLoader: {fileID: 881254893}
+  Configuration: {fileID: 11400000, guid: eb906c8ed058b8747aceecf3c3382d22, type: 2}
 --- !u!4 &1893534390
 Transform:
   m_ObjectHideFlags: 0

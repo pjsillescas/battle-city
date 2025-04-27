@@ -2,12 +2,15 @@ using NUnit.Framework;
 using System;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class LevelDiagramWidget : MonoBehaviour
 {
 	[SerializeField]
 	private Button ButtonPlay;
+	[SerializeField]
+	private GameConfiguration Configuration;
 
 	private static LevelDiagramWidget instance = null;
 
@@ -41,19 +44,26 @@ public class LevelDiagramWidget : MonoBehaviour
 			TileType.Base => 4,
 			TileType.TreeCover => 5,
 			TileType.River => 6,
+			TileType.PlayerSpawn => 7,
+			TileType.EnemySpawn => 8,
 			_ => 0,
 		};
 	}
 
 	private void ButtonPlayClick()
 	{
-		var level = LevelDiagram.GetInstance().GetLevelDiagram();
+		var levelTiles = LevelDiagram.GetInstance().GetLevelDiagram();
 
+		Configuration.SetLevelTiles(levelTiles);
+
+		SceneManager.LoadScene("GameScene",LoadSceneMode.Single);
+		/*
 		var level2 = level.Select(row => row.Select(TileTypeToInt).ToList()).ToList();
 
 		var str = string.Join("\n", level2.Select(row => string.Join("",row.ToArray())).ToList());
 
 		Debug.Log(str);
+		*/
 	}
 
 	private void OnTileTypeSelect(object sender, TileType tileType)
