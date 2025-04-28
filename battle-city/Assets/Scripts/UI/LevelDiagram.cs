@@ -45,6 +45,11 @@ public class LevelDiagram : MonoBehaviour
 		return Rows.Select(row => row.GetRow()).ToList();
 	}
 
+	public void ResetLevel()
+	{
+		Rows.ForEach(row => row.Initialize());
+	}
+
 
 	// Update is called once per frame
 	void Update()

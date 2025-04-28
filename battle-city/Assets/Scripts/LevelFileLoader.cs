@@ -142,8 +142,9 @@ public class LevelFileLoader : MonoBehaviour
 		{ TileType.Base, 4 },
 		{ TileType.TreeCover, 5 },
 		{ TileType.River, 6 },
-		{ TileType.PlayerSpawn, 7 },
-		{ TileType.EnemySpawn, 8 },
+		{ TileType.Player1Spawn, 7 },
+		{ TileType.Player2Spawn, 8 },
+		{ TileType.EnemySpawn, 9 },
 	};
 	
 	private int TileTypeToInt(TileType tileType)
@@ -157,8 +158,9 @@ public class LevelFileLoader : MonoBehaviour
 			TileType.Base => 4,
 			TileType.TreeCover => 5,
 			TileType.River => 6,
-			TileType.PlayerSpawn => 7,
-			TileType.EnemySpawn => 8,
+			TileType.Player1Spawn => 7,
+			TileType.Player2Spawn => 8,
+			TileType.EnemySpawn => 9,
 			_ => 0,
 		};
 	}

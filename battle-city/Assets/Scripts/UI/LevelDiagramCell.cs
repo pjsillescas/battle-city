@@ -14,7 +14,8 @@ public class LevelDiagramCell : MonoBehaviour
 			{ TileType.River, Color.cyan },
 			{ TileType.TreeCover, Color.green },
 			{ TileType.SlipperyFloor, Color.white },
-			{ TileType.PlayerSpawn, Color.yellow },
+			{ TileType.Player1Spawn, Color.yellow },
+			{ TileType.Player2Spawn, new Color(1f,0.5f,0) },
 			{ TileType.EnemySpawn, Color.blue },
 		};
 	

@@ -1,5 +1,4 @@
-using NUnit.Framework;
-using System;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -11,6 +10,9 @@ public class LevelDiagramWidget : MonoBehaviour
 	private Button ButtonPlay;
 	[SerializeField]
 	private Button ButtonBack;
+	[SerializeField]
+	private Button ButtonReset;
+
 	[SerializeField]
 	private GameObject MainMenuWidget;
 	[SerializeField]
@@ -36,6 +38,12 @@ public class LevelDiagramWidget : MonoBehaviour
 		ButtonTileTypeSelect.OnTileTypeSelect += OnTileTypeSelect;
 		ButtonPlay.onClick.AddListener(ButtonPlayClick);
 		ButtonBack.onClick.AddListener(ButtonBackClick);
+		ButtonReset.onClick.AddListener(ButtonResetClick);
+	}
+
+	private void ButtonResetClick()
+	{
+		LevelDiagram.GetInstance().ResetLevel();
 	}
 
 	private void ButtonBackClick()
@@ -55,10 +63,21 @@ public class LevelDiagramWidget : MonoBehaviour
 			TileType.Base => 4,
 			TileType.TreeCover => 5,
 			TileType.River => 6,
-			TileType.PlayerSpawn => 7,
-			TileType.EnemySpawn => 8,
+			TileType.Player1Spawn => 7,
+			TileType.Player2Spawn => 8,
+			TileType.EnemySpawn => 9,
 			_ => 0,
 		};
+	}
+
+	private void DebugLevel(List<List<TileType>> level)
+	{
+		var level2 = level.Select(row => row.Select(TileTypeToInt).ToList()).ToList();
+
+		var str = string.Join("\n", level2.Select(row => string.Join("", row.ToArray())).ToList());
+
+		Debug.Log(str);
+
 	}
 
 	private void ButtonPlayClick()
@@ -66,15 +85,8 @@ public class LevelDiagramWidget : MonoBehaviour
 		var levelTiles = LevelDiagram.GetInstance().GetLevelDiagram();
 
 		Configuration.SetLevelTiles(levelTiles);
-
-		SceneManager.LoadScene("GameScene",LoadSceneMode.Single);
-		/*
-		var level2 = level.Select(row => row.Select(TileTypeToInt).ToList()).ToList();
-
-		var str = string.Join("\n", level2.Select(row => string.Join("",row.ToArray())).ToList());
-
-		Debug.Log(str);
-		*/
+		DebugLevel(levelTiles);
+		//SceneManager.LoadScene("GameScene",LoadSceneMode.Single);
 	}
 
 	private void OnTileTypeSelect(object sender, TileType tileType)

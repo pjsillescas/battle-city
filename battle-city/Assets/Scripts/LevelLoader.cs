@@ -26,8 +26,9 @@ public class LevelLoader : MonoBehaviour
 		{ TileType.Base, 4 },
 		{ TileType.TreeCover, 5 },
 		{ TileType.River, 6 },
-		{ TileType.PlayerSpawn, 7 },
-		{ TileType.EnemySpawn, 8 },
+		{ TileType.Player1Spawn, 7 },
+		{ TileType.Player2Spawn, 8 },
+		{ TileType.EnemySpawn, 9 },
 	};
 	
 	public static LevelLoader GetInstance() => instance;
