@@ -193,12 +193,12 @@ public class LevelFileLoader : MonoBehaviour
 		float x = 0;
 		float z = 0;
 		int nx = 0;
-		int nz = 0;
+		int nz = tiles.Count - 1;
 		tiles.ForEach(row => {
 			x = 0;
 			nx = 0;
 			row.ForEach(col => {
-				var translation = (col == TileType.Base) ? new Vector3(0.5f, 0, 0.5f) : Vector3.zero;
+				var translation = (col == TileType.Base) ? new Vector3(-0.5f, 0, 0.5f) : Vector3.zero;
 				var prefab = col switch
 				{
 					// 0 => FloorPrefab,
@@ -226,12 +226,12 @@ public class LevelFileLoader : MonoBehaviour
 				}
 
 				levelObjects[nx, nz] = gameObject;
-				x += TILE_HEIGHT;
+				x -= TILE_HEIGHT;
 				nx++;
 			});
 
 			z += TILE_WIDTH;
-			nz++;
+			nz--;
 		});
 
 		// OnLevelLoaded?.Invoke(this, tiles);
