@@ -93,9 +93,16 @@ public class LevelDiagramWidget : MonoBehaviour
 
 	private void OnTileTypeSelect(object sender, TileType tileType)
 	{
+		if (this.selectedButton != null)
+		{
+			selectedButton.Deselect();
+		}
+
 		selectedTileType = tileType;
 		Debug.Log($"Selected tiletype {selectedTileType}");
 		selectedButton = sender as ButtonTileTypeSelect;
+
+		selectedButton.Select();
 	}
 
 	// Update is called once per frame

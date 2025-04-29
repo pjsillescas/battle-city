@@ -22,6 +22,8 @@ public class ButtonTileTypeSelect : MonoBehaviour
         GetComponent<Button>().onClick.AddListener(ButtonSelect);
 		backgroundImage = GetComponent<Image>();
 
+		Deselect();
+
 	}
 
     private void ButtonSelect()
