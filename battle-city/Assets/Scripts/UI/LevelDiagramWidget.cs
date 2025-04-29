@@ -21,6 +21,8 @@ public class LevelDiagramWidget : MonoBehaviour
 	private static LevelDiagramWidget instance = null;
 
 	private TileType selectedTileType;
+	private ButtonTileTypeSelect selectedButton;
+
 	public static LevelDiagramWidget GetInstance() => instance;
 
 	public TileType GetSelectedTileType() => selectedTileType;
@@ -93,6 +95,7 @@ public class LevelDiagramWidget : MonoBehaviour
 	{
 		selectedTileType = tileType;
 		Debug.Log($"Selected tiletype {selectedTileType}");
+		selectedButton = sender as ButtonTileTypeSelect;
 	}
 
 	// Update is called once per frame
