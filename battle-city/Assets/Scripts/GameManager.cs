@@ -12,11 +12,7 @@ public class GameManager : MonoBehaviour
 	// Start is called once before the first execution of Update after the MonoBehaviour is created
 	void Start()
 	{
-		if (loadDebugLevel)
-		{
-			LevelLoader.LoadLevel(1);
-		}
-		else
+		if (!loadDebugLevel)
 		{
 			LevelLoader.LoadLevel(Configuration.levelTiles);
 		}
