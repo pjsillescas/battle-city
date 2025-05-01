@@ -1,0 +1,51 @@
+using System.Collections;
+using UnityEngine;
+
+public class Missile : MonoBehaviour
+{
+	private const float SPEED = 8.0f;
+	private float lifetime = 3f;
+
+	private int damage;
+	
+	private Vector3 forward;
+	private Coroutine coroutine;
+
+	public void SetDamage(int damage)
+	{
+		this.damage = damage;
+	}
+
+	// Start is called once before the first execution of Update after the MonoBehaviour is created
+	void Start()
+	{
+		forward = transform.forward;
+		coroutine = StartCoroutine(WaitLifetime());
+	}
+
+	private IEnumerator WaitLifetime()
+	{
+		yield return new WaitForSeconds(lifetime);
+		Destroy(gameObject);
+		yield return null;
+	}
+
+	// Update is called once per frame
+	void Update()
+	{
+		// Debug.Log($"({transform.rotation.x}, {transform.rotation.y}, {transform.rotation.z}) => ({transform.forward.x}, {transform.forward.y}, {transform.forward.z})");
+		transform.position += SPEED * Time.deltaTime * forward;
+	}
+
+	private void OnCollisionEnter(Collision collision)
+	{
+		if (collision.collider.TryGetComponent(out Damageable damageable))
+		{
+			Debug.Log("con damageable");
+			damageable.ApplyDamage(damage);
+		}
+
+		StopCoroutine(coroutine);
+		Destroy(gameObject);
+	}
+}
