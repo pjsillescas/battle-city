@@ -16,6 +16,11 @@ public class PlayerController : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
+		if(ControlledTank == null)
+		{
+			return;
+		}
+
 		var input = actions.Player.Move.ReadValue<Vector2>();
 
 		if (input != null)
@@ -28,5 +33,10 @@ public class PlayerController : MonoBehaviour
 		{
 			ControlledTank.LaunchMissile();
 		}
+	}
+
+	public void SetPawnTank(Tank tank)
+	{
+		ControlledTank = tank;
 	}
 }
