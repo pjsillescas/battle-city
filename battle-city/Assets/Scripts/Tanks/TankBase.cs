@@ -43,7 +43,7 @@ public class TankBase : MonoBehaviour
 		}
 	}
 
-	protected void ShootMissile(Transform shootingPoint, GameObject MissilePrefab, int damage)
+	protected void ShootMissile(Transform shootingPoint, GameObject MissilePrefab)
 	{
 		if (maxMissilesLaunched == 0)
 		{
@@ -54,7 +54,6 @@ public class TankBase : MonoBehaviour
 
 		var missileObj = Instantiate(MissilePrefab, shootingPoint.position, shootingPoint.rotation);
 		var missile = missileObj.GetComponent<Missile>();
-		missile.SetDamage(damage);
 		missile.SetShooter(this);
 		missile.OnMissileDestroy += OnMissileDestroy;
 	}

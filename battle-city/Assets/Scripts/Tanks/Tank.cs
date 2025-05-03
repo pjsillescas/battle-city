@@ -78,7 +78,7 @@ public class Tank : TankBase
 
     public void LaunchMissile()
     {
-		ShootMissile(shootingPoints[tankLevel],MissilePrefab, 1);
+		ShootMissile(shootingPoints[tankLevel],MissilePrefab);
 
 		//SetTankLevel((tankLevel + 1) %  tankLevels.Count);
 	}
