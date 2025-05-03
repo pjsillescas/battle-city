@@ -10,6 +10,7 @@ public class Missile : MonoBehaviour
 	public event EventHandler OnMissileDestroy;
 
 	private int damage;
+	private TankBase shooter;
 	
 	private Vector3 forward;
 	private Coroutine coroutine;
@@ -17,6 +18,10 @@ public class Missile : MonoBehaviour
 	public void SetDamage(int damage)
 	{
 		this.damage = damage;
+	}
+	public void SetShooter(TankBase shooter)
+	{
+		this.shooter = shooter;
 	}
 
 	// Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -45,7 +50,7 @@ public class Missile : MonoBehaviour
 		if (collision.collider.TryGetComponent(out Damageable damageable))
 		{
 			Debug.Log("con damageable");
-			damageable.ApplyDamage(damage);
+			damageable.ApplyDamage(damage, shooter);
 		}
 
 		StopCoroutine(coroutine);

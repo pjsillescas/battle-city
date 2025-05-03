@@ -55,6 +55,7 @@ public class TankBase : MonoBehaviour
 		var missileObj = Instantiate(MissilePrefab, shootingPoint.position, shootingPoint.rotation);
 		var missile = missileObj.GetComponent<Missile>();
 		missile.SetDamage(damage);
+		missile.SetShooter(this);
 		missile.OnMissileDestroy += OnMissileDestroy;
 	}
 

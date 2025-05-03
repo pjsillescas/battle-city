@@ -5,8 +5,8 @@ using System;
 
 public class Tank : TankBase
 {
-    private float Speed = 5.0f;
-    private float INPUT_THRESHOLD = 0.1f;
+    private const float Speed = 5.0f;
+    private const float INPUT_THRESHOLD = 0.1f;
 
     [SerializeField]
     private GameObject TankLevel1;
