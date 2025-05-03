@@ -58,10 +58,11 @@ public class Tank : TankBase
 
 	public void SetTankLevel(int level)
     {
-        tankLevels.ForEach(tank => tank.SetActive(false));
-        if (level < tankLevels.Count)
+        if (level < ((tankLevels == null) ? 0 : tankLevels?.Count))
         {
-            tankLevel = level;
+			tankLevels.ForEach(tank => tank.SetActive(false));
+			
+			tankLevel = level;
             tankLevels[level].SetActive(true);
 
 			SetSpeed(Speed);
@@ -69,6 +70,11 @@ public class Tank : TankBase
 			SetMaxMissilesLaunched(shootLimits[level]);
         }
     }
+
+	public void AddTankLevel()
+	{
+		SetTankLevel(tankLevel + 1);
+	}
 
     public void LaunchMissile()
     {
