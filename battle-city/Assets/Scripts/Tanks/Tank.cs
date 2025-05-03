@@ -3,10 +3,10 @@ using UnityEngine;
 using System.Linq;
 using System;
 
-public class Tank : MonoBehaviour
+public class Tank : TankBase
 {
     private float Speed = 5.0f;
-    private float THRESHOLD = 0.1f;
+    private float INPUT_THRESHOLD = 0.1f;
 
     [SerializeField]
     private GameObject TankLevel1;
@@ -46,13 +46,14 @@ public class Tank : MonoBehaviour
     {
         tankLevels = new() { TankLevel1, TankLevel2, TankLevel3, TankLevel4, };
 		tankLevels = tankLevels.Where(tank => tank != null).ToList();
-		SetTankLevel(0);
 
 		shootingPoints = new() { ShootTransform1, ShootTransform2, ShootTransform3, ShootTransform4, };
 		shootingPoints = shootingPoints.Where(point => point != null).ToList();
 
 		shootLimits = new() { ShootLimit1, ShootLimit2, ShootLimit3, ShootLimit4, };
 		shootLimits  = shootLimits.Where(limit => limit >= 0).ToList();
+		
+		SetTankLevel(0);
 	}
 
 	public void SetTankLevel(int level)
@@ -62,44 +63,18 @@ public class Tank : MonoBehaviour
         {
             tankLevel = level;
             tankLevels[level].SetActive(true);
+
+			SetSpeed(Speed);
+			SetInputThreshold(INPUT_THRESHOLD);
+			SetMaxMissilesLaunched(shootLimits[level]);
         }
     }
 
-	public void Move(Vector2 input)
-	{
-        var input3D = new Vector3(input.x, 0, input.y);
-
-        if (input3D.sqrMagnitude > THRESHOLD)
-        {
-            var rotation = new Quaternion();
-            rotation.SetLookRotation(input3D, Vector3.up);
-			transform.rotation = rotation;
-
-			var displacement = Speed * Time.deltaTime * input3D;
-			transform.position += displacement;
-        }
-	}
-
     public void LaunchMissile()
     {
-		if (shootLimits[tankLevel] == 0)
-		{
-			return;
-		}
-		
-		shootLimits[tankLevel]--;
+		ShootMissile(shootingPoints[tankLevel],MissilePrefab, 1);
 
-		var aTransform = shootingPoints[tankLevel];
-		var missileObj = Instantiate(MissilePrefab, aTransform.position, aTransform.rotation);
-		var missile = missileObj.GetComponent<Missile>();
-		missile.SetDamage(1);
-		missile.OnMissileDestroy += OnMissileDestroy;
 		//SetTankLevel((tankLevel + 1) %  tankLevels.Count);
-	}
-
-	public void OnMissileDestroy(object sender, EventArgs args)
-	{
-		shootLimits[tankLevel]++;
 	}
 
 	// Update is called once per frame
