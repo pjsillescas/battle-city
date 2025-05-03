@@ -632,6 +632,7 @@ MonoBehaviour:
   TreeCoverPrefab: {fileID: 6557414660655143573, guid: f9326287c56e3ff40bef8c7c65f3d20f, type: 3}
   BasePrefab: {fileID: 8184492017287333634, guid: c0b40b4b5fad4c142befeff7fc5362ab, type: 3}
   PlayerTankPrefab: {fileID: 7901564516489750458, guid: 1adf9d28d2068b841ac048e3ba7a03a9, type: 3}
+  PlayerSpawnPoint: {fileID: 1220689333304225840, guid: 485d6d84c8f4a07439bc80ddc8ca993c, type: 3}
 --- !u!114 &881254894
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -676,6 +677,12 @@ MonoBehaviour:
   LevelLoader: {fileID: 881254893}
   Configuration: {fileID: 11400000, guid: eb906c8ed058b8747aceecf3c3382d22, type: 2}
   loadDebugLevel: 0
+  Player1SpawnPoint: {fileID: 939922976976036294, guid: 485d6d84c8f4a07439bc80ddc8ca993c, type: 3}
+  Player1Prefab: {fileID: 7901564516489750458, guid: 1adf9d28d2068b841ac048e3ba7a03a9, type: 3}
+  Player2SpawnPoint: {fileID: 939922976976036294, guid: 485d6d84c8f4a07439bc80ddc8ca993c, type: 3}
+  Player2Prefab: {fileID: 7901564516489750458, guid: 1adf9d28d2068b841ac048e3ba7a03a9, type: 3}
+  PlayerController1: {fileID: 685977388}
+  PlayerController2: {fileID: 0}
 --- !u!4 &1893534390
 Transform:
   m_ObjectHideFlags: 0

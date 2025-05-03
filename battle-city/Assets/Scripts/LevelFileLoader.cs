@@ -21,8 +21,10 @@ public class LevelFileLoader : MonoBehaviour
     private GameObject BasePrefab;
 	[SerializeField]
 	private GameObject PlayerTankPrefab;
+	[SerializeField]
+	private GameObject PlayerSpawnPoint;
 
-    public static EventHandler<List<List<int>>> OnLevelLoaded;
+	public static EventHandler<List<List<TileType>>> OnLevelLoaded;
 
 	private static LevelFileLoader instance = null;
 
@@ -70,7 +72,7 @@ public class LevelFileLoader : MonoBehaviour
 		}
 		else
 		{
-			OnLevelLoaded?.Invoke(this, tiles);
+			//OnLevelLoaded?.Invoke(this, tiles);
 		}
 	}
 
@@ -141,7 +143,8 @@ public class LevelFileLoader : MonoBehaviour
 			nz++;
         });
 
-		OnLevelLoaded?.Invoke(this, tiles);
+		Debug.Log("aqui no deberia entrar");
+		//OnLevelLoaded?.Invoke(this, tiles);
     }
 
 	private Dictionary<TileType, int> serialTileTypes = new () {
@@ -254,19 +257,25 @@ public class LevelFileLoader : MonoBehaviour
 			nx = 0;
 			x = 0;
 			row.ForEach(col => {
-				var translation = (col == TileType.Base) ? new Vector3(-0.5f * TILE_WIDTH, 0, -1.5f * TILE_HEIGHT) : Vector3.zero;
+				var translation = (col == TileType.Base) ? new Vector3(-0.5f * TILE_WIDTH, 0, - 1.5f * TILE_HEIGHT) : Vector3.zero;
 
 				switch(col)
 				{
 					case TileType.Player1Spawn:
 						//var gameObject = InstantiateLevelObject(PlayerTankPrefab, x, z, translation);
 
-						var gameObject = Instantiate(PlayerTankPrefab, new Vector3(x, 0, z), Quaternion.identity); // new Quaternion(0, 0f, 0f, 0f));
-						gameObject.transform.Translate(translation);
+						//var gameObject = Instantiate(PlayerTankPrefab, new Vector3(x, 0, z), Quaternion.identity); // new Quaternion(0, 0f, 0f, 0f));
+						//gameObject.transform.Translate(translation);
 
-						playerController.SetPawnTank(gameObject.GetComponent<Tank>());
+						//playerController.SetPawnTank(gameObject.GetComponent<Tank>());
+						var spawnPosition1 = new Vector3(x /* - 0.5f * TILE_WIDTH*/, 0, z + 1.5f * TILE_HEIGHT);
+						var spawnPoint = Instantiate(PlayerSpawnPoint, spawnPosition1, Quaternion.identity);
+						GameManager.GetInstance().RegisterPlayer1SpawnPoint(spawnPoint.GetComponent<SpawnPoint>());
 						break;
 					case TileType.Player2Spawn:
+						var spawnPosition2 = new Vector3(x /* - 0.5f * TILE_WIDTH*/, 0, z + 1.5f * TILE_HEIGHT);
+						var spawnPoint2 = Instantiate(PlayerSpawnPoint, spawnPosition2, Quaternion.identity);
+						GameManager.GetInstance().RegisterPlayer2SpawnPoint(spawnPoint2.GetComponent<SpawnPoint>());
 						break;
 					case TileType.EnemySpawn:
 						break;
@@ -282,6 +291,6 @@ public class LevelFileLoader : MonoBehaviour
 			z = TILE_HEIGHT * nz;
 		});
 
-		// OnLevelLoaded?.Invoke(this, tiles);
+		OnLevelLoaded?.Invoke(this, tiles);
 	}
 }
