@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -5,6 +6,8 @@ public class Missile : MonoBehaviour
 {
 	private const float SPEED = 8.0f;
 	private float lifetime = 3f;
+
+	public event EventHandler OnMissileDestroy;
 
 	private int damage;
 	
@@ -47,5 +50,10 @@ public class Missile : MonoBehaviour
 
 		StopCoroutine(coroutine);
 		Destroy(gameObject);
+	}
+
+	private void OnDestroy()
+	{
+		OnMissileDestroy?.Invoke(this, EventArgs.Empty);
 	}
 }

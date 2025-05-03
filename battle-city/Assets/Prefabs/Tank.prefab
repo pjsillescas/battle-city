@@ -2416,6 +2416,10 @@ MonoBehaviour:
   TankLevel4: {fileID: 4533043952031588342}
   ShootTransform4: {fileID: 7232682296217629199}
   MissilePrefab: {fileID: 4350236990234759566, guid: f1c3389f18eddfd42b9e694122214ed7, type: 3}
+  ShootLimit1: 1
+  ShootLimit2: 1
+  ShootLimit3: 1
+  ShootLimit4: 2
 --- !u!54 &4652018152986867001
 Rigidbody:
   m_ObjectHideFlags: 0

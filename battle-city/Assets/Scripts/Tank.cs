@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using System;
 
 public class Tank : MonoBehaviour
 {
@@ -25,10 +26,20 @@ public class Tank : MonoBehaviour
 	private Transform ShootTransform4;
 	[SerializeField]
     private GameObject MissilePrefab;
+    [SerializeField]
+    private int ShootLimit1;
+	[SerializeField]
+	private int ShootLimit2;
+	[SerializeField]
+	private int ShootLimit3;
+	[SerializeField]
+	private int ShootLimit4;
 
-    private int tankLevel = 0;
+	private int tankLevel = 0;
     private List<GameObject> tankLevels;
     private List<Transform> shootingPoints;
+    private List<int> shootLimits;
+
 	
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 	void Start()
@@ -40,6 +51,8 @@ public class Tank : MonoBehaviour
 		shootingPoints = new() { ShootTransform1, ShootTransform2, ShootTransform3, ShootTransform4, };
 		shootingPoints = shootingPoints.Where(point => point != null).ToList();
 
+		shootLimits = new() { ShootLimit1, ShootLimit2, ShootLimit3, ShootLimit4, };
+		shootLimits  = shootLimits.Where(limit => limit >= 0).ToList();
 	}
 
 	public void SetTankLevel(int level)
@@ -69,13 +82,25 @@ public class Tank : MonoBehaviour
 
     public void LaunchMissile()
     {
-        Debug.Log("booom!!");
-        var aTransform = shootingPoints[tankLevel];
+		if (shootLimits[tankLevel] == 0)
+		{
+			return;
+		}
+		
+		shootLimits[tankLevel]--;
+
+		var aTransform = shootingPoints[tankLevel];
 		var missileObj = Instantiate(MissilePrefab, aTransform.position, aTransform.rotation);
-        var missile = missileObj.GetComponent<Missile>();
-        missile.SetDamage(1);
-        //SetTankLevel((tankLevel + 1) %  tankLevels.Count);
-    }
+		var missile = missileObj.GetComponent<Missile>();
+		missile.SetDamage(1);
+		missile.OnMissileDestroy += OnMissileDestroy;
+		//SetTankLevel((tankLevel + 1) %  tankLevels.Count);
+	}
+
+	public void OnMissileDestroy(object sender, EventArgs args)
+	{
+		shootLimits[tankLevel]++;
+	}
 
 	// Update is called once per frame
 	void Update()

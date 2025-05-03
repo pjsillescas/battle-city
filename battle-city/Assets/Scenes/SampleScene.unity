@@ -18957,6 +18957,7 @@ MonoBehaviour:
   SlipperyFloorPrefab: {fileID: 1251590001703039997, guid: 032c49f04a6df3a4ea7b09bc341af209, type: 3}
   TreeCoverPrefab: {fileID: 6557414660655143573, guid: f9326287c56e3ff40bef8c7c65f3d20f, type: 3}
   BasePrefab: {fileID: 8184492017287333634, guid: c0b40b4b5fad4c142befeff7fc5362ab, type: 3}
+  PlayerTankPrefab: {fileID: 0}
 --- !u!114 &881254894
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44482,6 +44483,22 @@ PrefabInstance:
     - target: {fileID: 2872701320507975989, guid: 1adf9d28d2068b841ac048e3ba7a03a9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2891669466130639494, guid: 1adf9d28d2068b841ac048e3ba7a03a9, type: 3}
+      propertyPath: ShootLimit1
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2891669466130639494, guid: 1adf9d28d2068b841ac048e3ba7a03a9, type: 3}
+      propertyPath: ShootLimit2
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2891669466130639494, guid: 1adf9d28d2068b841ac048e3ba7a03a9, type: 3}
+      propertyPath: ShootLimit3
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2891669466130639494, guid: 1adf9d28d2068b841ac048e3ba7a03a9, type: 3}
+      propertyPath: ShootLimit4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7901564516489750458, guid: 1adf9d28d2068b841ac048e3ba7a03a9, type: 3}
       propertyPath: m_Name
