@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System;
 using System.Linq;
 using UnityEngine;
+using Unity.AI.Navigation;
 
 public class LevelFileLoader : MonoBehaviour
 {
@@ -23,6 +24,8 @@ public class LevelFileLoader : MonoBehaviour
 	private GameObject PlayerTankPrefab;
 	[SerializeField]
 	private GameObject PlayerSpawnPoint;
+	[SerializeField]
+	private NavMeshSurface NavigationSurface;
 
 	public static EventHandler<List<List<TileType>>> OnLevelLoaded;
 
@@ -85,9 +88,9 @@ public class LevelFileLoader : MonoBehaviour
 	{
 
 		var gameObject = Instantiate(prefab, new Vector3(x, 0, z), new Quaternion(0, 0f, 0f, 0f));
-
 		gameObject.transform.Translate(translation);
 		gameObject.transform.Rotate(-90, 0, 0);
+		gameObject.transform.parent = NavigationSurface.transform;
 		return gameObject;
 	}
 

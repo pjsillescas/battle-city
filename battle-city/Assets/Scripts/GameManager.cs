@@ -75,6 +75,9 @@ public class GameManager : MonoBehaviour
 			var player2Pawn = Instantiate(Player2Prefab, Player2SpawnPoint.transform.position, Player2SpawnPoint.transform.rotation);
 			PlayerController2.SetPawnTank(player2Pawn.GetComponent<Tank>());
 		}
+
+		// NavigationController::GetInstance().RebuildNavMesh();
+		NavigationController.GetInstance().RebuildNavMesh();
 	}
 
 	// Update is called once per frame
