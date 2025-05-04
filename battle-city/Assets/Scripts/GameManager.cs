@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour
 	private PlayerController PlayerController1;
 	[SerializeField]
 	private PlayerController PlayerController2;
+	public GameObject cubeprefab;
 
 	private static GameManager instance = null;
 
@@ -63,8 +64,10 @@ public class GameManager : MonoBehaviour
 	private void OnLevelLoaded(object sender, List<List<TileType>> list)
 	{
 		Debug.Log("level loaded");
+		// NavigationController::GetInstance().RebuildNavMesh();
+		NavigationController.GetInstance().RebuildNavMesh();
 
-		if(Player1SpawnPoint != null && Player1Prefab != null && PlayerController1)
+		if (Player1SpawnPoint != null && Player1Prefab != null && PlayerController1)
 		{
 			var player1Pawn = Instantiate(Player1Prefab, Player1SpawnPoint.transform.position, Player1SpawnPoint.transform.rotation);
 			PlayerController1.SetPawnTank(player1Pawn.GetComponent<Tank>());
@@ -76,8 +79,7 @@ public class GameManager : MonoBehaviour
 			PlayerController2.SetPawnTank(player2Pawn.GetComponent<Tank>());
 		}
 
-		// NavigationController::GetInstance().RebuildNavMesh();
-		NavigationController.GetInstance().RebuildNavMesh();
+		Instantiate(cubeprefab, new Vector3(16, 0, 1), Quaternion.identity);
 	}
 
 	// Update is called once per frame

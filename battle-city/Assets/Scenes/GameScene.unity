@@ -794,6 +794,7 @@ MonoBehaviour:
   Player2Prefab: {fileID: 7901564516489750458, guid: 1adf9d28d2068b841ac048e3ba7a03a9, type: 3}
   PlayerController1: {fileID: 685977388}
   PlayerController2: {fileID: 0}
+  cubeprefab: {fileID: 550643436809024987, guid: c63fa7b5e63be014094c97d1f8961cc7, type: 3}
 --- !u!4 &1893534390
 Transform:
   m_ObjectHideFlags: 0
