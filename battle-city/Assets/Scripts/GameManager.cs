@@ -22,7 +22,6 @@ public class GameManager : MonoBehaviour
 	private PlayerController PlayerController1;
 	[SerializeField]
 	private PlayerController PlayerController2;
-	public GameObject cubeprefab;
 
 	private static GameManager instance = null;
 
@@ -78,8 +77,6 @@ public class GameManager : MonoBehaviour
 			var player2Pawn = Instantiate(Player2Prefab, Player2SpawnPoint.transform.position, Player2SpawnPoint.transform.rotation);
 			PlayerController2.SetPawnTank(player2Pawn.GetComponent<Tank>());
 		}
-
-		Instantiate(cubeprefab, new Vector3(16, 0, 1), Quaternion.identity);
 	}
 
 	// Update is called once per frame

@@ -10,7 +10,7 @@ public class NavigationController : MonoBehaviour
 
 	public static NavigationController GetInstance() => instance;
 	
-	private void Start()
+	private void Awake()
 	{
 		if (instance != null)
 		{
