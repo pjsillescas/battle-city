@@ -19,18 +19,25 @@ public class EnemySpawner : MonoBehaviour
 		while (tanks.Count > 0)
 		{
 			yield return new WaitForSeconds(10f);
-
-			Debug.Log("spawn enemy");
-			var tank = tanks[0];
-			tanks.RemoveAt(0);
-			tank.transform.position = transform.position;
-			tank.gameObject.SetActive(true);
+			DeployEnemy();
 		}
 
 		yield return null;
 
 	}
 
+	public void DeployEnemy()
+	{
+		Debug.Log("spawn enemy");
+		if (tanks == null || tanks.Count == 0)
+		{
+			return;
+		}
+		var tank = tanks[0];
+		tanks.RemoveAt(0);
+		tank.transform.position = transform.position;
+		tank.gameObject.SetActive(true);
+	}
 	public void LoadTanks(List<TankEnemy> tanks)
 	{
 		this.tanks = tanks;

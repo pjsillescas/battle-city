@@ -22,6 +22,8 @@ public class GameManager : MonoBehaviour
 	private PlayerController PlayerController1;
 	[SerializeField]
 	private PlayerController PlayerController2;
+	[SerializeField]
+	private List<EnemySpawner> EnemySpawners;
 
 	private static GameManager instance = null;
 
@@ -37,6 +39,8 @@ public class GameManager : MonoBehaviour
 		}
 
 		instance = this;
+
+		EnemySpawners = new();
 
 		LevelFileLoader.OnLevelLoaded += OnLevelLoaded;
 
@@ -58,6 +62,10 @@ public class GameManager : MonoBehaviour
 	public void RegisterPlayer2SpawnPoint(SpawnPoint playerSpawnPoint)
 	{
 		Player2SpawnPoint = playerSpawnPoint;
+	}
+	public void RegisterEnemySpawner(EnemySpawner enemySpawner)
+	{
+		EnemySpawners.Add(enemySpawner);
 	}
 
 	private void OnLevelLoaded(object sender, List<List<TileType>> list)

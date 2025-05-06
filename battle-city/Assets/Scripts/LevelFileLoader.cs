@@ -25,6 +25,8 @@ public class LevelFileLoader : MonoBehaviour
 	[SerializeField]
 	private GameObject PlayerSpawnPoint;
 	[SerializeField]
+	private GameObject EnemySpawnerPrefab;
+	[SerializeField]
 	private NavMeshSurface NavigationSurface;
 
 	public static EventHandler<List<List<TileType>>> OnLevelLoaded;
@@ -218,6 +220,10 @@ public class LevelFileLoader : MonoBehaviour
 						GameManager.GetInstance().RegisterPlayer2SpawnPoint(spawnPoint2.GetComponent<SpawnPoint>());
 						break;
 					case TileType.EnemySpawn:
+						//var enemySpawnerPosition = new Vector3(x, 0, z - 1.5f * TILE_HEIGHT);
+						var enemySpawnerPosition = new Vector3(x, 0, z);
+						var enemySpawner = Instantiate(EnemySpawnerPrefab, enemySpawnerPosition, Quaternion.identity);
+						GameManager.GetInstance().RegisterEnemySpawner(enemySpawner.GetComponent<EnemySpawner>());
 						break;
 					default:
 						break;
