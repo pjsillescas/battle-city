@@ -10,14 +10,9 @@ public class LevelLoader : MonoBehaviour
 
 	private static LevelLoader instance = null;
 
-	Action<List<List<TileType>>> onFinishLoad;
+	Action<LevelObject> onFinishLoad;
 
-	[Serializable]
-	public class JsonLevelObject
-	{
-		public List<string> lines;
-	}
-
+	
 	private readonly Dictionary<TileType, int> serialTileTypes = new() {
 		{ TileType.Floor, 0 },
 		{ TileType.BrickWall, 1 },
@@ -44,7 +39,7 @@ public class LevelLoader : MonoBehaviour
 		instance = this;
 	}
 
-	public void LoadLevel(int level, Action<List<List<TileType>>> onFinishLoad)
+	public void LoadLevel(int level, Action<LevelObject> onFinishLoad)
 	{
 		this.onFinishLoad = onFinishLoad;
 		var fileName = $"Levels/Level-{level:D2}.json";
@@ -54,8 +49,8 @@ public class LevelLoader : MonoBehaviour
 
 	private void OnJsonLoad(string json)
 	{
-		var levelLines = JsonUtility.FromJson<JsonLevelObject>(json);
-		var tiles = levelLines.lines.Select(line => new List<char>(line.ToCharArray()).Select(c => c - '0').Select(col => serialTileTypes.FirstOrDefault(x => x.Value == col).Key).ToList()).ToList();
-		onFinishLoad(tiles);
+		var jsonLevelObject = JsonUtility.FromJson<JsonLevelObject>(json);
+		var tiles = jsonLevelObject.lines.Select(line => new List<char>(line.ToCharArray()).Select(c => c - '0').Select(col => serialTileTypes.FirstOrDefault(x => x.Value == col).Key).ToList()).ToList();
+		onFinishLoad(new LevelObject() { tiles = tiles, tanks = jsonLevelObject.tanks });
 	}
 }

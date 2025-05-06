@@ -46,7 +46,7 @@ public class GameManager : MonoBehaviour
 
 		if (!loadDebugLevel)
 		{
-			LevelLoader.LoadLevel(Configuration.levelTiles);
+			LevelLoader.LoadLevel(new LevelObject() { tiles = Configuration.levelTiles, tanks = Configuration.tanks });
 		}
 		else
 		{
@@ -68,7 +68,7 @@ public class GameManager : MonoBehaviour
 		EnemySpawners.Add(enemySpawner);
 	}
 
-	private void OnLevelLoaded(object sender, List<List<TileType>> list)
+	private void OnLevelLoaded(object sender, LevelObject levelObject)
 	{
 		Debug.Log("level loaded");
 		// NavigationController::GetInstance().RebuildNavMesh();
@@ -85,6 +85,11 @@ public class GameManager : MonoBehaviour
 			var player2Pawn = Instantiate(Player2Prefab, Player2SpawnPoint.transform.position, Player2SpawnPoint.transform.rotation);
 			PlayerController2.SetPawnTank(player2Pawn.GetComponent<Tank>());
 		}
+
+		Debug.Log($"basic: {levelObject.tanks.basic}");
+		Debug.Log($"strike: {levelObject.tanks.strike}");
+		Debug.Log($"medium: {levelObject.tanks.medium}");
+		Debug.Log($"heavy: {levelObject.tanks.heavy}");
 	}
 
 	// Update is called once per frame

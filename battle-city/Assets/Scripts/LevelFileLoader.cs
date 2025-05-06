@@ -29,12 +29,12 @@ public class LevelFileLoader : MonoBehaviour
 	[SerializeField]
 	private NavMeshSurface NavigationSurface;
 
-	public static EventHandler<List<List<TileType>>> OnLevelLoaded;
+	public static EventHandler<LevelObject> OnLevelLoaded;
 
 	private static LevelFileLoader instance = null;
 
 	private int CurrentLevel;
-	private List<List<int>> tiles;
+	//private List<List<int>> tiles;
 	private PlayerController playerController;
 
 	[Serializable]
@@ -43,7 +43,7 @@ public class LevelFileLoader : MonoBehaviour
 		public List<string> lines;
 	}
 
-	public List<List<int>> GetLevel() => tiles;
+	//public List<List<int>> GetLevel() => tiles;
 	public static LevelFileLoader GetInstance() => instance;
 
 	private readonly GameObject[,] levelObjects = new GameObject[26, 26];
@@ -68,7 +68,7 @@ public class LevelFileLoader : MonoBehaviour
 
 	public void LoadLevel(int level)
 	{
-		if (CurrentLevel != level || tiles == null)
+		if (CurrentLevel != level /*|| tiles == null*/)
 		{
 			CurrentLevel = level;
 			var fileName = $"Levels/Level-{level:D2}.json";
@@ -81,9 +81,9 @@ public class LevelFileLoader : MonoBehaviour
 		}
 	}
 
-	public void LoadLevel(List<List<TileType>> tiles)
+	public void LoadLevel(LevelObject levelObject)
 	{
-		BuildLevel(tiles);
+		BuildLevel(levelObject);
 	}
 
 	private GameObject InstantiateLevelObject(GameObject prefab, float x, float z, Vector3 translation)
@@ -147,17 +147,17 @@ public class LevelFileLoader : MonoBehaviour
 		*/
 	}
 
-	private void BuildLevel(List<List<TileType>> tiles)
+	private void BuildLevel(LevelObject levelObject)
 	{
 		List<TileType> tilesWithFloor = new() { TileType.TreeCover, TileType.BrickWall, TileType.SteelWall };
 		const float TILE_WIDTH = 1.0f;
 		const float TILE_HEIGHT = 1.0f;
 
 		int nx = 0;
-		int nz = tiles.Count - 1;
+		int nz = levelObject.tiles.Count - 1;
 		float x = 0;
 		float z = nz * TILE_HEIGHT;
-		tiles.ForEach(row => {
+		levelObject.tiles.ForEach(row => {
 			x = 0;
 			nx = 0;
 			row.ForEach(col => {
@@ -199,10 +199,10 @@ public class LevelFileLoader : MonoBehaviour
 
 		// Place tanks
 		nx = 0;
-		nz = tiles.Count - 1;
+		nz = levelObject.tiles.Count - 1;
 		x = 0;
 		z = nz * TILE_HEIGHT;
-		tiles.ForEach(row => {
+		levelObject.tiles.ForEach(row => {
 			nx = 0;
 			x = 0;
 			row.ForEach(col => {
@@ -237,6 +237,6 @@ public class LevelFileLoader : MonoBehaviour
 			z = TILE_HEIGHT * nz;
 		});
 
-		OnLevelLoaded?.Invoke(this, tiles);
+		OnLevelLoaded?.Invoke(this, levelObject);
 	}
 }

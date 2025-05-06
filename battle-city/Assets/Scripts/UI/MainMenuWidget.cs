@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using NUnit.Framework;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -31,9 +32,10 @@ public class MainMenuWidget : MonoBehaviour
 		ConstructionButton.onClick.AddListener(ConstructionClick);
 	}
 
-	private void OnFinishLoadLevel(List<List<TileType>> tiles)
+	private void OnFinishLoadLevel(LevelObject levelObject)
 	{
-		Configuration.SetLevelTiles(tiles);
+		Configuration.SetLevelTiles(levelObject.tiles);
+		Configuration.SetTanks(levelObject.tanks);
 
 		SceneManager.LoadScene("GameScene");
 	}
