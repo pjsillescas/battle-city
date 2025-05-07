@@ -1,3 +1,4 @@
+using System.Xml.Schema;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -6,6 +7,12 @@ public class PlayerController : MonoBehaviour
 	private Tank ControlledTank;
 
 	private InputActions actions;
+
+	private const float XMin = 0f;
+	private const float XMax = 25f;
+	
+	private const float ZMin = 0f;
+	private const float ZMax = 25f;
 
 	void Awake()
 	{
@@ -28,8 +35,12 @@ public class PlayerController : MonoBehaviour
 			//Debug.Log($"({input.x},{input.y})");
 			ControlledTank.Move(input);
 		}
+		var position = ControlledTank.transform.position;
+		position.x = Mathf.Clamp(position.x, XMin, XMax);
+		position.z = Mathf.Clamp(position.z, ZMin, ZMax);
+		ControlledTank.transform.position = position;
 
-		if(actions.Player.Attack.WasPressedThisFrame())
+		if (actions.Player.Attack.WasPressedThisFrame())
 		{
 			ControlledTank.LaunchMissile();
 		}

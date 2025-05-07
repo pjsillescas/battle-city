@@ -21,6 +21,8 @@ public class LevelFileLoader : MonoBehaviour
     [SerializeField]
     private GameObject BasePrefab;
 	[SerializeField]
+	private GameObject WallPrefab;
+	[SerializeField]
 	private GameObject PlayerTankPrefab;
 	[SerializeField]
 	private GameObject PlayerSpawnPoint;
@@ -236,6 +238,23 @@ public class LevelFileLoader : MonoBehaviour
 			nz--;
 			z = TILE_HEIGHT * nz;
 		});
+
+		for(int i = 0; i<= nx;i++)
+		{
+			x = i * TILE_WIDTH;
+			z = -1 * TILE_HEIGHT;
+			InstantiateLevelObject(WallPrefab, x, z, Vector3.zero);
+			z = nx * TILE_HEIGHT;
+			InstantiateLevelObject(WallPrefab, x, z, Vector3.zero);
+
+			z = i * TILE_HEIGHT;
+			x = -1 * TILE_WIDTH;
+			InstantiateLevelObject(WallPrefab, x, z, Vector3.zero);
+			x = nx * TILE_WIDTH;
+			InstantiateLevelObject(WallPrefab, x, z, Vector3.zero);
+		}
+
+		InstantiateLevelObject(WallPrefab, -TILE_WIDTH, -TILE_HEIGHT, Vector3.zero);
 
 		OnLevelLoaded?.Invoke(this, levelObject);
 	}

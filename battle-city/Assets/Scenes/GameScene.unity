@@ -631,6 +631,7 @@ MonoBehaviour:
   SlipperyFloorPrefab: {fileID: 1251590001703039997, guid: 032c49f04a6df3a4ea7b09bc341af209, type: 3}
   TreeCoverPrefab: {fileID: 6557414660655143573, guid: f9326287c56e3ff40bef8c7c65f3d20f, type: 3}
   BasePrefab: {fileID: 8184492017287333634, guid: c0b40b4b5fad4c142befeff7fc5362ab, type: 3}
+  WallPrefab: {fileID: 1860576413468214840, guid: defbe88424f329046a41d28ee9576e04, type: 3}
   PlayerTankPrefab: {fileID: 7901564516489750458, guid: 1adf9d28d2068b841ac048e3ba7a03a9, type: 3}
   PlayerSpawnPoint: {fileID: 1220689333304225840, guid: 485d6d84c8f4a07439bc80ddc8ca993c, type: 3}
   EnemySpawnerPrefab: {fileID: 3597085329749390600, guid: 9f8499e7f5ff3d54ba87dd1d59bbe262, type: 3}
