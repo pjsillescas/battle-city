@@ -1,5 +1,7 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -12,6 +14,14 @@ public class LevelDiagramWidget : MonoBehaviour
 	private Button ButtonBack;
 	[SerializeField]
 	private Button ButtonReset;
+	[SerializeField]
+	private TMP_InputField BasicTanksInputField;
+	[SerializeField]
+	private TMP_InputField StrikeTanksInputField;
+	[SerializeField]
+	private TMP_InputField MediumTanksInputField;
+	[SerializeField]
+	private TMP_InputField HeavyTanksInputField;
 
 	[SerializeField]
 	private GameObject MainMenuWidget;
@@ -82,13 +92,31 @@ public class LevelDiagramWidget : MonoBehaviour
 
 	}
 
+	private int ParseInt(string strInt)
+	{
+		try
+		{
+			return int.Parse(strInt);
+		}
+		catch (Exception)
+		{
+			return 0;
+		}
+	}
+
 	private void ButtonPlayClick()
 	{
 		var levelTiles = LevelDiagram.GetInstance().GetLevelDiagram();
-
+		var tanks = new Tanks() {
+			basic = ParseInt(BasicTanksInputField.text),
+			strike = ParseInt(StrikeTanksInputField.text),
+			medium = ParseInt(MediumTanksInputField.text),
+			heavy = ParseInt(HeavyTanksInputField.text),
+		};
 		Configuration.SetLevelTiles(levelTiles);
+		Configuration.SetTanks(tanks);
 		DebugLevel(levelTiles);
-		//SceneManager.LoadScene("GameScene",LoadSceneMode.Single);
+		SceneManager.LoadScene("GameScene",LoadSceneMode.Single);
 	}
 
 	private void OnTileTypeSelect(object sender, TileType tileType)
