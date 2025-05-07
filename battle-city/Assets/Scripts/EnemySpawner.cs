@@ -40,7 +40,7 @@ public class EnemySpawner : MonoBehaviour
 	}
 	public void LoadTanks(List<TankEnemy> tanks)
 	{
-		tanks.Clear();
+		this.tanks.Clear();
 		tanks.ForEach(this.tanks.Add);
 		StartCoroutine(WaitCooldown());
 	}
