@@ -1,5 +1,7 @@
 using NUnit.Framework;
+using System;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -24,6 +26,14 @@ public class GameManager : MonoBehaviour
 	private PlayerController PlayerController2;
 	[SerializeField]
 	private List<EnemySpawner> EnemySpawners;
+	[SerializeField]
+	private GameObject BasicTankPrefab;
+	[SerializeField]
+	private GameObject StrikeTankPrefab;
+	[SerializeField]
+	private GameObject MediumTankPrefab;
+	[SerializeField]
+	private GameObject HeavyTankPrefab;
 
 	private static GameManager instance = null;
 
@@ -90,6 +100,47 @@ public class GameManager : MonoBehaviour
 		Debug.Log($"strike: {levelObject.tanks.strike}");
 		Debug.Log($"medium: {levelObject.tanks.medium}");
 		Debug.Log($"heavy: {levelObject.tanks.heavy}");
+
+		var tanks = new List<TankEnemy>();
+
+		if (EnemySpawners.Count == 0)
+		{
+			return;
+		}
+		
+		FillTanks(BasicTankPrefab, levelObject.tanks.basic, ref tanks);
+		FillTanks(StrikeTankPrefab, levelObject.tanks.strike, ref tanks);
+		FillTanks(MediumTankPrefab, levelObject.tanks.medium, ref tanks);
+		FillTanks(HeavyTankPrefab, levelObject.tanks.heavy, ref tanks);
+
+		tanks.FisherYatesShuffle();
+		
+		int k = 0;
+		var loads = new List<TankEnemy>[EnemySpawners.Count];
+		for(int i = 0; i< EnemySpawners.Count;i++)
+		{
+			loads[i] = new();
+		}
+		foreach (var tank in tanks)
+		{
+			loads[k].Add(tank);
+			k = (k + 1) % EnemySpawners.Count;
+		}
+
+		for (k = 0; k < EnemySpawners.Count; k++)
+		{
+			EnemySpawners[k].LoadTanks(loads[k]);
+		}
+	}
+
+	private void FillTanks(GameObject prefab, int numTanks, ref List<TankEnemy> tanks)
+	{
+		for (int k = 0; k < numTanks; k++)
+		{
+			var tank = Instantiate(prefab, Vector3.zero, Quaternion.identity);
+			tank.SetActive(false);
+			tanks.Add(tank.GetComponent<TankEnemy>());
+		}
 	}
 
 	// Update is called once per frame

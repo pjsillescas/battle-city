@@ -8,7 +8,7 @@ public class EnemySpawner : MonoBehaviour
 	private List<TankEnemy> tanks;
 	
 	// Start is called once before the first execution of Update after the MonoBehaviour is created
-	void Start()
+	void Awake()
 	{
 		tanks = new();
 		
@@ -28,11 +28,11 @@ public class EnemySpawner : MonoBehaviour
 
 	public void DeployEnemy()
 	{
-		Debug.Log("spawn enemy");
 		if (tanks == null || tanks.Count == 0)
 		{
 			return;
 		}
+		
 		var tank = tanks[0];
 		tanks.RemoveAt(0);
 		tank.transform.position = transform.position;
@@ -40,7 +40,8 @@ public class EnemySpawner : MonoBehaviour
 	}
 	public void LoadTanks(List<TankEnemy> tanks)
 	{
-		this.tanks = tanks;
+		tanks.Clear();
+		tanks.ForEach(this.tanks.Add);
 		StartCoroutine(WaitCooldown());
 	}
 

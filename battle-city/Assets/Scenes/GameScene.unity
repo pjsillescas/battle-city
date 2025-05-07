@@ -795,6 +795,11 @@ MonoBehaviour:
   Player2Prefab: {fileID: 7901564516489750458, guid: 1adf9d28d2068b841ac048e3ba7a03a9, type: 3}
   PlayerController1: {fileID: 685977388}
   PlayerController2: {fileID: 0}
+  EnemySpawners: []
+  BasicTankPrefab: {fileID: 5523479723678169332, guid: 2ad9d0343f5618347948727287b8daf0, type: 3}
+  StrikeTankPrefab: {fileID: 5697234693207262705, guid: 01df94d02a8766842a4fb4ee536aee16, type: 3}
+  MediumTankPrefab: {fileID: 4869177617081210610, guid: cc2465c72a7950941a4140932f0d05de, type: 3}
+  HeavyTankPrefab: {fileID: 208811187179324594, guid: dfdf35c04244125478fde5eada00880a, type: 3}
 --- !u!4 &1893534390
 Transform:
   m_ObjectHideFlags: 0
