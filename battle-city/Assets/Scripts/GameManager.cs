@@ -87,12 +87,14 @@ public class GameManager : MonoBehaviour
 		if (Player1SpawnPoint != null && Player1Prefab != null && PlayerController1)
 		{
 			var player1Pawn = Instantiate(Player1Prefab, Player1SpawnPoint.transform.position, Player1SpawnPoint.transform.rotation);
+			player1Pawn.GetComponent<Damageable>().OnDeath += Player1Respawn;
 			PlayerController1.SetPawnTank(player1Pawn.GetComponent<Tank>());
 		}
 		
 		if (Player2SpawnPoint != null && Player2Prefab != null && PlayerController2)
 		{
 			var player2Pawn = Instantiate(Player2Prefab, Player2SpawnPoint.transform.position, Player2SpawnPoint.transform.rotation);
+			player2Pawn.GetComponent<Damageable>().OnDeath += Player2Respawn;
 			PlayerController2.SetPawnTank(player2Pawn.GetComponent<Tank>());
 		}
 
@@ -131,6 +133,20 @@ public class GameManager : MonoBehaviour
 		{
 			EnemySpawners[k].LoadTanks(loads[k]);
 		}
+	}
+
+	private void Player1Respawn(object sender, TankBase tank)
+	{
+		var player1Pawn = Instantiate(Player1Prefab, Player1SpawnPoint.transform.position, Player1SpawnPoint.transform.rotation);
+		player1Pawn.GetComponent<Damageable>().OnDeath += Player1Respawn;
+		PlayerController1.SetPawnTank(player1Pawn.GetComponent<Tank>());
+	}
+
+	private void Player2Respawn(object sender, TankBase tank)
+	{
+		var player2Pawn = Instantiate(Player2Prefab, Player2SpawnPoint.transform.position, Player2SpawnPoint.transform.rotation);
+		player2Pawn.GetComponent<Damageable>().OnDeath += Player2Respawn;
+		PlayerController2.SetPawnTank(player2Pawn.GetComponent<Tank>());
 	}
 
 	private void FillTanks(GameObject prefab, int numTanks, ref List<TankEnemy> tanks)
