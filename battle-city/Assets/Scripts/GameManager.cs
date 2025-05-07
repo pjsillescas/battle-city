@@ -35,9 +35,13 @@ public class GameManager : MonoBehaviour
 	[SerializeField]
 	private GameObject HeavyTankPrefab;
 
+	private List<Vector3> navigablePoints;
+
 	private static GameManager instance = null;
 
 	public static GameManager GetInstance() => instance;
+
+	public List<Vector3> GetNavigablePoints() => navigablePoints;
 
 	// Start is called once before the first execution of Update after the MonoBehaviour is created
 	void Start()
@@ -98,6 +102,40 @@ public class GameManager : MonoBehaviour
 			PlayerController2.SetPawnTank(player2Pawn.GetComponent<Tank>());
 		}
 
+		SetNavigablePoints(levelObject);
+		
+		PreloadEnemyTanks(levelObject);
+	}
+	private void SetNavigablePoints(LevelObject levelObject)
+	{
+		var floorTiles = new List<TileType>() {
+			TileType.Floor,
+			TileType.SlipperyFloor,
+			TileType.Player1Spawn,
+			TileType.Player2Spawn,
+			TileType.EnemySpawn,
+		};
+
+		navigablePoints = new();
+
+		float z = levelObject.tiles.Count - 1f;
+		levelObject.tiles.ForEach(row => {
+			float x = 0;
+			row.ForEach(tile => {
+				if(floorTiles.Contains(tile))
+				{
+					navigablePoints.Add(new Vector3(x,0,z));
+				}
+
+				x = x + 1f;
+			});
+
+			z = z - 1f;
+		});
+	}
+
+	private void PreloadEnemyTanks(LevelObject levelObject)
+	{
 		Debug.Log($"basic: {levelObject.tanks.basic}");
 		Debug.Log($"strike: {levelObject.tanks.strike}");
 		Debug.Log($"medium: {levelObject.tanks.medium}");
@@ -109,17 +147,17 @@ public class GameManager : MonoBehaviour
 		{
 			return;
 		}
-		
+
 		FillTanks(BasicTankPrefab, levelObject.tanks.basic, ref tanks);
 		FillTanks(StrikeTankPrefab, levelObject.tanks.strike, ref tanks);
 		FillTanks(MediumTankPrefab, levelObject.tanks.medium, ref tanks);
 		FillTanks(HeavyTankPrefab, levelObject.tanks.heavy, ref tanks);
 
 		tanks.FisherYatesShuffle();
-		
+
 		int k = 0;
 		var loads = new List<TankEnemy>[EnemySpawners.Count];
-		for(int i = 0; i< EnemySpawners.Count;i++)
+		for (int i = 0; i < EnemySpawners.Count; i++)
 		{
 			loads[i] = new();
 		}

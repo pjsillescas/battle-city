@@ -1,16 +1,21 @@
+using System.Collections.Generic;
+using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class EnemyController : MonoBehaviour
 {
-	private const float SHOOTING_THRESHOLD = 0.8f;
+	private const int SHOOTING_THRESHOLD = 95;
 
 	private NavMeshAgent agent;
 	private TankEnemy tank;
+	private List<Vector3> navigablePoints;
 
 	private void SetNewDestination()
 	{
-		var destination = transform.position + 10 * new Vector3(Random.Range(0f, 1f), 0, Random.Range(0f, 1f));
+		//var destination = transform.position + 10 * new Vector3(Random.Range(0f, 1f), 0, Random.Range(0f, 1f));
+		var k = Random.Range(0, navigablePoints.Count);
+		var destination = navigablePoints[k];
 		Debug.Log($"going to ({destination.x},{destination.y},{destination.z})");
 
 		agent.SetDestination(destination);
@@ -24,6 +29,8 @@ public class EnemyController : MonoBehaviour
 
 		agent.speed = tank.GetSpeed();
 
+		navigablePoints = GameManager.GetInstance().GetNavigablePoints();
+
 		SetNewDestination();
 	}
 
@@ -35,8 +42,11 @@ public class EnemyController : MonoBehaviour
 			SetNewDestination();
 		}
 
-		if (Random.Range(0f, 1f) >= SHOOTING_THRESHOLD)
+		var rng = Random.Range(0, 99);
+		//Debug.Log($"rng: {rng}");
+		if (rng >= SHOOTING_THRESHOLD)
 		{
+			Debug.Log($"shoot {rng}");
 			tank.LaunchMissile();
 		}
 	}
