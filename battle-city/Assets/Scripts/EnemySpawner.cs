@@ -16,16 +16,18 @@ public class EnemySpawner : MonoBehaviour
 
 	private IEnumerator WaitCooldown()
 	{
+		/*
 		while (tanks.Count > 0)
 		{
 			yield return new WaitForSeconds(10f);
 			DeployEnemy();
 		}
-
+		*/
 		yield return null;
 
 	}
 
+	public bool HasTanks() => tanks.Count > 0;
 	public void DeployEnemy()
 	{
 		if (tanks == null || tanks.Count == 0)

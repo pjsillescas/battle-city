@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using NUnit.Framework;
 using UnityEngine;
@@ -7,9 +8,14 @@ public class EnemyController : MonoBehaviour
 {
 	private const int SHOOTING_THRESHOLD = 95;
 
+	//[SerializeField]
+	private const float ShootCooldownSeconds = 3f;
+
 	private NavMeshAgent agent;
 	private TankEnemy tank;
 	private List<Vector3> navigablePoints;
+
+	private bool canShoot;
 
 	private void SetNewDestination()
 	{
@@ -28,6 +34,7 @@ public class EnemyController : MonoBehaviour
 		tank = GetComponent<TankEnemy>();
 
 		agent.speed = tank.GetSpeed();
+		canShoot = true;
 
 		navigablePoints = GameManager.GetInstance().GetNavigablePoints();
 
@@ -42,12 +49,29 @@ public class EnemyController : MonoBehaviour
 			SetNewDestination();
 		}
 
-		var rng = Random.Range(0, 99);
-		//Debug.Log($"rng: {rng}");
-		if (rng >= SHOOTING_THRESHOLD)
+		if (canShoot)
 		{
-			Debug.Log($"shoot {rng}");
-			tank.LaunchMissile();
+			var rng = Random.Range(0, 99);
+			//Debug.Log($"rng: {rng}");
+			if (rng >= SHOOTING_THRESHOLD)
+			{
+				Debug.Log($"shoot {rng}");
+
+				tank.LaunchMissile();
+				
+				canShoot = false;
+				StartCoroutine(ShootCooldown());
+			}
 		}
 	}
+
+	private IEnumerator ShootCooldown()
+	{
+		yield return new WaitForSeconds(ShootCooldownSeconds);
+
+		canShoot = true;
+
+		yield return null;
+	}
+
 }

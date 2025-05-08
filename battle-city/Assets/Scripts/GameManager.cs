@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -36,6 +37,8 @@ public class GameManager : MonoBehaviour
 	private GameObject HeavyTankPrefab;
 
 	private List<Vector3> navigablePoints;
+	private int currentEnemySpawner;
+	private int enemiesRemaining;
 
 	private static GameManager instance = null;
 
@@ -55,7 +58,7 @@ public class GameManager : MonoBehaviour
 		instance = this;
 
 		EnemySpawners = new();
-
+		currentEnemySpawner = 0;
 		LevelFileLoader.OnLevelLoaded += OnLevelLoaded;
 
 		if (!loadDebugLevel)
@@ -141,6 +144,8 @@ public class GameManager : MonoBehaviour
 		Debug.Log($"medium: {levelObject.tanks.medium}");
 		Debug.Log($"heavy: {levelObject.tanks.heavy}");
 
+		enemiesRemaining = levelObject.tanks.basic + levelObject.tanks.strike +
+			levelObject.tanks.medium + levelObject.tanks.heavy;
 		var tanks = new List<TankEnemy>();
 
 		if (EnemySpawners.Count == 0)
@@ -170,6 +175,7 @@ public class GameManager : MonoBehaviour
 		for (k = 0; k < EnemySpawners.Count; k++)
 		{
 			EnemySpawners[k].LoadTanks(loads[k]);
+			EnemySpawners[k].DeployEnemy();
 		}
 	}
 
@@ -193,7 +199,40 @@ public class GameManager : MonoBehaviour
 		{
 			var tank = Instantiate(prefab, Vector3.zero, Quaternion.identity);
 			tank.SetActive(false);
+			tank.GetComponent<Damageable>().OnDeath += OnEnemyDeath;
 			tanks.Add(tank.GetComponent<TankEnemy>());
+		}
+	}
+
+	private void OnEnemyDeath(object sender, TankBase tank)
+	{
+		enemiesRemaining--;
+		if (enemiesRemaining == 0)
+		{
+			CompleteLevel();
+		}
+		else
+		{
+			DeployEnemy();
+		}
+	}
+
+	private void DeployEnemy()
+	{
+		int numExploredSpawners = 0;
+		bool enemySpawned = false;
+
+		while(!enemySpawned && numExploredSpawners < EnemySpawners.Count)
+		{
+			var currentSpawner = EnemySpawners[currentEnemySpawner];
+			if (currentSpawner.HasTanks())
+			{
+				currentSpawner.DeployEnemy();
+				enemySpawned = true;
+			}
+
+			numExploredSpawners++;
+			currentEnemySpawner = (currentEnemySpawner + 1) % EnemySpawners.Count;
 		}
 	}
 
@@ -201,5 +240,10 @@ public class GameManager : MonoBehaviour
 	void Update()
 	{
 
+	}
+
+	private void CompleteLevel()
+	{
+		SceneManager.LoadScene("MainMenuScene");
 	}
 }
