@@ -1,12 +1,14 @@
-using NUnit.Framework;
 using System;
 using System.Collections.Generic;
-using System.Threading;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+	public static event EventHandler<int> OnEnemiesSet;
+	public static event EventHandler OnEnemyKilled;
+	public static event EventHandler<int> OnPlayerLivesChanged;
+
 	[SerializeField]
 	private LevelFileLoader LevelLoader;
 	[SerializeField]
@@ -39,6 +41,7 @@ public class GameManager : MonoBehaviour
 	private List<Vector3> navigablePoints;
 	private int currentEnemySpawner;
 	private int enemiesRemaining;
+	private int playerLives = 3;
 
 	private static GameManager instance = null;
 
@@ -88,11 +91,12 @@ public class GameManager : MonoBehaviour
 	private void OnLevelLoaded(object sender, LevelObject levelObject)
 	{
 		Debug.Log("level loaded");
-		// NavigationController::GetInstance().RebuildNavMesh();
 		NavigationController.GetInstance().RebuildNavMesh();
 
 		if (Player1SpawnPoint != null && Player1Prefab != null && PlayerController1)
 		{
+			OnPlayerLivesChanged?.Invoke(this, playerLives);
+			
 			var player1Pawn = Instantiate(Player1Prefab, Player1SpawnPoint.transform.position, Player1SpawnPoint.transform.rotation);
 			player1Pawn.GetComponent<Damageable>().OnDeath += Player1Respawn;
 			PlayerController1.SetPawnTank(player1Pawn.GetComponent<Tank>());
@@ -148,13 +152,13 @@ public class GameManager : MonoBehaviour
 
 		enemiesRemaining = levelObject.tanks.basic + levelObject.tanks.strike +
 			levelObject.tanks.medium + levelObject.tanks.heavy;
-		var tanks = new List<TankEnemy>();
 
 		if (EnemySpawners.Count == 0)
 		{
 			return;
 		}
 
+		var tanks = new List<TankEnemy>();
 		FillTanks(BasicTankPrefab, levelObject.tanks.basic, ref tanks);
 		FillTanks(StrikeTankPrefab, levelObject.tanks.strike, ref tanks);
 		FillTanks(MediumTankPrefab, levelObject.tanks.medium, ref tanks);
@@ -179,13 +183,25 @@ public class GameManager : MonoBehaviour
 			EnemySpawners[k].LoadTanks(loads[k]);
 			EnemySpawners[k].DeployEnemy();
 		}
+
+		OnEnemiesSet?.Invoke(this, enemiesRemaining);
 	}
 
 	private void Player1Respawn(object sender, TankBase tank)
 	{
-		var player1Pawn = Instantiate(Player1Prefab, Player1SpawnPoint.transform.position, Player1SpawnPoint.transform.rotation);
-		player1Pawn.GetComponent<Damageable>().OnDeath += Player1Respawn;
-		PlayerController1.SetPawnTank(player1Pawn.GetComponent<Tank>());
+		playerLives--;
+		if (playerLives > 0)
+		{
+			OnPlayerLivesChanged?.Invoke(this, playerLives);
+
+			var player1Pawn = Instantiate(Player1Prefab, Player1SpawnPoint.transform.position, Player1SpawnPoint.transform.rotation);
+			player1Pawn.GetComponent<Damageable>().OnDeath += Player1Respawn;
+			PlayerController1.SetPawnTank(player1Pawn.GetComponent<Tank>());
+		}
+		else
+		{
+			GameOver();
+		}
 	}
 
 	private void Player2Respawn(object sender, TankBase tank)
@@ -209,6 +225,7 @@ public class GameManager : MonoBehaviour
 	private void OnEnemyDeath(object sender, TankBase tank)
 	{
 		enemiesRemaining--;
+		OnEnemyKilled?.Invoke(this, EventArgs.Empty);
 		if (enemiesRemaining == 0)
 		{
 			CompleteLevel();
@@ -242,6 +259,10 @@ public class GameManager : MonoBehaviour
 	void Update()
 	{
 
+	}
+	private void GameOver()
+	{
+		SceneManager.LoadScene("MainMenuScene");
 	}
 
 	private void CompleteLevel()
