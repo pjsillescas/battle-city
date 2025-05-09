@@ -9,6 +9,7 @@ public abstract class Pickup : MonoBehaviour
 		if (other.gameObject.TryGetComponent(out Tank tank))
 		{
 			Apply(tank);
+			Destroy(gameObject, 0.2f);
 		}
 	}
 }

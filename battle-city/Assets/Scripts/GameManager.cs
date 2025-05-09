@@ -108,6 +108,8 @@ public class GameManager : MonoBehaviour
 		SetNavigablePoints(levelObject);
 		
 		PreloadEnemyTanks(levelObject);
+
+		PickupManager.GetInstance().Initialize(navigablePoints);
 	}
 	private void SetNavigablePoints(LevelObject levelObject)
 	{

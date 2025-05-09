@@ -648,6 +648,53 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d9ca26b670024f44bfd9da95e786a3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1177278238
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1177278240}
+  - component: {fileID: 1177278239}
+  m_Layer: 0
+  m_Name: PickupManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1177278239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1177278238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9e33fab29f63d140bf6c156b66f593f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PickupPrefabs:
+  - {fileID: 3676356044006367568, guid: 129c1685fe898ee4196dd4863215eb3a, type: 3}
+  SpawningCooldown: 30
+--- !u!4 &1177278240
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1177278238}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1238173220
 GameObject:
   m_ObjectHideFlags: 0
@@ -754,7 +801,7 @@ MonoBehaviour:
   m_OverrideTileSize: 0
   m_TileSize: 256
   m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.16666667
+  m_VoxelSize: 0.23333333
   m_MinRegionArea: 2
   m_NavMeshData: {fileID: 0}
   m_BuildHeightMesh: 0
@@ -828,3 +875,4 @@ SceneRoots:
   - {fileID: 404251210}
   - {fileID: 685977389}
   - {fileID: 1238173221}
+  - {fileID: 1177278240}
