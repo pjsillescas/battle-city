@@ -31,7 +31,7 @@ public class RemainingTanksWidget : MonoBehaviour
 			for (int k = 0; k < numEnemies; k++)
 			{
 				var token = Instantiate(TokenPrefab);
-				token.transform.parent = transform;
+				token.transform.SetParent(transform);
 				tokens.Add(token);
 			}
 		}

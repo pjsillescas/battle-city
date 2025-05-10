@@ -38,7 +38,10 @@ public class PickupManager : MonoBehaviour
 
 	private void OnDestroy()
 	{
-		StopCoroutine(spawnCoroutine);
+		if (spawnCoroutine != null)
+		{
+			StopCoroutine(spawnCoroutine);
+		}
 	}
 
 	private T GetRandomElement<T>(List<T> list)

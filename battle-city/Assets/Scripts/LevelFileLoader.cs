@@ -225,6 +225,7 @@ public class LevelFileLoader : MonoBehaviour
 						//var enemySpawnerPosition = new Vector3(x, 0, z - 1.5f * TILE_HEIGHT);
 						var enemySpawnerPosition = new Vector3(x, 0, z - 0.5f * TILE_HEIGHT);
 						var enemySpawner = Instantiate(EnemySpawnerPrefab, enemySpawnerPosition, Quaternion.identity);
+						Debug.Log("spawn enemyspawner");
 						GameManager.GetInstance().RegisterEnemySpawner(enemySpawner.GetComponent<EnemySpawner>());
 						break;
 					default:

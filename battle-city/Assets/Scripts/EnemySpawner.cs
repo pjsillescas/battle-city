@@ -44,7 +44,7 @@ public class EnemySpawner : MonoBehaviour
 	{
 		this.tanks.Clear();
 		tanks.ForEach(this.tanks.Add);
-		StartCoroutine(WaitCooldown());
+		//StartCoroutine(WaitCooldown());
 	}
 
 	// Update is called once per frame

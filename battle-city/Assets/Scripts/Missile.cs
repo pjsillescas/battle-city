@@ -74,6 +74,7 @@ public class Missile : MonoBehaviour
 
 	private void OnDestroy()
 	{
+		//StopCoroutine(coroutine);
 		OnMissileDestroy?.Invoke(this, EventArgs.Empty);
 	}
 }

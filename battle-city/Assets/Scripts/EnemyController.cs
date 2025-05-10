@@ -55,7 +55,7 @@ public class EnemyController : MonoBehaviour
 			//Debug.Log($"rng: {rng}");
 			if (rng >= SHOOTING_THRESHOLD)
 			{
-				Debug.Log($"shoot {rng}");
+				//Debug.Log($"shoot {rng}");
 
 				tank.LaunchMissile();
 				

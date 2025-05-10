@@ -8,6 +8,9 @@ public class GameManager : MonoBehaviour
 	public static event EventHandler<int> OnEnemiesSet;
 	public static event EventHandler OnEnemyKilled;
 	public static event EventHandler<int> OnPlayerLivesChanged;
+	public static event EventHandler OnGameOver;
+	public static event EventHandler OnLevelComplete;
+	public static event EventHandler OnLevelStart;
 
 	[SerializeField]
 	private LevelFileLoader LevelLoader;
@@ -61,9 +64,12 @@ public class GameManager : MonoBehaviour
 		instance = this;
 
 		EnemySpawners = new();
+		Debug.Log("inicializando enemyspawners");
 		currentEnemySpawner = 0;
 		LevelFileLoader.OnLevelLoaded += OnLevelLoaded;
 
+		LevelLoader.LoadLevel(new LevelObject() { tiles = Configuration.levelTiles, tanks = Configuration.tanks });
+		/*
 		if (!loadDebugLevel)
 		{
 			LevelLoader.LoadLevel(new LevelObject() { tiles = Configuration.levelTiles, tanks = Configuration.tanks });
@@ -72,6 +78,7 @@ public class GameManager : MonoBehaviour
 		{
 			OnLevelLoaded(null, null);
 		}
+		*/
 	}
 
 	public void RegisterPlayer1SpawnPoint(SpawnPoint playerSpawnPoint)
@@ -86,6 +93,7 @@ public class GameManager : MonoBehaviour
 	public void RegisterEnemySpawner(EnemySpawner enemySpawner)
 	{
 		EnemySpawners.Add(enemySpawner);
+		Debug.Log($"added {enemySpawner.name} there are {EnemySpawners.Count} enemy spawners");
 	}
 
 	private void OnLevelLoaded(object sender, LevelObject levelObject)
@@ -114,6 +122,8 @@ public class GameManager : MonoBehaviour
 		PreloadEnemyTanks(levelObject);
 
 		PickupManager.GetInstance().Initialize(navigablePoints);
+
+		//OnLevelStart?.Invoke(this, EventArgs.Empty);
 	}
 	private void SetNavigablePoints(LevelObject levelObject)
 	{
@@ -180,8 +190,15 @@ public class GameManager : MonoBehaviour
 
 		for (k = 0; k < EnemySpawners.Count; k++)
 		{
-			EnemySpawners[k].LoadTanks(loads[k]);
-			EnemySpawners[k].DeployEnemy();
+			if (EnemySpawners[k] != null)
+			{
+				EnemySpawners[k].LoadTanks(loads[k]);
+				EnemySpawners[k].DeployEnemy();
+			}
+			else
+			{
+				Debug.Log($"el enemy spawner {k} es null");
+			}
 		}
 
 		OnEnemiesSet?.Invoke(this, enemiesRemaining);
@@ -263,10 +280,11 @@ public class GameManager : MonoBehaviour
 	private void GameOver()
 	{
 		SceneManager.LoadScene("MainMenuScene");
+		OnGameOver?.Invoke(this, EventArgs.Empty);
 	}
 
 	private void CompleteLevel()
 	{
-		SceneManager.LoadScene("MainMenuScene");
+		OnLevelComplete?.Invoke(this, EventArgs.Empty);
 	}
 }

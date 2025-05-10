@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class TankBase : MonoBehaviour
 {
-	private Team team;
-	private float damage;
+	private Team tankTeam;
 	private float speed;
 	private float inputThreshold;
 	private int maxMissilesLaunched;
@@ -17,12 +16,12 @@ public class TankBase : MonoBehaviour
 
 	public void SetTeam(Team team)
 	{
-		this.team = team;
+		this.tankTeam = team;
 	}
 
 	public void SetDamage(float damage)
 	{
-		this.damage = damage;
+		//this.damage = damage;
 	}
 
 	public float GetSpeed() => speed;
@@ -68,7 +67,7 @@ public class TankBase : MonoBehaviour
 		var missileObj = Instantiate(MissilePrefab, shootingPoint.position, shootingPoint.rotation);
 		var missile = missileObj.GetComponent<Missile>();
 		missile.SetShooter(this);
-		missile.SetTeam(team);
+		missile.SetTeam(tankTeam);
 		missile.OnMissileDestroy += OnMissileDestroy;
 	}
 

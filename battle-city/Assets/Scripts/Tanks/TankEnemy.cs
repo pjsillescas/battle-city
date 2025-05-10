@@ -18,6 +18,7 @@ public class TankEnemy : TankBase
 	void Start()
 	{
 		SetSpeed(Speed);
+		SetTeam(GetComponent<Damageable>().GetTeam());
 		SetInputThreshold(INPUT_THRESHOLD);
 		SetMaxMissilesLaunched(ShootLimit);
 	}
