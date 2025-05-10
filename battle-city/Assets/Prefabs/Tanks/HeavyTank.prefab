@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2260682056866705848}
   - component: {fileID: 2136043641322980585}
   - component: {fileID: 182303241161270349}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HeavyTank
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -67,6 +67,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ae95ecada3f711469445d989134b52b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Team: 1
   Hits: 4
 --- !u!54 &3506345679614191108
 Rigidbody:
@@ -161,7 +162,7 @@ GameObject:
   - component: {fileID: 1098599831027684805}
   - component: {fileID: 414393111293794326}
   - component: {fileID: 2545909161626259702}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TankHeavyChassis
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -245,7 +246,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5903022989471757790}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HeavyTank
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -282,7 +283,7 @@ GameObject:
   - component: {fileID: 6174769470430537918}
   - component: {fileID: 7284703028732645361}
   - component: {fileID: 6755326967387494532}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TankHeavyTracksLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -368,7 +369,7 @@ GameObject:
   - component: {fileID: 9035914102174238864}
   - component: {fileID: 2189854797610915070}
   - component: {fileID: 4919012520920472195}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TankHeavyTracksRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -454,7 +455,7 @@ GameObject:
   - component: {fileID: 8477096523341271978}
   - component: {fileID: 3903728775735637320}
   - component: {fileID: 5897210253895940392}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TankHeavyTurret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -538,7 +539,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2233516561535658740}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ShootTransform
   m_TagString: Untagged
   m_Icon: {fileID: 0}

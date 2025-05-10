@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2812859245271063468}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ShootTransform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 8028582722581778008}
   - component: {fileID: 1226030045087875976}
   - component: {fileID: 4341156709153659735}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TankTracksLeft.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -127,7 +127,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5940102424788446219}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: MediumTank
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -168,7 +168,7 @@ GameObject:
   - component: {fileID: 3574137150184062491}
   - component: {fileID: 2571323808302642737}
   - component: {fileID: 3067859521344394517}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: MediumTank
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -204,6 +204,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ae95ecada3f711469445d989134b52b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Team: 1
   Hits: 1
 --- !u!114 &6729999884103584343
 MonoBehaviour:
@@ -314,7 +315,7 @@ GameObject:
   - component: {fileID: 6913060472108045717}
   - component: {fileID: 6727935382848806807}
   - component: {fileID: 8731884158601029421}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TankTracksRight.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -401,7 +402,7 @@ GameObject:
   - component: {fileID: 807408495946960123}
   - component: {fileID: 4804812735015472544}
   - component: {fileID: 1346442980178836155}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TankTurret_001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -488,7 +489,7 @@ GameObject:
   - component: {fileID: 3584965987119675989}
   - component: {fileID: 9201625136613552516}
   - component: {fileID: 794922551342612607}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TankChassis_001
   m_TagString: Untagged
   m_Icon: {fileID: 0}

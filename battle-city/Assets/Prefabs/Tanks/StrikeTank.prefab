@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7152808888584400591}
   - component: {fileID: 8916883748087916382}
   - component: {fileID: 615319388878088305}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TankTracksLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,7 +96,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5782073748903602331}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ShootTransform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -129,7 +129,7 @@ GameObject:
   - component: {fileID: 1587871341069553028}
   - component: {fileID: 1440900411180861278}
   - component: {fileID: 8176179264807889279}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Shark
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -221,7 +221,7 @@ GameObject:
   - component: {fileID: 2362616636481750232}
   - component: {fileID: 1375714555673581729}
   - component: {fileID: 1620301539484187449}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: StrikeTank
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -257,6 +257,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ae95ecada3f711469445d989134b52b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Team: 1
   Hits: 1
 --- !u!114 &4813000496899066698
 MonoBehaviour:
@@ -367,7 +368,7 @@ GameObject:
   - component: {fileID: 3852227135831772896}
   - component: {fileID: 2792918057106535043}
   - component: {fileID: 8292533462196897587}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TankTurret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -454,7 +455,7 @@ GameObject:
   - component: {fileID: 3225064460205633603}
   - component: {fileID: 7185070764892614026}
   - component: {fileID: 4814069846747114039}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TankTracksRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -539,7 +540,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7507850307150409951}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RegularTank
   m_TagString: Untagged
   m_Icon: {fileID: 0}

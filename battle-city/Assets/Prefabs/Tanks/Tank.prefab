@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7524073931099535718}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RegularTank
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46,7 +46,7 @@ GameObject:
   - component: {fileID: 1121232788676199928}
   - component: {fileID: 8870926781533354995}
   - component: {fileID: 3308728313694673310}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: axel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -130,7 +130,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7232682296217629199}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ShootTransform4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -161,7 +161,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6748954539213409531}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ShootTransform2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -194,7 +194,7 @@ GameObject:
   - component: {fileID: 7005889181800272799}
   - component: {fileID: 2545077063213231898}
   - component: {fileID: 7502580832575359731}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Shark
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -282,7 +282,7 @@ GameObject:
   - component: {fileID: 8064593155956376193}
   - component: {fileID: 5700787395702388808}
   - component: {fileID: 1875128728461280751}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: barrel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -368,7 +368,7 @@ GameObject:
   - component: {fileID: 4453332400311864917}
   - component: {fileID: 7776156242382763123}
   - component: {fileID: 5179993677001721666}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: wheels1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -452,7 +452,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8498327772273746266}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ShootTransform1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -485,7 +485,7 @@ GameObject:
   - component: {fileID: 97871917024110835}
   - component: {fileID: 6419795180616660976}
   - component: {fileID: 6576133678516471766}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: wheel3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -571,7 +571,7 @@ GameObject:
   - component: {fileID: 6276569570280273284}
   - component: {fileID: 8961882770315224104}
   - component: {fileID: 4762568134064074606}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TankHeavyTurret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -655,7 +655,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1211747558541099198}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SharkTank
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -698,7 +698,7 @@ GameObject:
   - component: {fileID: 4083447467233392907}
   - component: {fileID: 296542276633119413}
   - component: {fileID: 4710073555401920944}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TankTracksLeft.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -783,7 +783,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3275671106124782280}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HeavyTank
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -820,7 +820,7 @@ GameObject:
   - component: {fileID: 8909772225213524409}
   - component: {fileID: 6578270337406465166}
   - component: {fileID: 2061650072765854298}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: barrel_end.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -906,7 +906,7 @@ GameObject:
   - component: {fileID: 724717142927512178}
   - component: {fileID: 6650697318709750895}
   - component: {fileID: 690274797789977863}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: wheel1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -992,7 +992,7 @@ GameObject:
   - component: {fileID: 8679547045197931320}
   - component: {fileID: 7957413535066497177}
   - component: {fileID: 6269678217949396837}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TankHeavyTracksLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1078,7 +1078,7 @@ GameObject:
   - component: {fileID: 5740102222453121327}
   - component: {fileID: 6895226670666109878}
   - component: {fileID: 6268707672374286659}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: wheels2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1162,7 +1162,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4034908236693806837}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: UTVTank
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1204,7 +1204,7 @@ GameObject:
   - component: {fileID: 2699814757467021243}
   - component: {fileID: 7273271298906223846}
   - component: {fileID: 7381212911784140152}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: wheel2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1290,7 +1290,7 @@ GameObject:
   - component: {fileID: 336423253717471844}
   - component: {fileID: 2328429107373250268}
   - component: {fileID: 1758368839698324414}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: teeth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1376,7 +1376,7 @@ GameObject:
   - component: {fileID: 2982943030382946042}
   - component: {fileID: 5162638135510248319}
   - component: {fileID: 1139017369128708470}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: barrel.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1462,7 +1462,7 @@ GameObject:
   - component: {fileID: 1389556581047800998}
   - component: {fileID: 8733705306640546654}
   - component: {fileID: 5894186708661991726}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: screen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1548,7 +1548,7 @@ GameObject:
   - component: {fileID: 8788176576938231669}
   - component: {fileID: 4148966005318302492}
   - component: {fileID: 5947142058470932346}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: UTV
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1634,7 +1634,7 @@ GameObject:
   - component: {fileID: 2019827322720886334}
   - component: {fileID: 2877544549595161170}
   - component: {fileID: 4445019524272001489}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TankChassis_001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1722,7 +1722,7 @@ GameObject:
   - component: {fileID: 2040143849413399000}
   - component: {fileID: 6797183401620665979}
   - component: {fileID: 8244946887516001542}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TankTurret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1809,7 +1809,7 @@ GameObject:
   - component: {fileID: 1832916549973913009}
   - component: {fileID: 3763905644087342816}
   - component: {fileID: 2665829207311056897}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: lights.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1895,7 +1895,7 @@ GameObject:
   - component: {fileID: 4537923971239599385}
   - component: {fileID: 2383751946614723602}
   - component: {fileID: 8870731201479786216}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: poles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1981,7 +1981,7 @@ GameObject:
   - component: {fileID: 2730390336009851845}
   - component: {fileID: 9106014092483477730}
   - component: {fileID: 4688919836919601315}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TankHeavyTracksRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2065,7 +2065,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5196229275880801855}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: MediumTank
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2102,7 +2102,7 @@ GameObject:
   - component: {fileID: 4314682549857763062}
   - component: {fileID: 1617659687458240826}
   - component: {fileID: 220735278439568778}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TankTracksRight.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2189,7 +2189,7 @@ GameObject:
   - component: {fileID: 6423002184983014775}
   - component: {fileID: 5978823759628741885}
   - component: {fileID: 9081242385689400503}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: sharkMain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2275,7 +2275,7 @@ GameObject:
   - component: {fileID: 8547613551202378872}
   - component: {fileID: 935170650693743014}
   - component: {fileID: 657858268134167460}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TankTracksRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2364,7 +2364,7 @@ GameObject:
   - component: {fileID: 4652018152986867001}
   - component: {fileID: 8917198893799231362}
   - component: {fileID: 3608411323161630524}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Tank
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2480,7 +2480,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ae95ecada3f711469445d989134b52b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Shield: 0
+  Team: 0
+  Hits: 1
 --- !u!1 &7904847782507362521
 GameObject:
   m_ObjectHideFlags: 0
@@ -2490,7 +2491,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4183269500947792476}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ShootTransform3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2523,7 +2524,7 @@ GameObject:
   - component: {fileID: 2198655899800760358}
   - component: {fileID: 215620165121408763}
   - component: {fileID: 6013424260030616073}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: barrel_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2609,7 +2610,7 @@ GameObject:
   - component: {fileID: 1835466539542946603}
   - component: {fileID: 1264379602249977872}
   - component: {fileID: 4855505984328716363}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: lights
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2695,7 +2696,7 @@ GameObject:
   - component: {fileID: 8711076344966476358}
   - component: {fileID: 5373642220312195402}
   - component: {fileID: 870624368522775878}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TankHeavyChassis
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2781,7 +2782,7 @@ GameObject:
   - component: {fileID: 3134262664654781237}
   - component: {fileID: 7300954211633896559}
   - component: {fileID: 3702977552693462781}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: bars
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2867,7 +2868,7 @@ GameObject:
   - component: {fileID: 1254135613682755537}
   - component: {fileID: 5410687546577868360}
   - component: {fileID: 4107453779484124973}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TankTurret_001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2954,7 +2955,7 @@ GameObject:
   - component: {fileID: 7129241369533273983}
   - component: {fileID: 8276733366054315247}
   - component: {fileID: 1973586545338682813}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: wheel4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3040,7 +3041,7 @@ GameObject:
   - component: {fileID: 3138542635740748022}
   - component: {fileID: 8029368037772511664}
   - component: {fileID: 515122266836174210}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TankTracksLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}

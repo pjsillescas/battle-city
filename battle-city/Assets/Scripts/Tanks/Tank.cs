@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 using System;
+using Unity.VisualScripting;
 
 public class Tank : TankBase
 {
@@ -39,6 +40,7 @@ public class Tank : TankBase
     private List<GameObject> tankLevels;
     private List<Transform> shootingPoints;
     private List<int> shootLimits;
+	private Team team;
 
 	
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -52,7 +54,8 @@ public class Tank : TankBase
 
 		shootLimits = new() { ShootLimit1, ShootLimit2, ShootLimit3, ShootLimit4, };
 		shootLimits  = shootLimits.Where(limit => limit >= 0).ToList();
-		
+
+		team = GetComponent<Damageable>().GetTeam();
 		SetTankLevel(0);
 	}
 
@@ -65,6 +68,7 @@ public class Tank : TankBase
 			tankLevel = level;
             tankLevels[level].SetActive(true);
 
+			SetTeam(team);
 			SetSpeed(Speed);
 			SetInputThreshold(INPUT_THRESHOLD);
 			SetMaxMissilesLaunched(shootLimits[level]);

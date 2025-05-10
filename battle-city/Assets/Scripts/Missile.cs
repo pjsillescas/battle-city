@@ -6,6 +6,7 @@ public class Missile : MonoBehaviour
 {
 	private const float SPEED = 8.0f;
 	private float lifetime = 3f;
+	private Team team;
 
 	public event EventHandler OnMissileDestroy;
 
@@ -19,6 +20,12 @@ public class Missile : MonoBehaviour
 	{
 		this.damage = damage;
 	}
+
+	public void SetTeam(Team team)
+	{
+		this.team = team;
+	}
+	
 	public void SetShooter(TankBase shooter)
 	{
 		this.shooter = shooter;
@@ -51,11 +58,18 @@ public class Missile : MonoBehaviour
 		if (collision.collider.TryGetComponent(out Damageable damageable))
 		{
 			Debug.Log("con damageable");
-			damageable.ApplyDamage(damage, shooter);
+			if(damageable.CanBeDamaged(team))
+			{
+				damageable.ApplyDamage(damage, shooter);
+				StopCoroutine(coroutine);
+				Destroy(gameObject);
+			}
 		}
-
-		StopCoroutine(coroutine);
-		Destroy(gameObject);
+		else
+		{
+			StopCoroutine(coroutine);
+			Destroy(gameObject);
+		}
 	}
 
 	private void OnDestroy()

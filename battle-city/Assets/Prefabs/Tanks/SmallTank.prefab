@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7409887942509365752}
   - component: {fileID: 2844369902788103975}
   - component: {fileID: 1030076879072538126}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: wheel4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 2016430452952378120}
   - component: {fileID: 5779399673142011162}
   - component: {fileID: 1259791915840278238}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: bars
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -183,7 +183,7 @@ GameObject:
   - component: {fileID: 5855511296770876887}
   - component: {fileID: 5168582680674499774}
   - component: {fileID: 1690790432598623700}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: wheel3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -267,7 +267,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4833753594675573114}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ShootTransform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -300,7 +300,7 @@ GameObject:
   - component: {fileID: 4827124138699744825}
   - component: {fileID: 435770165414295016}
   - component: {fileID: 3490666675371980353}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: wheel2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -386,7 +386,7 @@ GameObject:
   - component: {fileID: 3630190926672258358}
   - component: {fileID: 2360808630595029134}
   - component: {fileID: 4299536430847740684}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: barrel_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -470,7 +470,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1271402399619529827}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: UTVTank
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -516,7 +516,7 @@ GameObject:
   - component: {fileID: 1809868800143723469}
   - component: {fileID: 2640226519123056221}
   - component: {fileID: 2350487366793364339}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SmallTank
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -568,6 +568,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ae95ecada3f711469445d989134b52b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Team: 1
   Hits: 1
 --- !u!54 &5826473696117825232
 Rigidbody:
@@ -662,7 +663,7 @@ GameObject:
   - component: {fileID: 6141029743961624836}
   - component: {fileID: 9173259673073701519}
   - component: {fileID: 743009797813189573}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: lights
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -748,7 +749,7 @@ GameObject:
   - component: {fileID: 5746122571817732649}
   - component: {fileID: 8323546283384629987}
   - component: {fileID: 1840552134212860144}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: UTV
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -834,7 +835,7 @@ GameObject:
   - component: {fileID: 2190819709645813984}
   - component: {fileID: 4384116393763247354}
   - component: {fileID: 8407442136839045529}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: barrel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -920,7 +921,7 @@ GameObject:
   - component: {fileID: 6461136478643858712}
   - component: {fileID: 3668278452947574976}
   - component: {fileID: 4648965758411706076}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: wheel1
   m_TagString: Untagged
   m_Icon: {fileID: 0}

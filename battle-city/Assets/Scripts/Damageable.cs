@@ -5,9 +5,13 @@ using UnityEngine.Rendering;
 public class Damageable : MonoBehaviour
 {
 	[SerializeField]
+	private Team Team = Team.Obstacle;
+	[SerializeField]
 	private int Hits = 1;
 
 	public event EventHandler<TankBase> OnDeath;
+
+	public Team GetTeam() => Team;
 
 	public void ApplyDamage(int damage, TankBase source)
 	{
@@ -17,5 +21,10 @@ public class Damageable : MonoBehaviour
 			OnDeath?.Invoke(this, source);
 			Destroy(gameObject);
 		}
+	}
+
+	public bool CanBeDamaged(Team team)
+	{
+		return !Team.Equals(team);
 	}
 }
