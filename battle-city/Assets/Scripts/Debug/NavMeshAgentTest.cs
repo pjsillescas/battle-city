@@ -12,7 +12,7 @@ public class NavMeshAgentTest : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
 		
         var destination = transform.position + 10 * new Vector3(Random.Range(0f, 1f), 0, Random.Range(0f, 1f));
-		Debug.Log($"going to ({destination.x},{destination.y},{destination.z})");
+		//Debug.Log($"going to ({destination.x},{destination.y},{destination.z})");
 
 		agent.SetDestination(destination);
 	}
@@ -23,7 +23,7 @@ public class NavMeshAgentTest : MonoBehaviour
         if(agent.remainingDistance <= agent.stoppingDistance)
         {
 			var destination = transform.position + 10 * new Vector3(Random.Range(0f, 1f), 0, Random.Range(0f, 1f));
-			Debug.Log($"going to ({destination.x},{destination.y},{destination.z})");
+			//Debug.Log($"going to ({destination.x},{destination.y},{destination.z})");
 
 			agent.SetDestination(destination);
 		}

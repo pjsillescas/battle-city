@@ -15,20 +15,20 @@ public class GameOverMenu : MonoBehaviour
 	{
 		MainMenuButton.onClick.AddListener(MainMenuButtonClick);
 
-		GameManager.OnLevelStart += OnLevelStart;
-		GameManager.OnGameOver += OnGameOver;
-		GameManager.OnLevelComplete += OnGameOver;
+		GameManager.GetInstance().OnLevelStart += OnLevelStart;
+		GameManager.GetInstance().OnGameOver += OnGameOver;
+		GameManager.GetInstance().OnLevelComplete += OnGameOver;
 	}
 
 	private void OnLevelStart(object sender, EventArgs args)
 	{
-		//Time.timeScale = 1f;
+		Time.timeScale = 1f;
 		WidgetPanel.SetActive(false);
 	}
 
 	private void OnGameOver(object sender, EventArgs args)
 	{
-		//Time.timeScale = 0f;
+		Time.timeScale = 0f;
 		WidgetPanel.SetActive(true);
 	}
 

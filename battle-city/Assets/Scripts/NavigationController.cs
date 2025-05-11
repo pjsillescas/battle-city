@@ -12,7 +12,7 @@ public class NavigationController : MonoBehaviour
 	
 	private void Awake()
 	{
-		if (instance != null)
+		if (instance != null && instance.gameObject != null)
 		{
 			Debug.LogError("Navigation duplicated");
 			return;

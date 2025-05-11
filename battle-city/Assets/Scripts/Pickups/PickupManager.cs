@@ -20,7 +20,7 @@ public class PickupManager : MonoBehaviour
 
 	private void Awake()
 	{
-		if(instance != null)
+		if(instance != null && instance.gameObject != null)
 		{
 			Debug.LogError("Pickup Manager duplicated");
 			return;

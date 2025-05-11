@@ -22,7 +22,7 @@ public class EnemyController : MonoBehaviour
 		//var destination = transform.position + 10 * new Vector3(Random.Range(0f, 1f), 0, Random.Range(0f, 1f));
 		var k = Random.Range(0, navigablePoints.Count);
 		var destination = navigablePoints[k];
-		Debug.Log($"going to ({destination.x},{destination.y},{destination.z})");
+		//Debug.Log($"going to ({destination.x},{destination.y},{destination.z})");
 
 		agent.SetDestination(destination);
 	}

@@ -5,12 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-	public static event EventHandler<int> OnEnemiesSet;
-	public static event EventHandler OnEnemyKilled;
-	public static event EventHandler<int> OnPlayerLivesChanged;
-	public static event EventHandler OnGameOver;
-	public static event EventHandler OnLevelComplete;
-	public static event EventHandler OnLevelStart;
+	public event EventHandler<int> OnEnemiesSet;
+	public event EventHandler OnEnemyKilled;
+	public  event EventHandler<int> OnPlayerLivesChanged;
+	public event EventHandler OnGameOver;
+	public event EventHandler OnLevelComplete;
+	public event EventHandler OnLevelStart;
 
 	[SerializeField]
 	private LevelFileLoader LevelLoader;
@@ -52,20 +52,38 @@ public class GameManager : MonoBehaviour
 
 	public List<Vector3> GetNavigablePoints() => navigablePoints;
 
-	// Start is called once before the first execution of Update after the MonoBehaviour is created
-	void Start()
+	private void Awake()
 	{
-		if (instance != null)
+		if (instance != null && instance.gameObject != null)
 		{
 			Debug.LogError("Game Manager duplicated");
 			return;
 		}
 
 		instance = this;
-
-		EnemySpawners = new();
+	}
+	
+	// Start is called once before the first execution of Update after the MonoBehaviour is created
+	void Start()
+	{
+		if (EnemySpawners == null)
+		{
+			EnemySpawners = new();
+		}
+		else
+		{
+			EnemySpawners.ForEach(spawner =>
+			{
+				if (spawner != null)
+				{
+					Destroy(spawner);
+				}
+			});
+			EnemySpawners.Clear();
+		}
 		Debug.Log("inicializando enemyspawners");
 		currentEnemySpawner = 0;
+		LevelFileLoader.OnLevelLoaded -= OnLevelLoaded;
 		LevelFileLoader.OnLevelLoaded += OnLevelLoaded;
 
 		LevelLoader.LoadLevel(new LevelObject() { tiles = Configuration.levelTiles, tanks = Configuration.tanks });
@@ -123,7 +141,7 @@ public class GameManager : MonoBehaviour
 
 		PickupManager.GetInstance().Initialize(navigablePoints);
 
-		//OnLevelStart?.Invoke(this, EventArgs.Empty);
+		OnLevelStart?.Invoke(this, EventArgs.Empty);
 	}
 	private void SetNavigablePoints(LevelObject levelObject)
 	{
@@ -285,6 +303,7 @@ public class GameManager : MonoBehaviour
 
 	private void CompleteLevel()
 	{
+		SceneManager.LoadScene("MainMenuScene");
 		OnLevelComplete?.Invoke(this, EventArgs.Empty);
 	}
 }

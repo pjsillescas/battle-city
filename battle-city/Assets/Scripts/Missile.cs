@@ -57,7 +57,6 @@ public class Missile : MonoBehaviour
 	{
 		if (collision.collider.TryGetComponent(out Damageable damageable))
 		{
-			Debug.Log("con damageable");
 			if(damageable.CanBeDamaged(team))
 			{
 				damageable.ApplyDamage(damage, shooter);
