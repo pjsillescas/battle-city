@@ -16,8 +16,8 @@ public class GameManager : MonoBehaviour
 	private LevelFileLoader LevelLoader;
 	[SerializeField]
 	private GameConfiguration Configuration;
-	[SerializeField]
-	private bool loadDebugLevel = false;
+	//[SerializeField]
+	//private bool loadDebugLevel = false;
 	[SerializeField]
 	private SpawnPoint Player1SpawnPoint;
 	[SerializeField]
@@ -213,10 +213,6 @@ public class GameManager : MonoBehaviour
 				EnemySpawners[k].LoadTanks(loads[k]);
 				EnemySpawners[k].DeployEnemy();
 			}
-			else
-			{
-				Debug.Log($"el enemy spawner {k} es null");
-			}
 		}
 
 		OnEnemiesSet?.Invoke(this, enemiesRemaining);
@@ -297,13 +293,11 @@ public class GameManager : MonoBehaviour
 	}
 	private void GameOver()
 	{
-		SceneManager.LoadScene("MainMenuScene");
 		OnGameOver?.Invoke(this, EventArgs.Empty);
 	}
 
 	private void CompleteLevel()
 	{
-		SceneManager.LoadScene("MainMenuScene");
 		OnLevelComplete?.Invoke(this, EventArgs.Empty);
 	}
 }

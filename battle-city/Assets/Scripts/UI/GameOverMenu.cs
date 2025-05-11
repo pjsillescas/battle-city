@@ -20,6 +20,15 @@ public class GameOverMenu : MonoBehaviour
 		GameManager.GetInstance().OnLevelComplete += OnGameOver;
 	}
 
+	private void OnDestroy()
+	{
+		
+		GameManager.GetInstance().OnLevelStart -= OnLevelStart;
+		GameManager.GetInstance().OnGameOver -= OnGameOver;
+		GameManager.GetInstance().OnLevelComplete -= OnGameOver;
+
+	}
+
 	private void OnLevelStart(object sender, EventArgs args)
 	{
 		Time.timeScale = 1f;
