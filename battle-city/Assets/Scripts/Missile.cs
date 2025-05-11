@@ -53,6 +53,24 @@ public class Missile : MonoBehaviour
 		transform.position += SPEED * Time.deltaTime * forward;
 	}
 
+	private void OnTriggerEnter(Collider other)
+	{
+		if (other.TryGetComponent(out Damageable damageable))
+		{
+			if (damageable.CanBeDamaged(team))
+			{
+				damageable.ApplyDamage(damage, shooter);
+				StopCoroutine(coroutine);
+				Destroy(gameObject);
+			}
+		}
+		else
+		{
+			StopCoroutine(coroutine);
+			Destroy(gameObject);
+		}
+	}
+	/*
 	private void OnCollisionEnter(Collision collision)
 	{
 		if (collision.collider.TryGetComponent(out Damageable damageable))
@@ -70,7 +88,7 @@ public class Missile : MonoBehaviour
 			Destroy(gameObject);
 		}
 	}
-
+	*/
 	private void OnDestroy()
 	{
 		//StopCoroutine(coroutine);
