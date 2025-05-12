@@ -40,6 +40,8 @@ public class GameManager : MonoBehaviour
 	private GameObject MediumTankPrefab;
 	[SerializeField]
 	private GameObject HeavyTankPrefab;
+	[SerializeField]
+	private AudioManager AudioManager;
 
 	private List<Vector3> navigablePoints;
 	private int currentEnemySpawner;
@@ -117,6 +119,7 @@ public class GameManager : MonoBehaviour
 	private void OnLevelLoaded(object sender, LevelObject levelObject)
 	{
 		Debug.Log("level loaded");
+		AudioManager.PlayBackground();
 		NavigationController.GetInstance().RebuildNavMesh();
 
 		if (Player1SpawnPoint != null && Player1Prefab != null && PlayerController1)

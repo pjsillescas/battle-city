@@ -22,6 +22,8 @@ public class MainMenuWidget : MonoBehaviour
 	private TMP_Dropdown LevelDropdown;
 	[SerializeField]
 	private GameConfiguration Configuration;
+	[SerializeField]
+	private AudioManager AudioManager;
 
 
 	// Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -30,6 +32,7 @@ public class MainMenuWidget : MonoBehaviour
         OnePlayerButton.onClick.AddListener(OnePlayerClick);
 		TwoPlayerButton.onClick.AddListener(TwoPlayerClick);
 		ConstructionButton.onClick.AddListener(ConstructionClick);
+		AudioManager.PlayMainMenuBackground();
 	}
 
 	private void OnFinishLoadLevel(LevelObject levelObject)
