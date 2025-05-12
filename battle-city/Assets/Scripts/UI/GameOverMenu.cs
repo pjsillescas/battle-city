@@ -43,6 +43,10 @@ public class GameOverMenu : MonoBehaviour
 		Time.timeScale = 0f;
 		TitleText.text = "Game Over";
 		WidgetPanel.SetActive(true);
+		
+		var audioManager = FindFirstObjectByType<AudioManager>();
+		audioManager.StopBackground();
+		audioManager.PlayLoseFanfare();
 	}
 
 	private void OnLevelComplete(object sender, EventArgs args)
@@ -50,8 +54,11 @@ public class GameOverMenu : MonoBehaviour
 		Time.timeScale = 0f;
 		TitleText.text = "Level Complete!!";
 		WidgetPanel.SetActive(true);
+		var audioManager = FindFirstObjectByType<AudioManager>();
+		audioManager.StopBackground();
+		audioManager.PlayWinFanfare();
 	}
-	
+
 	private void MainMenuButtonClick()
 	{
 		SceneManager.LoadScene("MainMenuScene");
