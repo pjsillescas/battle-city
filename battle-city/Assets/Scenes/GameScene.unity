@@ -1306,6 +1306,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MainMenuButton: {fileID: 455322630}
   WidgetPanel: {fileID: 37400574}
+  TitleText: {fileID: 172627495}
 --- !u!1 &685977387
 GameObject:
   m_ObjectHideFlags: 0
@@ -2003,7 +2004,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LevelLoader: {fileID: 881254893}
   Configuration: {fileID: 11400000, guid: eb906c8ed058b8747aceecf3c3382d22, type: 2}
-  loadDebugLevel: 0
   Player1SpawnPoint: {fileID: 939922976976036294, guid: 485d6d84c8f4a07439bc80ddc8ca993c, type: 3}
   Player1Prefab: {fileID: 7901564516489750458, guid: 1adf9d28d2068b841ac048e3ba7a03a9, type: 3}
   Player2SpawnPoint: {fileID: 939922976976036294, guid: 485d6d84c8f4a07439bc80ddc8ca993c, type: 3}

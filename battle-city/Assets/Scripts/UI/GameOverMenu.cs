@@ -1,4 +1,5 @@
 using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -9,6 +10,8 @@ public class GameOverMenu : MonoBehaviour
 	private Button MainMenuButton;
 	[SerializeField]
 	private GameObject WidgetPanel;
+	[SerializeField]
+	private TextMeshProUGUI TitleText;
 
 	// Start is called once before the first execution of Update after the MonoBehaviour is created
 	void Start()
@@ -17,7 +20,7 @@ public class GameOverMenu : MonoBehaviour
 
 		GameManager.GetInstance().OnLevelStart += OnLevelStart;
 		GameManager.GetInstance().OnGameOver += OnGameOver;
-		GameManager.GetInstance().OnLevelComplete += OnGameOver;
+		GameManager.GetInstance().OnLevelComplete += OnLevelComplete;
 	}
 
 	private void OnDestroy()
@@ -25,7 +28,7 @@ public class GameOverMenu : MonoBehaviour
 		
 		GameManager.GetInstance().OnLevelStart -= OnLevelStart;
 		GameManager.GetInstance().OnGameOver -= OnGameOver;
-		GameManager.GetInstance().OnLevelComplete -= OnGameOver;
+		GameManager.GetInstance().OnLevelComplete -= OnLevelComplete;
 
 	}
 
@@ -38,9 +41,17 @@ public class GameOverMenu : MonoBehaviour
 	private void OnGameOver(object sender, EventArgs args)
 	{
 		Time.timeScale = 0f;
+		TitleText.text = "Game Over";
 		WidgetPanel.SetActive(true);
 	}
 
+	private void OnLevelComplete(object sender, EventArgs args)
+	{
+		Time.timeScale = 0f;
+		TitleText.text = "Level Complete!!";
+		WidgetPanel.SetActive(true);
+	}
+	
 	private void MainMenuButtonClick()
 	{
 		SceneManager.LoadScene("MainMenuScene");
