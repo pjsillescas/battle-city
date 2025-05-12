@@ -5,6 +5,10 @@ using UnityEngine;
 public class Missile : MonoBehaviour
 {
 	private const float SPEED = 8.0f;
+
+	[SerializeField]
+	private GameObject ExplosionPrefab;
+
 	private float lifetime = 3f;
 	private Team team;
 
@@ -53,6 +57,12 @@ public class Missile : MonoBehaviour
 		transform.position += SPEED * Time.deltaTime * forward;
 	}
 
+	private void DestroySelf()
+	{
+		StopCoroutine(coroutine);
+		Destroy(Instantiate(ExplosionPrefab, transform.position, Quaternion.identity), 2f);
+		Destroy(gameObject);
+	}
 	private void OnTriggerEnter(Collider other)
 	{
 		if (other.TryGetComponent(out Damageable damageable))
@@ -60,14 +70,12 @@ public class Missile : MonoBehaviour
 			if (damageable.CanBeDamaged(team))
 			{
 				damageable.ApplyDamage(damage, shooter);
-				StopCoroutine(coroutine);
-				Destroy(gameObject);
+				DestroySelf();
 			}
 		}
 		else
 		{
-			StopCoroutine(coroutine);
-			Destroy(gameObject);
+			DestroySelf();
 		}
 	}
 	/*
