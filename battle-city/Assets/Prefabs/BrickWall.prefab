@@ -150,6 +150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ae95ecada3f711469445d989134b52b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Team: 2
   Hits: 1
 --- !u!114 &7312125173449216399
 MonoBehaviour:
@@ -163,3 +164,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c7b80d1b07cbcf4ea298678233a2b86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DestructionWallPrefab: {fileID: 5609643615870006351, guid: 9200fe02cff81104cba33d30806ecd1f, type: 3}

@@ -8,12 +8,11 @@ public class BrickWall : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
-    }
+		GetComponent<Damageable>().OnDeath += OnDeath;
+	}
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+	private void OnDeath(object sender, TankBase tank)
+	{
+		Destroy(Instantiate(DestructionWallPrefab, transform.position, Quaternion.identity), 2f);
+	}
 }
