@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class BrickWall : MonoBehaviour
 {
+    [SerializeField]
+    private GameObject DestructionWallPrefab;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
