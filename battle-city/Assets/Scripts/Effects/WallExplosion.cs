@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class WallExplosion : MonoBehaviour
 {
-	private const int cubesPerAxisX = 2;
-	private const int cubesPerAxisY = 2;
-	private const int cubesPerAxisZ = 2;
+	private const int cubesPerAxisX = 4;
+	private const int cubesPerAxisY = 4;
+	private const int cubesPerAxisZ = 4;
 	private const float delay = 0.2f;
 	private const float force = 300f;
 	private const float radius = 5f;
@@ -45,6 +45,8 @@ public class WallExplosion : MonoBehaviour
 		cube.transform.position = firstCube + transform.rotation * Vector3.Scale(coordinates, cube.transform.localScale);// /scaleFactor;
 
 		var rigidBody = cube.AddComponent<Rigidbody>();
+		cube.layer = LayerMask.NameToLayer("Debris");
+		//rigidBody.mass = 10f;
 		rigidBody.AddExplosionForce(force, transform.position, radius);
 
 		Destroy(cube, 1f);
