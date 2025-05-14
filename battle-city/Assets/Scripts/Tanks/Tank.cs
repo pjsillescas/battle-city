@@ -87,6 +87,11 @@ public class Tank : TankBase
 		//SetTankLevel((tankLevel + 1) %  tankLevels.Count);
 	}
 
+	public void StartShield()
+	{
+		;
+	}
+
 	// Update is called once per frame
 	void Update()
     {

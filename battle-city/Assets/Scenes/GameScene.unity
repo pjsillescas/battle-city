@@ -2228,6 +2228,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PickupPrefabs:
   - {fileID: 3676356044006367568, guid: 129c1685fe898ee4196dd4863215eb3a, type: 3}
+  - {fileID: 3807387944522321637, guid: 8cc58829bff93b54dbbc29ec306ae9b5, type: 3}
+  - {fileID: 7486013403841851632, guid: 4df93be229d8bfe4e968bb644a515277, type: 3}
+  - {fileID: 7953178666628947907, guid: 65c7c965219297b4ebbe2fe79f3d178a, type: 3}
+  - {fileID: 2859636886701834663, guid: f204c6e76006b0e4bae942a553b721c9, type: 3}
   SpawningCooldown: 30
 --- !u!4 &1177278240
 Transform:

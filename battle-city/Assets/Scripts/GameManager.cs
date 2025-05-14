@@ -1,10 +1,14 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+	private const int DEFAULT_PLAYER_LIVES = 3;
+	private const int MORTAL_DAMAGE = 5;
+
 	public event EventHandler<int> OnEnemiesSet;
 	public event EventHandler OnEnemyKilled;
 	public  event EventHandler<int> OnPlayerLivesChanged;
@@ -16,8 +20,6 @@ public class GameManager : MonoBehaviour
 	private LevelFileLoader LevelLoader;
 	[SerializeField]
 	private GameConfiguration Configuration;
-	//[SerializeField]
-	//private bool loadDebugLevel = false;
 	[SerializeField]
 	private SpawnPoint Player1SpawnPoint;
 	[SerializeField]
@@ -46,7 +48,8 @@ public class GameManager : MonoBehaviour
 	private List<Vector3> navigablePoints;
 	private int currentEnemySpawner;
 	private int enemiesRemaining;
-	private int playerLives = 3;
+	private int playerLives = DEFAULT_PLAYER_LIVES;
+	private List<TankEnemy> SpawnedTanks;
 
 	private static GameManager instance = null;
 
@@ -68,6 +71,8 @@ public class GameManager : MonoBehaviour
 	// Start is called once before the first execution of Update after the MonoBehaviour is created
 	void Start()
 	{
+		SpawnedTanks = new();
+
 		if (EnemySpawners == null)
 		{
 			EnemySpawners = new();
@@ -205,6 +210,7 @@ public class GameManager : MonoBehaviour
 		}
 		foreach (var tank in tanks)
 		{
+			SpawnedTanks.Add(tank);
 			loads[k].Add(tank);
 			k = (k + 1) % EnemySpawners.Count;
 		}
@@ -219,6 +225,11 @@ public class GameManager : MonoBehaviour
 		}
 
 		OnEnemiesSet?.Invoke(this, enemiesRemaining);
+	}
+
+	public void AddLives(int numLives)
+	{
+		playerLives += numLives;
 	}
 
 	private void Player1Respawn(object sender, TankBase tank)
@@ -302,5 +313,31 @@ public class GameManager : MonoBehaviour
 	private void CompleteLevel()
 	{
 		OnLevelComplete?.Invoke(this, EventArgs.Empty);
+	}
+
+	private List<TankEnemy> GetActiveTanks()
+	{
+		return SpawnedTanks.Where(tank => tank.isActiveAndEnabled).ToList();
+	}
+
+	public void KillAllEnemies()
+	{
+		GetActiveTanks().ForEach(tank => {
+			tank.GetComponent<Damageable>().ApplyDamage(MORTAL_DAMAGE, null);
+		});
+	}
+
+	public void StopWatch()
+	{
+		StartCoroutine(PlayStopWatch());
+	}
+
+	private IEnumerator PlayStopWatch()
+	{
+		SpawnedTanks.Where(tank => tank != null).ToList().ForEach(tank => tank.Stop());
+		yield return new WaitForSeconds(15);
+
+		SpawnedTanks.Where(tank => tank != null).ToList().ForEach(tank => tank.Play());
+		yield return null;
 	}
 }

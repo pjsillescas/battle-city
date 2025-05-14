@@ -14,9 +14,12 @@ public class TankEnemy : TankBase
 	[SerializeField]
 	private int ShootLimit;
 
+	private bool isStoppedWatch;
+
 	// Start is called once before the first execution of Update after the MonoBehaviour is created
 	void Start()
 	{
+		isStoppedWatch = false;
 		SetSpeed(Speed);
 		SetTeam(GetComponent<Damageable>().GetTeam());
 		SetInputThreshold(INPUT_THRESHOLD);
@@ -25,7 +28,22 @@ public class TankEnemy : TankBase
 
 	public void LaunchMissile()
 	{
-		ShootMissile(ShootTransform, MissilePrefab);
+		if (!isStoppedWatch)
+		{
+			ShootMissile(ShootTransform, MissilePrefab);
+		}
+	}
+
+	public void Stop()
+	{
+		isStoppedWatch = true;
+		SetSpeed(0);
+	}
+
+	public void Play()
+	{
+		isStoppedWatch = false;
+		SetSpeed(Speed);
 	}
 
 	// Update is called once per frame
