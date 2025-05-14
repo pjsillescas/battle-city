@@ -230,15 +230,15 @@ public class GameManager : MonoBehaviour
 	public void AddLives(int numLives)
 	{
 		playerLives += numLives;
+		OnPlayerLivesChanged?.Invoke(this, playerLives);
 	}
 
 	private void Player1Respawn(object sender, TankBase tank)
 	{
 		playerLives--;
+		OnPlayerLivesChanged?.Invoke(this, playerLives);
 		if (playerLives > 0)
 		{
-			OnPlayerLivesChanged?.Invoke(this, playerLives);
-
 			var player1Pawn = Instantiate(Player1Prefab, Player1SpawnPoint.transform.position, Player1SpawnPoint.transform.rotation);
 			player1Pawn.GetComponent<Damageable>().OnDeath += Player1Respawn;
 			PlayerController1.SetPawnTank(player1Pawn.GetComponent<Tank>());
@@ -317,7 +317,7 @@ public class GameManager : MonoBehaviour
 
 	private List<TankEnemy> GetActiveTanks()
 	{
-		return SpawnedTanks.Where(tank => tank.isActiveAndEnabled).ToList();
+		return SpawnedTanks.Where(tank => tank != null && tank.isActiveAndEnabled).ToList();
 	}
 
 	public void KillAllEnemies()

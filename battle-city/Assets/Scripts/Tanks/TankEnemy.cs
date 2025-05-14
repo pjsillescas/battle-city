@@ -16,11 +16,16 @@ public class TankEnemy : TankBase
 
 	private bool isStoppedWatch;
 
+
+	private void Awake()
+	{
+		isStoppedWatch = false;
+	}
+
 	// Start is called once before the first execution of Update after the MonoBehaviour is created
 	void Start()
 	{
-		isStoppedWatch = false;
-		SetSpeed(Speed);
+		SetSpeed(isStoppedWatch ? 0 : Speed);
 		SetTeam(GetComponent<Damageable>().GetTeam());
 		SetInputThreshold(INPUT_THRESHOLD);
 		SetMaxMissilesLaunched(ShootLimit);
