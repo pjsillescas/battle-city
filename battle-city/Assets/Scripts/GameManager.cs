@@ -305,7 +305,7 @@ public class GameManager : MonoBehaviour
 	{
 
 	}
-	private void GameOver()
+	public void GameOver()
 	{
 		OnGameOver?.Invoke(this, EventArgs.Empty);
 	}

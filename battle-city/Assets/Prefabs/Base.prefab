@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 5575264555117837684}
   - component: {fileID: 8215740802973505260}
   - component: {fileID: 580686459483990890}
+  - component: {fileID: -7726011538497292599}
+  - component: {fileID: 7370393096554373357}
   m_Layer: 0
   m_Name: Base
   m_TagString: Untagged
@@ -136,3 +138,29 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!114 &-7726011538497292599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8184492017287333634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ae95ecada3f711469445d989134b52b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Team: 2
+  Hits: 1
+--- !u!114 &7370393096554373357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8184492017287333634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 888f47d0dcf175e43956f6cb5b33e684, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
