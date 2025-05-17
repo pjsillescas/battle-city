@@ -52,7 +52,7 @@ public class GameOverMenu : MonoBehaviour
 	private void OnLevelComplete(object sender, EventArgs args)
 	{
 		Time.timeScale = 0f;
-		TitleText.text = "Level Complete!!";
+		TitleText.text = "Level Finished";
 		WidgetPanel.SetActive(true);
 		var audioManager = FindFirstObjectByType<AudioManager>();
 		audioManager.StopBackground();

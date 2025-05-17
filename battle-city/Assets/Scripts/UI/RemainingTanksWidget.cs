@@ -46,6 +46,8 @@ public class RemainingTanksWidget : MonoBehaviour
 			for (int k = 0; k < numEnemies; k++)
 			{
 				var token = Instantiate(TokenPrefab);
+
+				token.transform.localScale = 0.5f * Vector3.one;
 				token.transform.SetParent(transform);
 				tokens.Add(token);
 			}
