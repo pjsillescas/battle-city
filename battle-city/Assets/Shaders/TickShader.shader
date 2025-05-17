@@ -15,8 +15,6 @@ Shader "Unlit/TickShader"
             CGPROGRAM
             #pragma vertex vert
             #pragma fragment frag
-            // make fog work
-            //#pragma multi_compile_fog
 
             #include "UnityCG.cginc"
 
@@ -48,29 +46,17 @@ Shader "Unlit/TickShader"
 
             fixed4 frag (v2f i) : SV_Target
             {
-                /*
-                float3 worldScale = float3(
-                    length(float3(unity_ObjectToWorld[0].x, unity_ObjectToWorld[1].x, unity_ObjectToWorld[2].x)), // scale x axis
-                    length(float3(unity_ObjectToWorld[0].y, unity_ObjectToWorld[1].y, unity_ObjectToWorld[2].y)), // scale y axis
-                    length(float3(unity_ObjectToWorld[0].z, unity_ObjectToWorld[1].z, unity_ObjectToWorld[2].z))  // scale z axis
-                );
-                */
-                // worldScale.x
-                float scale = 1.0f;
                 // sample the texture
-                fixed4 col = tex2D(_MainTex, i.uv * scale);
+                fixed4 col = tex2D(_MainTex, i.uv);
                 if(col.w != 0)
                 {
                     col = _Color;
                 }
                 else
                 {
-                    col = (0,0,0,0);
+                    col = float4(0,0,0,0);
                 }
                 
-                //col = (0,1,0,1);
-                // apply fog
-                //UNITY_APPLY_FOG(i.fogCoord, col);
                 return col;
             }
             ENDCG
