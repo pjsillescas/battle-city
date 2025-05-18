@@ -271,7 +271,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f1fa17aa402f3445aec4e2361abd7ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 5
+  Speed: 3
   ShootTransform: {fileID: 5782073748903602331}
   MissilePrefab: {fileID: 4350236990234759566, guid: f1c3389f18eddfd42b9e694122214ed7, type: 3}
   ShootLimit: 1

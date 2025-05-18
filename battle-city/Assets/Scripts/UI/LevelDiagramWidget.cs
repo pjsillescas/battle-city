@@ -116,7 +116,7 @@ public class LevelDiagramWidget : MonoBehaviour
 		Configuration.SetLevelTiles(levelTiles);
 		Configuration.SetTanks(tanks);
 		DebugLevel(levelTiles);
-		SceneManager.LoadScene("GameScene",LoadSceneMode.Single);
+		//SceneManager.LoadScene("GameScene",LoadSceneMode.Single);
 	}
 
 	private void OnTileTypeSelect(object sender, TileType tileType)
