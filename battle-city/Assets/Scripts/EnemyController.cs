@@ -43,11 +43,13 @@ public class EnemyController : MonoBehaviour
 		StartCoroutine(PauseStart());
 	}
 
+	private float START_PAUSE_COOLDOWN = 1f;
+
 	private IEnumerator PauseStart()
 	{
 		tank.Deactivate();
 		agent.speed = 0;
-		yield return new WaitForSeconds(1f);
+		yield return new WaitForSeconds(START_PAUSE_COOLDOWN);
 		
 		tank.Activate();
 		agent.speed = tank.GetSpeed();

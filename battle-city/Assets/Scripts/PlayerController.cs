@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Xml.Schema;
 using UnityEngine;
 
@@ -7,6 +8,7 @@ public class PlayerController : MonoBehaviour
 	private Tank ControlledTank;
 
 	private InputActions actions;
+	private bool isActivated;
 
 	private const float XMin = 0f;
 	private const float XMax = 25f;
@@ -16,6 +18,7 @@ public class PlayerController : MonoBehaviour
 
 	void Awake()
 	{
+		isActivated = false;
 		actions = new InputActions();
 		actions.Enable();
 	}
@@ -23,11 +26,11 @@ public class PlayerController : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		if(ControlledTank == null)
+		if(ControlledTank == null || !isActivated)
 		{
 			return;
 		}
-
+		
 		var input = actions.Player.Move.ReadValue<Vector2>();
 
 		if (input != null)
@@ -49,5 +52,20 @@ public class PlayerController : MonoBehaviour
 	public void SetPawnTank(Tank tank)
 	{
 		ControlledTank = tank;
+		StartCoroutine(PauseStart());
 	}
+
+	private const float START_PAUSE_COOLDOWN = 1f;
+
+	private IEnumerator PauseStart()
+	{
+		ControlledTank.Deactivate();
+		isActivated = false;
+		yield return new WaitForSeconds(START_PAUSE_COOLDOWN);
+
+		ControlledTank.Activate();
+		isActivated = true;
+		yield return null;
+	}
+
 }
