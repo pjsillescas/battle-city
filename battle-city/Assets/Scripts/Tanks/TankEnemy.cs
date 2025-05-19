@@ -13,19 +13,25 @@ public class TankEnemy : TankBase
 	private GameObject MissilePrefab;
 	[SerializeField]
 	private int ShootLimit;
+	[SerializeField]
+	private ParticleSystem Particles;
 
 	private bool isStoppedWatch;
+	private bool isActivated;
 
 
 	private void Awake()
 	{
 		isStoppedWatch = false;
+		isActivated = false;
+		
 	}
 
 	// Start is called once before the first execution of Update after the MonoBehaviour is created
 	void Start()
 	{
-		SetSpeed(isStoppedWatch ? 0 : Speed);
+		SetParticles(Particles);
+		SetSpeed(isStoppedWatch || !isActivated? 0 : Speed);
 		SetTeam(GetComponent<Damageable>().GetTeam());
 		SetInputThreshold(INPUT_THRESHOLD);
 		SetMaxMissilesLaunched(ShootLimit);
@@ -33,7 +39,7 @@ public class TankEnemy : TankBase
 
 	public void LaunchMissile()
 	{
-		if (!isStoppedWatch)
+		if (!isStoppedWatch && isActivated)
 		{
 			ShootMissile(ShootTransform, MissilePrefab);
 		}
@@ -42,18 +48,27 @@ public class TankEnemy : TankBase
 	public void Stop()
 	{
 		isStoppedWatch = true;
+		isActivated = false;
 		SetSpeed(0);
 	}
 
 	public void Play()
 	{
 		isStoppedWatch = false;
+		isActivated = true;
 		SetSpeed(Speed);
 	}
 
-	// Update is called once per frame
-	void Update()
+	public override void Activate()
 	{
+		base.Activate();
+		Debug.Log("activate");
+		Play();
+	}
 
+	public override void Deactivate()
+	{
+		base.Deactivate();
+		Stop();
 	}
 }

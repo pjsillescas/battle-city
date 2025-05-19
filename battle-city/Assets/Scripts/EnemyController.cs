@@ -39,6 +39,19 @@ public class EnemyController : MonoBehaviour
 		navigablePoints = GameManager.GetInstance().GetNavigablePoints();
 
 		SetNewDestination();
+
+		StartCoroutine(PauseStart());
+	}
+
+	private IEnumerator PauseStart()
+	{
+		tank.Deactivate();
+		agent.speed = 0;
+		yield return new WaitForSeconds(1f);
+		
+		tank.Activate();
+		agent.speed = tank.GetSpeed();
+		yield return null;
 	}
 
 	// Update is called once per frame

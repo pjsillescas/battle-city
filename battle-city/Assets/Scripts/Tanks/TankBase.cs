@@ -8,6 +8,7 @@ public class TankBase : MonoBehaviour
 	private float speed;
 	private float inputThreshold;
 	private int maxMissilesLaunched;
+	private ParticleSystem particles;
 
 	public void SetSpeed(float speed)
 	{
@@ -74,5 +75,36 @@ public class TankBase : MonoBehaviour
 	public void OnMissileDestroy(object sender, EventArgs args)
 	{
 		maxMissilesLaunched++;
+	}
+
+	protected void SetParticles(ParticleSystem particles)
+	{
+		this.particles = particles;
+	}
+
+	public void StartParticles()
+	{
+		if (particles != null)
+		{
+			particles.Play();
+		}
+	}
+
+	public void StopParticles()
+	{
+		if (particles != null)
+		{
+			particles.Stop();
+		}
+	}
+
+	public virtual void Deactivate()
+	{
+		particles.Play();
+	}
+
+	public virtual void Activate()
+	{
+		particles.Stop();
 	}
 }
