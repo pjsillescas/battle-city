@@ -35,6 +35,8 @@ public class Tank : TankBase
 	private int ShootLimit3;
 	[SerializeField]
 	private int ShootLimit4;
+	[SerializeField]
+	private ParticleSystem Particles;
 
 	private int tankLevel = 0;
     private List<GameObject> tankLevels;
@@ -57,6 +59,8 @@ public class Tank : TankBase
 
 		team = GetComponent<Damageable>().GetTeam();
 		SetTankLevel(0);
+		Debug.Log("set particles");
+		SetParticles(Particles);
 	}
 
 	public void SetTankLevel(int level)

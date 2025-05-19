@@ -30,6 +30,7 @@ public class TankEnemy : TankBase
 	// Start is called once before the first execution of Update after the MonoBehaviour is created
 	void Start()
 	{
+		Debug.Log("set particles enemy");
 		SetParticles(Particles);
 		SetSpeed(isStoppedWatch || !isActivated? 0 : Speed);
 		SetTeam(GetComponent<Damageable>().GetTeam());
@@ -61,8 +62,8 @@ public class TankEnemy : TankBase
 
 	public override void Activate()
 	{
+		Debug.Log("activate enemy");
 		base.Activate();
-		Debug.Log("activate");
 		Play();
 	}
 

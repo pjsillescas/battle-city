@@ -121,6 +121,7 @@ public class GameManager : MonoBehaviour
 		Debug.Log($"added {enemySpawner.name} there are {EnemySpawners.Count} enemy spawners");
 	}
 
+	private const float SET_PAWN_DELAY = 0.2f;
 	private void OnLevelLoaded(object sender, LevelObject levelObject)
 	{
 		Debug.Log("level loaded");
@@ -133,14 +134,14 @@ public class GameManager : MonoBehaviour
 			
 			var player1Pawn = Instantiate(Player1Prefab, Player1SpawnPoint.transform.position, Player1SpawnPoint.transform.rotation);
 			player1Pawn.GetComponent<Damageable>().OnDeath += Player1Respawn;
-			PlayerController1.SetPawnTank(player1Pawn.GetComponent<Tank>());
+			StartCoroutine(RunAfter(SET_PAWN_DELAY, () => PlayerController1.SetPawnTank(player1Pawn.GetComponent<Tank>())));
 		}
 		
 		if (Player2SpawnPoint != null && Player2Prefab != null && PlayerController2)
 		{
 			var player2Pawn = Instantiate(Player2Prefab, Player2SpawnPoint.transform.position, Player2SpawnPoint.transform.rotation);
 			player2Pawn.GetComponent<Damageable>().OnDeath += Player2Respawn;
-			PlayerController2.SetPawnTank(player2Pawn.GetComponent<Tank>());
+			StartCoroutine(RunAfter(SET_PAWN_DELAY, () => PlayerController2.SetPawnTank(player2Pawn.GetComponent<Tank>())));
 		}
 
 		SetNavigablePoints(levelObject);
@@ -241,7 +242,7 @@ public class GameManager : MonoBehaviour
 		{
 			var player1Pawn = Instantiate(Player1Prefab, Player1SpawnPoint.transform.position, Player1SpawnPoint.transform.rotation);
 			player1Pawn.GetComponent<Damageable>().OnDeath += Player1Respawn;
-			PlayerController1.SetPawnTank(player1Pawn.GetComponent<Tank>());
+			StartCoroutine(RunAfter(SET_PAWN_DELAY, () => PlayerController1.SetPawnTank(player1Pawn.GetComponent<Tank>())));
 		}
 		else
 		{
@@ -249,11 +250,19 @@ public class GameManager : MonoBehaviour
 		}
 	}
 
+	private IEnumerator RunAfter(float offset, Action action)
+	{
+		yield return new WaitForSeconds(offset);
+
+		action.Invoke();
+		yield return null;
+	}
+
 	private void Player2Respawn(object sender, TankBase tank)
 	{
 		var player2Pawn = Instantiate(Player2Prefab, Player2SpawnPoint.transform.position, Player2SpawnPoint.transform.rotation);
 		player2Pawn.GetComponent<Damageable>().OnDeath += Player2Respawn;
-		PlayerController2.SetPawnTank(player2Pawn.GetComponent<Tank>());
+		StartCoroutine(RunAfter(SET_PAWN_DELAY, () => PlayerController2.SetPawnTank(player2Pawn.GetComponent<Tank>())));
 	}
 
 	private void FillTanks(GameObject prefab, int numTanks, ref List<TankEnemy> tanks)

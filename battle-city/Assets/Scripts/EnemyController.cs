@@ -47,6 +47,8 @@ public class EnemyController : MonoBehaviour
 
 	private IEnumerator PauseStart()
 	{
+		yield return new WaitForSeconds(0.2f);
+		
 		tank.Deactivate();
 		agent.speed = 0;
 		yield return new WaitForSeconds(START_PAUSE_COOLDOWN);

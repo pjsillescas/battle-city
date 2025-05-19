@@ -59,12 +59,14 @@ public class PlayerController : MonoBehaviour
 
 	private IEnumerator PauseStart()
 	{
+		Debug.Log("pause player");
 		ControlledTank.Deactivate();
 		isActivated = false;
 		yield return new WaitForSeconds(START_PAUSE_COOLDOWN);
 
 		ControlledTank.Activate();
 		isActivated = true;
+		Debug.Log("activate player");
 		yield return null;
 	}
 

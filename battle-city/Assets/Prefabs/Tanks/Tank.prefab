@@ -7217,6 +7217,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 2880142327564320286}
   - {fileID: 7524073931099535718}
   - {fileID: 4034908236693806837}
   - {fileID: 1211747558541099198}
@@ -7226,7 +7227,6 @@ Transform:
   - {fileID: 6748954539213409531}
   - {fileID: 4183269500947792476}
   - {fileID: 7232682296217629199}
-  - {fileID: 2880142327564320286}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2891669466130639494
@@ -7254,6 +7254,7 @@ MonoBehaviour:
   ShootLimit2: 1
   ShootLimit3: 1
   ShootLimit4: 2
+  Particles: {fileID: 8341456389561149926}
 --- !u!54 &4652018152986867001
 Rigidbody:
   m_ObjectHideFlags: 0
