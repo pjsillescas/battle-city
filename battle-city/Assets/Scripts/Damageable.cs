@@ -10,6 +10,12 @@ public class Damageable : MonoBehaviour
 	private int Hits = 1;
 
 	public event EventHandler<TankBase> OnDeath;
+	public bool isInvulnerable = false;
+
+	public void SetIsInvulnerable(bool isInvulnerable)
+	{
+		this.isInvulnerable = isInvulnerable;
+	}
 
 	public Team GetTeam() => Team;
 
@@ -25,6 +31,6 @@ public class Damageable : MonoBehaviour
 
 	public bool CanBeDamaged(Team team)
 	{
-		return !Team.Equals(team);
+		return !Team.Equals(team) && !isInvulnerable;
 	}
 }

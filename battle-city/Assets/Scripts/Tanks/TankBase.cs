@@ -9,6 +9,26 @@ public class TankBase : MonoBehaviour
 	private float inputThreshold;
 	private int maxMissilesLaunched;
 	private ParticleSystem particles;
+	private Damageable damageable;
+
+	public void SetIsInvulnerable(bool isInvulnerable)
+	{
+		if (isInvulnerable)
+		{
+			StartParticles();
+		}
+		else
+		{
+			StopParticles();
+		}
+		
+		if(damageable == null)
+		{
+			damageable = GetComponent<Damageable>();
+		}
+
+		damageable.SetIsInvulnerable(isInvulnerable);
+	}
 
 	public void SetSpeed(float speed)
 	{
@@ -100,11 +120,13 @@ public class TankBase : MonoBehaviour
 
 	public virtual void Deactivate()
 	{
-		particles.Play();
+		//particles.Play();
+		SetIsInvulnerable(true);
 	}
 
 	public virtual void Activate()
 	{
-		particles.Stop();
+		//particles.Stop();
+		SetIsInvulnerable(false);
 	}
 }

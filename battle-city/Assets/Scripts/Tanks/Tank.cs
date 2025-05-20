@@ -3,6 +3,7 @@ using UnityEngine;
 using System.Linq;
 using System;
 using Unity.VisualScripting;
+using System.Collections;
 
 public class Tank : TankBase
 {
@@ -93,7 +94,17 @@ public class Tank : TankBase
 
 	public void StartShield()
 	{
-		;
+		StartCoroutine(ActivateShield());
+	}
+
+	private const float INVULNERABILITY_DELAY = 20f;
+	private IEnumerator ActivateShield()
+	{
+		SetIsInvulnerable(true);
+		yield return new WaitForSeconds(INVULNERABILITY_DELAY);
+		
+		SetIsInvulnerable(false);
+		yield return null;
 	}
 
 	// Update is called once per frame
