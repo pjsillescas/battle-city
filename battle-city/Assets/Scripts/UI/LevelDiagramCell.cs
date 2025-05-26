@@ -1,10 +1,13 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class LevelDiagramCell : MonoBehaviour
+public class LevelDiagramCell : MonoBehaviour, IPointerEnterHandler, IPointerDownHandler
 {
+	private ClickTracker clickTracker;
+
 	private readonly Dictionary<TileType, Color> tileColors = new()
 		{
 			{ TileType.Floor, Color.black },
@@ -18,19 +21,21 @@ public class LevelDiagramCell : MonoBehaviour
 			{ TileType.Player2Spawn, new Color(1f,0.5f,0) },
 			{ TileType.EnemySpawn, Color.blue },
 		};
-	
+
 	private TileType tileType;
 	private Image image;
-	private Button button;
 
 	private void Awake()
 	{
 		image = GetComponent<Image>();
-		button = GetComponent<Button>();
-		button.onClick.AddListener(ButtonClick);
 	}
 
-	private void ButtonClick()
+	private void Start()
+	{
+		clickTracker = FindFirstObjectByType<ClickTracker>();
+	}
+	
+	private void Activate()
 	{
 		SetTileType(LevelDiagramWidget.GetInstance().GetSelectedTileType());
 	}
@@ -42,4 +47,17 @@ public class LevelDiagramCell : MonoBehaviour
 	}
 
     public TileType GetTileType() => tileType;
+
+	public void OnPointerDown(PointerEventData eventData)
+	{
+		Activate();
+	}
+
+	public void OnPointerEnter(PointerEventData eventData)
+	{
+		if (clickTracker != null && clickTracker.IsClickHeld)
+		{
+			Activate();
+		}
+	}
 }
