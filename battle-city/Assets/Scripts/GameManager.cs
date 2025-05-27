@@ -51,23 +51,9 @@ public class GameManager : MonoBehaviour
 	private int playerLives = DEFAULT_PLAYER_LIVES;
 	private List<TankEnemy> SpawnedTanks;
 
-	private static GameManager instance = null;
-
-	public static GameManager GetInstance() => instance;
-
 	public List<Vector3> GetNavigablePoints() => navigablePoints;
 
-	private void Awake()
-	{
-		if (instance != null && instance.gameObject != null)
-		{
-			Debug.LogError("Game Manager duplicated");
-			return;
-		}
 
-		instance = this;
-	}
-	
 	// Start is called once before the first execution of Update after the MonoBehaviour is created
 	void Start()
 	{
@@ -88,7 +74,7 @@ public class GameManager : MonoBehaviour
 			});
 			EnemySpawners.Clear();
 		}
-		Debug.Log("inicializando enemyspawners");
+		
 		currentEnemySpawner = 0;
 		LevelFileLoader.OnLevelLoaded -= OnLevelLoaded;
 		LevelFileLoader.OnLevelLoaded += OnLevelLoaded;

@@ -16,6 +16,7 @@ public class EnemyController : MonoBehaviour
 	private List<Vector3> navigablePoints;
 
 	private bool canShoot;
+	private GameManager gameManager;
 
 	private void SetNewDestination()
 	{
@@ -36,7 +37,8 @@ public class EnemyController : MonoBehaviour
 		agent.speed = tank.GetSpeed();
 		canShoot = true;
 
-		navigablePoints = GameManager.GetInstance().GetNavigablePoints();
+		gameManager = FindFirstObjectByType<GameManager>();
+		navigablePoints = gameManager.GetNavigablePoints();
 
 		SetNewDestination();
 

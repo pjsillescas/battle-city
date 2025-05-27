@@ -38,6 +38,7 @@ public class LevelFileLoader : MonoBehaviour
 	private int CurrentLevel;
 	//private List<List<int>> tiles;
 	private PlayerController playerController;
+	private GameManager gameManager;
 
 	[Serializable]
 	public class JsonLevelObject
@@ -61,6 +62,7 @@ public class LevelFileLoader : MonoBehaviour
 		instance = this;
 		var playerControllers = Resources.FindObjectsOfTypeAll<PlayerController>();
 		playerController = playerControllers.FirstOrDefault();
+		gameManager = FindFirstObjectByType<GameManager>();
 
 		if (playerController == null)
 		{
@@ -214,19 +216,19 @@ public class LevelFileLoader : MonoBehaviour
 					case TileType.Player1Spawn:
 						var spawnPosition1 = new Vector3(x, 0, z + 1.5f * TILE_HEIGHT);
 						var spawnPoint = Instantiate(PlayerSpawnPoint, spawnPosition1, Quaternion.identity);
-						GameManager.GetInstance().RegisterPlayer1SpawnPoint(spawnPoint.GetComponent<SpawnPoint>());
+						gameManager.RegisterPlayer1SpawnPoint(spawnPoint.GetComponent<SpawnPoint>());
 						break;
 					case TileType.Player2Spawn:
 						var spawnPosition2 = new Vector3(x, 0, z + 1.5f * TILE_HEIGHT);
 						var spawnPoint2 = Instantiate(PlayerSpawnPoint, spawnPosition2, Quaternion.identity);
-						GameManager.GetInstance().RegisterPlayer2SpawnPoint(spawnPoint2.GetComponent<SpawnPoint>());
+						gameManager.RegisterPlayer2SpawnPoint(spawnPoint2.GetComponent<SpawnPoint>());
 						break;
 					case TileType.EnemySpawn:
 						//var enemySpawnerPosition = new Vector3(x, 0, z - 1.5f * TILE_HEIGHT);
 						var enemySpawnerPosition = new Vector3(x, 0, z - 0.5f * TILE_HEIGHT);
 						var enemySpawner = Instantiate(EnemySpawnerPrefab, enemySpawnerPosition, Quaternion.identity);
 						Debug.Log("spawn enemyspawner");
-						GameManager.GetInstance().RegisterEnemySpawner(enemySpawner.GetComponent<EnemySpawner>());
+						gameManager.RegisterEnemySpawner(enemySpawner.GetComponent<EnemySpawner>());
 						break;
 					default:
 						break;

@@ -6,10 +6,13 @@ public class LivesWidget : MonoBehaviour
 	[SerializeField]
 	private TextMeshProUGUI LivesText;
 
+	private GameManager gameManager;
+
 	// Start is called once before the first execution of Update after the MonoBehaviour is created
 	void Start()
 	{
-		GameManager.GetInstance().OnPlayerLivesChanged += OnPlayerLivesChanged;
+		gameManager = FindFirstObjectByType<GameManager>();
+		gameManager.OnPlayerLivesChanged += OnPlayerLivesChanged;
 	}
 
 	private void OnPlayerLivesChanged(object sender, int numLives)

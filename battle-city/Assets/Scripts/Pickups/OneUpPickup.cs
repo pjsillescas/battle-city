@@ -7,6 +7,6 @@ public class OneUpPickup : Pickup
 	
 	protected override void Apply(Tank tank)
 	{
-		GameManager.GetInstance().AddLives(LivesToAdd);
+		GetGameManager().AddLives(LivesToAdd);
 	}
 }

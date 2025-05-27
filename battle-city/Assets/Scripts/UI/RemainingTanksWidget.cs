@@ -7,7 +7,8 @@ public class RemainingTanksWidget : MonoBehaviour
 
 	[SerializeField]
 	private GameObject TokenPrefab;
-	
+
+	private GameManager gameManager;
 	private List<GameObject> tokens;
 	void Awake()
 	{
@@ -17,18 +18,20 @@ public class RemainingTanksWidget : MonoBehaviour
 	// Start is called once before the first execution of Update after the MonoBehaviour is created
 	private void Start()
 	{
-		Debug.Log("remainingtankswidget start");
-		GameManager.GetInstance().OnEnemiesSet -= OnEnemiesSet;
-		GameManager.GetInstance().OnEnemyKilled -= OnEnemyKilled;
+		gameManager = FindFirstObjectByType<GameManager>();
 
-		GameManager.GetInstance().OnEnemiesSet += OnEnemiesSet;
-		GameManager.GetInstance().OnEnemyKilled += OnEnemyKilled;
+		Debug.Log("remainingtankswidget start");
+		gameManager.OnEnemiesSet -= OnEnemiesSet;
+		gameManager.OnEnemyKilled -= OnEnemyKilled;
+
+		gameManager.OnEnemiesSet += OnEnemiesSet;
+		gameManager.OnEnemyKilled += OnEnemyKilled;
 	}
 
 	private void OnDestroy()
 	{
-		GameManager.GetInstance().OnEnemiesSet -= OnEnemiesSet;
-		GameManager.GetInstance().OnEnemyKilled -= OnEnemyKilled;
+		gameManager.OnEnemiesSet -= OnEnemiesSet;
+		gameManager.OnEnemyKilled -= OnEnemyKilled;
 
 		for(var k = 0; k<  transform.childCount; k++)
 		{

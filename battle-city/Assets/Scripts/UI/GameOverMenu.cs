@@ -13,22 +13,26 @@ public class GameOverMenu : MonoBehaviour
 	[SerializeField]
 	private TextMeshProUGUI TitleText;
 
+	private GameManager gameManager;
+
 	// Start is called once before the first execution of Update after the MonoBehaviour is created
 	void Start()
 	{
 		MainMenuButton.onClick.AddListener(MainMenuButtonClick);
 
-		GameManager.GetInstance().OnLevelStart += OnLevelStart;
-		GameManager.GetInstance().OnGameOver += OnGameOver;
-		GameManager.GetInstance().OnLevelComplete += OnLevelComplete;
+		gameManager = FindFirstObjectByType<GameManager>();
+
+		gameManager.OnLevelStart += OnLevelStart;
+		gameManager.OnGameOver += OnGameOver;
+		gameManager.OnLevelComplete += OnLevelComplete;
 	}
 
 	private void OnDestroy()
 	{
 		
-		GameManager.GetInstance().OnLevelStart -= OnLevelStart;
-		GameManager.GetInstance().OnGameOver -= OnGameOver;
-		GameManager.GetInstance().OnLevelComplete -= OnLevelComplete;
+		gameManager.OnLevelStart -= OnLevelStart;
+		gameManager.OnGameOver -= OnGameOver;
+		gameManager.OnLevelComplete -= OnLevelComplete;
 
 	}
 
