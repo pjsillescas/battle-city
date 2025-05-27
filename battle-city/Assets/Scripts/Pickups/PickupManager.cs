@@ -15,20 +15,6 @@ public class PickupManager : MonoBehaviour
 
 	private Coroutine spawnCoroutine;
 
-	private static PickupManager instance;
-	public static PickupManager GetInstance() => instance;
-
-	private void Awake()
-	{
-		if(instance != null && instance.gameObject != null)
-		{
-			Debug.LogError("Pickup Manager duplicated");
-			return;
-		}
-
-		instance = this;
-	}
-
 	public void Initialize(List<Vector3> spawnPoints)
 	{
 		this.spawnPoints = spawnPoints;

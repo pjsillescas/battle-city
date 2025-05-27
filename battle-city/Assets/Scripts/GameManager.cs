@@ -49,7 +49,8 @@ public class GameManager : MonoBehaviour
 	private int currentEnemySpawner;
 	private int enemiesRemaining;
 	private int playerLives = DEFAULT_PLAYER_LIVES;
-	private List<TankEnemy> SpawnedTanks;
+	private List<TankEnemy> spawnedTanks;
+	private PickupManager pickupManager;
 
 	public List<Vector3> GetNavigablePoints() => navigablePoints;
 
@@ -57,7 +58,7 @@ public class GameManager : MonoBehaviour
 	// Start is called once before the first execution of Update after the MonoBehaviour is created
 	void Start()
 	{
-		SpawnedTanks = new();
+		spawnedTanks = new();
 
 		if (EnemySpawners == null)
 		{
@@ -75,6 +76,8 @@ public class GameManager : MonoBehaviour
 			EnemySpawners.Clear();
 		}
 		
+		pickupManager = FindFirstObjectByType<PickupManager>();
+
 		currentEnemySpawner = 0;
 		LevelFileLoader.OnLevelLoaded -= OnLevelLoaded;
 		LevelFileLoader.OnLevelLoaded += OnLevelLoaded;
@@ -134,7 +137,10 @@ public class GameManager : MonoBehaviour
 		
 		PreloadEnemyTanks(levelObject);
 
-		PickupManager.GetInstance().Initialize(navigablePoints);
+		if (pickupManager != null && pickupManager.isActiveAndEnabled)
+		{
+			pickupManager.Initialize(navigablePoints);
+		}
 
 		OnLevelStart?.Invoke(this, EventArgs.Empty);
 	}
@@ -197,7 +203,7 @@ public class GameManager : MonoBehaviour
 		}
 		foreach (var tank in tanks)
 		{
-			SpawnedTanks.Add(tank);
+			spawnedTanks.Add(tank);
 			loads[k].Add(tank);
 			k = (k + 1) % EnemySpawners.Count;
 		}
@@ -312,7 +318,7 @@ public class GameManager : MonoBehaviour
 
 	private List<TankEnemy> GetActiveTanks()
 	{
-		return SpawnedTanks.Where(tank => tank != null && tank.isActiveAndEnabled).ToList();
+		return spawnedTanks.Where(tank => tank != null && tank.isActiveAndEnabled).ToList();
 	}
 
 	public void KillAllEnemies()
@@ -329,10 +335,10 @@ public class GameManager : MonoBehaviour
 
 	private IEnumerator PlayStopWatch()
 	{
-		SpawnedTanks.Where(tank => tank != null).ToList().ForEach(tank => tank.Stop());
+		spawnedTanks.Where(tank => tank != null).ToList().ForEach(tank => tank.Stop());
 		yield return new WaitForSeconds(15);
 
-		SpawnedTanks.Where(tank => tank != null).ToList().ForEach(tank => tank.Play());
+		spawnedTanks.Where(tank => tank != null).ToList().ForEach(tank => tank.Play());
 		yield return null;
 	}
 }
