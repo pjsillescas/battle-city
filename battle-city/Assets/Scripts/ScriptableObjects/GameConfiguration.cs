@@ -7,6 +7,7 @@ public class GameConfiguration : ScriptableObject
 	public List<List<TileType>> levelTiles;
 	public Tanks tanks;
 	public bool enableMusic;
+	public NumPlayers numPlayers;
 
 	public void SetEnableMusic(bool enableMusic)
 	{
@@ -14,6 +15,12 @@ public class GameConfiguration : ScriptableObject
 	}
 
 	public bool GetEnableMusic() => enableMusic;
+	public void SetNumPlayers(NumPlayers numPlayers)
+	{
+		this.numPlayers = numPlayers;
+	}
+
+	public NumPlayers GetNumPlayers() => numPlayers;
 
 	public void SetTanks(Tanks tanks)
 	{

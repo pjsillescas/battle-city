@@ -119,6 +119,39 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &35154138
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 35154139}
+  m_Layer: 0
+  m_Name: Controllers
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &35154139
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 35154138}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 685977389}
+  - {fileID: 1800603702}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &37400574
 GameObject:
   m_ObjectHideFlags: 0
@@ -1709,7 +1742,7 @@ GameObject:
   - component: {fileID: 685977389}
   - component: {fileID: 685977388}
   m_Layer: 0
-  m_Name: Controllers
+  m_Name: PlayerController1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1736,12 +1769,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 685977387}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 35154139}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &738547536
 GameObject:
@@ -2976,7 +3009,7 @@ MonoBehaviour:
   m_OverrideTileSize: 0
   m_TileSize: 256
   m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.16666667
+  m_VoxelSize: 0.083333336
   m_MinRegionArea: 2
   m_NavMeshData: {fileID: 0}
   m_BuildHeightMesh: 0
@@ -3116,6 +3149,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1625726721}
   m_CullTransparentMesh: 1
+--- !u!1 &1800603701
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1800603702}
+  - component: {fileID: 1800603703}
+  m_Layer: 0
+  m_Name: PlayerController2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1800603702
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1800603701}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 35154139}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1800603703
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1800603701}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81a9084d3df66a443a9228501b3fbd0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ControlledTank: {fileID: 0}
 --- !u!1 &1893534388
 GameObject:
   m_ObjectHideFlags: 0
@@ -3150,9 +3228,9 @@ MonoBehaviour:
   Player1SpawnPoint: {fileID: 939922976976036294, guid: 485d6d84c8f4a07439bc80ddc8ca993c, type: 3}
   Player1Prefab: {fileID: 7901564516489750458, guid: 1adf9d28d2068b841ac048e3ba7a03a9, type: 3}
   Player2SpawnPoint: {fileID: 939922976976036294, guid: 485d6d84c8f4a07439bc80ddc8ca993c, type: 3}
-  Player2Prefab: {fileID: 7901564516489750458, guid: 1adf9d28d2068b841ac048e3ba7a03a9, type: 3}
+  Player2Prefab: {fileID: 7901564516489750458, guid: 795852833340f7e42ae305f14e140a95, type: 3}
   PlayerController1: {fileID: 685977388}
-  PlayerController2: {fileID: 0}
+  PlayerController2: {fileID: 1800603703}
   EnemySpawners: []
   BasicTankPrefab: {fileID: 5523479723678169332, guid: 2ad9d0343f5618347948727287b8daf0, type: 3}
   StrikeTankPrefab: {fileID: 5697234693207262705, guid: 01df94d02a8766842a4fb4ee536aee16, type: 3}
@@ -3387,7 +3465,7 @@ SceneRoots:
   - {fileID: 881254892}
   - {fileID: 1893534390}
   - {fileID: 404251210}
-  - {fileID: 685977389}
+  - {fileID: 35154139}
   - {fileID: 1238173221}
   - {fileID: 1177278240}
   - {fileID: 157369264}

@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour
 	[SerializeField]
 	private PlayerController PlayerController1;
 	[SerializeField]
-	private PlayerController PlayerController2;
+	private Player2Controller PlayerController2;
 	[SerializeField]
 	private List<EnemySpawner> EnemySpawners;
 	[SerializeField]
@@ -126,7 +126,7 @@ public class GameManager : MonoBehaviour
 			StartCoroutine(RunAfter(SET_PAWN_DELAY, () => PlayerController1.SetPawnTank(player1Pawn.GetComponent<Tank>())));
 		}
 		
-		if (Player2SpawnPoint != null && Player2Prefab != null && PlayerController2)
+		if (Player2SpawnPoint != null && Player2Prefab != null && PlayerController2 && NumPlayers.TwoPlayers.Equals(Configuration.GetNumPlayers()))
 		{
 			var player2Pawn = Instantiate(Player2Prefab, Player2SpawnPoint.transform.position, Player2SpawnPoint.transform.rotation);
 			player2Pawn.GetComponent<Damageable>().OnDeath += Player2Respawn;
@@ -252,9 +252,18 @@ public class GameManager : MonoBehaviour
 
 	private void Player2Respawn(object sender, TankBase tank)
 	{
-		var player2Pawn = Instantiate(Player2Prefab, Player2SpawnPoint.transform.position, Player2SpawnPoint.transform.rotation);
-		player2Pawn.GetComponent<Damageable>().OnDeath += Player2Respawn;
-		StartCoroutine(RunAfter(SET_PAWN_DELAY, () => PlayerController2.SetPawnTank(player2Pawn.GetComponent<Tank>())));
+		playerLives--;
+		OnPlayerLivesChanged?.Invoke(this, playerLives);
+		if (playerLives > 0)
+		{
+			var player2Pawn = Instantiate(Player2Prefab, Player2SpawnPoint.transform.position, Player2SpawnPoint.transform.rotation);
+			player2Pawn.GetComponent<Damageable>().OnDeath += Player2Respawn;
+			StartCoroutine(RunAfter(SET_PAWN_DELAY, () => PlayerController2.SetPawnTank(player2Pawn.GetComponent<Tank>())));
+		}
+		else
+		{
+			GameOver();
+		}
 	}
 
 	private void FillTanks(GameObject prefab, int numTanks, ref List<TankEnemy> tanks)

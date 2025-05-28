@@ -9,7 +9,9 @@ using UnityEngine.UI;
 public class LevelDiagramWidget : MonoBehaviour
 {
 	[SerializeField]
-	private Button ButtonPlay;
+	private Button ButtonPlay1P;
+	[SerializeField]
+	private Button ButtonPlay2P;
 	[SerializeField]
 	private Button ButtonBack;
 	[SerializeField]
@@ -48,7 +50,8 @@ public class LevelDiagramWidget : MonoBehaviour
 
 		instance = this;
 		ButtonTileTypeSelect.OnTileTypeSelect += OnTileTypeSelect;
-		ButtonPlay.onClick.AddListener(ButtonPlayClick);
+		ButtonPlay1P.onClick.AddListener(ButtonPlay1PClick);
+		ButtonPlay2P.onClick.AddListener(ButtonPlay2PClick);
 		ButtonBack.onClick.AddListener(ButtonBackClick);
 		ButtonReset.onClick.AddListener(ButtonResetClick);
 	}
@@ -104,7 +107,7 @@ public class LevelDiagramWidget : MonoBehaviour
 		}
 	}
 
-	private void ButtonPlayClick()
+	private void ButtonPlay1PClick()
 	{
 		var levelTiles = LevelDiagram.GetInstance().GetLevelDiagram();
 		var tanks = new Tanks() {
@@ -115,8 +118,25 @@ public class LevelDiagramWidget : MonoBehaviour
 		};
 		Configuration.SetLevelTiles(levelTiles);
 		Configuration.SetTanks(tanks);
+		Configuration.SetNumPlayers(NumPlayers.SinglePlayer);
 		DebugLevel(levelTiles);
 		SceneManager.LoadScene("GameScene",LoadSceneMode.Single);
+	}
+	private void ButtonPlay2PClick()
+	{
+		var levelTiles = LevelDiagram.GetInstance().GetLevelDiagram();
+		var tanks = new Tanks()
+		{
+			basic = ParseInt(BasicTanksInputField.text),
+			strike = ParseInt(StrikeTanksInputField.text),
+			medium = ParseInt(MediumTanksInputField.text),
+			heavy = ParseInt(HeavyTanksInputField.text),
+		};
+		Configuration.SetLevelTiles(levelTiles);
+		Configuration.SetTanks(tanks);
+		Configuration.SetNumPlayers(NumPlayers.TwoPlayers);
+		DebugLevel(levelTiles);
+		SceneManager.LoadScene("GameScene", LoadSceneMode.Single);
 	}
 
 	private void OnTileTypeSelect(object sender, TileType tileType)

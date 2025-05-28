@@ -25,6 +25,8 @@ public class MainMenuWidget : MonoBehaviour
 	[SerializeField]
 	private AudioManager AudioManager;
 
+	private NumPlayers numPlayers;
+
 
 	// Start is called once before the first execution of Update after the MonoBehaviour is created
 	void Start()
@@ -39,18 +41,21 @@ public class MainMenuWidget : MonoBehaviour
 	{
 		Configuration.SetLevelTiles(levelObject.tiles);
 		Configuration.SetTanks(levelObject.tanks);
+		Configuration.SetNumPlayers(numPlayers);
 
 		SceneManager.LoadScene("GameScene");
 	}
 
 	private void OnePlayerClick()
 	{
+		numPlayers = NumPlayers.SinglePlayer;
 		var selectedLevel = int.Parse(LevelDropdown.options[LevelDropdown.value].text);
 		LevelLoader.GetInstance().LoadLevel(selectedLevel, OnFinishLoadLevel);
 	}
 
 	private void TwoPlayerClick()
 	{
+		numPlayers = NumPlayers.TwoPlayers;
 		var selectedLevel = int.Parse(LevelDropdown.options[LevelDropdown.value].text);
 		LevelLoader.GetInstance().LoadLevel(selectedLevel, OnFinishLoadLevel);
 	}
