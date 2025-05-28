@@ -129,4 +129,12 @@ public class TankBase : MonoBehaviour
 		//particles.Stop();
 		SetIsInvulnerable(false);
 	}
+
+	private void OnDestroy()
+	{
+		if(particles != null)
+		{
+			particles.Stop();
+		}
+	}
 }
