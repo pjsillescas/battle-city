@@ -65,7 +65,7 @@ public class TankBase : MonoBehaviour
 	{
 		var input3D = new Vector3(input.x, 0, input.y);
 
-		if (input3D.sqrMagnitude > inputThreshold)
+		if (input3D.sqrMagnitude > inputThreshold && Time.timeScale > 0)
 		{
 			var rotation = new Quaternion();
 			rotation.SetLookRotation(input3D, Vector3.up);
@@ -78,7 +78,7 @@ public class TankBase : MonoBehaviour
 
 	protected void ShootMissile(Transform shootingPoint, GameObject MissilePrefab)
 	{
-		if (maxMissilesLaunched == 0)
+		if (maxMissilesLaunched == 0 || Time.timeScale <= 0)
 		{
 			return;
 		}
