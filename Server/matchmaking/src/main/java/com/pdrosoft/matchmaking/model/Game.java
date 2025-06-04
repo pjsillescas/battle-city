@@ -1,15 +1,18 @@
 package com.pdrosoft.matchmaking.model;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.time.Instant;
 
-import jakarta.persistence.CascadeType;
+import org.hibernate.annotations.JdbcType;
+import org.hibernate.type.descriptor.jdbc.TimestampJdbcType;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import lombok.Data;
 
 @Entity
@@ -22,7 +25,15 @@ public class Game {
 
 	@Column(nullable = false, unique = true)
 	private String name;
+	
+	@Column(name = "creation_date", nullable = false, unique = true)
+	@JdbcType(TimestampJdbcType.class)
+	private Instant creationDate;
 
-	@OneToMany(mappedBy = "game", cascade = CascadeType.ALL, orphanRemoval = true)
-	private List<GamePlayer> playerLinks = new ArrayList<>();
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "host", nullable = false)
+	private Player host;
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "guest")
+	private Player guest;
 }
