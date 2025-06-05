@@ -38,6 +38,6 @@ public class GameApiController {
 	
 	@GetMapping(path = "/game", produces = { "application/json" })
 	public List<GameDTO> getGames() {
-		return List.of();
+		return matchmakingService.getGameList();
 	}
 }

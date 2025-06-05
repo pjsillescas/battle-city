@@ -8,10 +8,10 @@ import lombok.Value;
 @Value
 @Builder
 public class GameDTO {
-	private Long id;
+	private Integer id;
 
 	private String name;
-	
+
 	private Instant creationDate;
 
 	private PlayerDTO host;

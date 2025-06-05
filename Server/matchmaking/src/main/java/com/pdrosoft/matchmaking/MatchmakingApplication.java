@@ -8,6 +8,7 @@ import org.springframework.context.annotation.ComponentScan;
 @ComponentScan(basePackages = {
 	    "com.pdrosoft.matchmaking.controller",
 	    "com.pdrosoft.matchmaking.service",
+	    "com.pdrosoft.matchmaking.dao",
 	    "com.pdrosoft.matchmaking.security",
 	})
 public class MatchmakingApplication {

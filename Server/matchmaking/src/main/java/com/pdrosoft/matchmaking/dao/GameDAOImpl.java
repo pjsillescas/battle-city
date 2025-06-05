@@ -2,6 +2,7 @@ package com.pdrosoft.matchmaking.dao;
 
 import java.time.Instant;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -40,19 +41,19 @@ public class GameDAOImpl implements GameDAO {
 	}
 
 	private PlayerDTO toPlayerDTO(Player player) {
-		return PlayerDTO.builder() //
+		return Optional.ofNullable(player).map(p -> PlayerDTO.builder() //
 				.id(player.getId()) //
 				.username(player.getUsername()) //
-				.build();
+				.build()).orElse(null);
 	}
 
 	private GameDTO toGameDTO(Game game) {
-		return GameDTO.builder() //
+		return Optional.ofNullable(game).map(g -> GameDTO.builder() //
 				.id(game.getId()) //
 				.creationDate(game.getCreationDate()) //
 				.host(toPlayerDTO(game.getHost())) //
 				.guest(toPlayerDTO(game.getGuest())) //
-				.build();
+				.build()).orElse(null);
 	}
 	
 	@Override
@@ -61,7 +62,7 @@ public class GameDAOImpl implements GameDAO {
 		var cb = em.getCriteriaBuilder();
 		var cq = cb.createQuery(Game.class);
 		var root = cq.from(Game.class);
-		cq.select(root);
+		cq.select(root).where(cb.isTrue(cb.literal(true)));
 
 		return em.createQuery(cq).getResultStream().map(this::toGameDTO).toList();
 	}

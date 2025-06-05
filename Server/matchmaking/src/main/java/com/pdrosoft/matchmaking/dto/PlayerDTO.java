@@ -6,7 +6,7 @@ import lombok.Value;
 @Value
 @Builder
 public class PlayerDTO {
-    private Long id;
+    private Integer id;
 
     private String username;
 }
