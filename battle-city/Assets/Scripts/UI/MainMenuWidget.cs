@@ -13,6 +13,8 @@ public class MainMenuWidget : MonoBehaviour
 	[SerializeField]
 	private Button TwoPlayerButton;
 	[SerializeField]
+	private Button MultiPlayerButton;
+	[SerializeField]
 	private Button ConstructionButton;
 	[SerializeField]
 	private GameObject ConstructionWidget;
@@ -24,6 +26,8 @@ public class MainMenuWidget : MonoBehaviour
 	private GameConfiguration Configuration;
 	[SerializeField]
 	private AudioManager AudioManager;
+	[SerializeField]
+	private GameObject MultiplayerWidget;
 
 	private NumPlayers numPlayers;
 
