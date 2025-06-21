@@ -107,13 +107,13 @@ public class MatchmakingApi: HttpApi
 	}
 	public void JoinGame(int gameId, Action<GameExtendedDTO> action)
 	{
-		var url = URL_BASE + "/game";
+		var url = URL_BASE + string.Format("/game/{0}/join", gameId);
 		StartCoroutine(PostRequest(url, action, GetAuthenticationHeaders()));
 	}
 
 	public void LeaveGame(int gameId, Action<GameDTO> action)
 	{
-		var url = URL_BASE + "/game";
+		var url = URL_BASE + string.Format("/game/{0}/leave", gameId);
 		StartCoroutine(PostRequest(url, action, GetAuthenticationHeaders()));
 	}
 
