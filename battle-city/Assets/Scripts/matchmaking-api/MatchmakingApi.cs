@@ -1,94 +1,120 @@
 
 using System;
-using System.Collections;
-using System.Text;
-using UnityEngine.Networking;
-using UnityEngine;
+using System.Collections.Generic;
 
-public class MatchmakingApi: MonoBehaviour
+public class MatchmakingApi: HttpApi
 {
-	private string urlBase = "http://localhost:1234/api";
+	private const string URL_BASE = "http://localhost:8080/api";
+
+	private string token = null;
 
 	[Serializable]
-	public class AuthData
+	public class AuthDataDTO
 	{
 		public string token;
 	}
 
 	[Serializable]
-	public class LoginData
+	public class LoginDataDTO
 	{
 		public string username;
 		public string password;
 	}
 
-	public void Login(string login, string password, Action<string> action)
+	[Serializable]
+	public class PlayerDTO
 	{
-		var url = urlBase + "/auth/login";
-		var loginData = new LoginData() { username = login, password = password };
-		StartCoroutine(PostRequest(url, loginData, action));
+		public int id;
+		public string username;
 	}
 
-	private IEnumerator PostRequest(string uri, LoginData loginData, Action<string> action)
+	[Serializable]
+	public class GameDTO
 	{
-		//string jsonData = "{\"title\":\"foo\",\"body\":\"bar\",\"userId\":1}";
-		string jsonData = JsonUtility.ToJson(loginData);
-		byte[] bodyRaw = Encoding.UTF8.GetBytes(jsonData);
+		public int id;
 
-		var request = new UnityWebRequest(uri, "POST")
-		{
-			uploadHandler = new UploadHandlerRaw(bodyRaw),
-			downloadHandler = new DownloadHandlerBuffer()
-		};
-		request.SetRequestHeader("Content-Type", "application/json");
+		public string name;
 
-		yield return request.SendWebRequest();
+		public DateTime creationDate;
 
-		if (request.result == UnityWebRequest.Result.ConnectionError ||
-			request.result == UnityWebRequest.Result.ProtocolError)
-		{
-			Debug.LogError(request.error);
-		}
-		else
-		{
-			string json = request.downloadHandler.text;
-
-			AuthData result;
-			try
-			{
-				result = JsonUtility.FromJson<AuthData>(json);
-
-				if (result != null)
-				{
-					action?.Invoke(result.token);
-				}
-				else
-				{
-					Debug.LogWarning(string.Format("Failed to deserialize JSON ({0}).", jsonData));
-				}
-			}
-			catch (System.Exception e)
-			{
-				Debug.LogError("Deserialization error: " + e.Message);
-			}
-		}
+		public PlayerDTO host;
+		public PlayerDTO guest;
 	}
 
-	private IEnumerator GetRequest(string uri)
+	[Serializable]
+	public class GameExtendedDTO: GameDTO
 	{
-		using (UnityWebRequest request = UnityWebRequest.Get(uri))
-		{
-			yield return request.SendWebRequest();
-
-			if (request.result == UnityWebRequest.Result.ConnectionError ||
-				request.result == UnityWebRequest.Result.ProtocolError)
-			{
-				Debug.LogError(request.error);
-			}
-			else
-			{
-				Debug.Log(request.downloadHandler.text);
-			}
-		}
+		public string joinCode;
 	}
+
+	[Serializable]
+	public class ErrorDTO
+	{
+		public DateTime timestamp;
+		public string message;
+	}
+
+	[Serializable]
+	public class GameListWrapper
+	{
+		public List<GameDTO> elements;
+	}
+
+	[Serializable]
+	public class GameInputDTO
+	{
+		public string joinCode;
+	}
+
+	private void ExtractToken(AuthDataDTO data)
+	{
+		token = data.token;
+	}
+
+	public void Login(string login, string password)
+	{
+		var url = URL_BASE + "/auth/login";
+		var loginData = new LoginDataDTO() { username = login, password = password };
+		StartCoroutine(PostRequest<AuthDataDTO, LoginDataDTO>(url, loginData, ExtractToken, new()));
+	}
+
+	public void Signup(string login, string password, Action<PlayerDTO> action)
+	{
+		var url = URL_BASE + "/auth/signup";
+		var loginData = new LoginDataDTO() { username = login, password = password };
+		StartCoroutine(PutRequest(url, loginData, action, new()));
+	}
+
+	private Dictionary<string, string> GetAuthenticationHeaders()
+	{
+		return new () { { "Authentication", string.Format("Bearer {0}", token) } };
+	}
+	public void GetGames(Action<GameListWrapper> action)
+	{
+		var url = URL_BASE + "/game";
+		StartCoroutine(GetRequestList(url, action, GetAuthenticationHeaders()));
+	}
+	public void GetGame(int gameId, Action<GameDTO> action)
+	{
+		var url = URL_BASE + string.Format("/game/{0}", gameId);
+		StartCoroutine(GetRequest(url, action, GetAuthenticationHeaders()));
+	}
+
+	public void AddGame(string joinCode, Action<GameDTO> action)
+	{
+		var url = URL_BASE + "/game";
+		StartCoroutine(PutRequest(url, new GameInputDTO() { joinCode = joinCode }, action, GetAuthenticationHeaders()));
+	}
+	public void JoinGame(int gameId, Action<GameExtendedDTO> action)
+	{
+		var url = URL_BASE + "/game";
+		StartCoroutine(PostRequest(url, action, GetAuthenticationHeaders()));
+	}
+
+	public void LeaveGame(int gameId, Action<GameDTO> action)
+	{
+		var url = URL_BASE + "/game";
+		StartCoroutine(PostRequest(url, action, GetAuthenticationHeaders()));
+	}
+
 }
