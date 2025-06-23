@@ -71,11 +71,14 @@ public class MatchmakingApi: HttpApi
 		token = data.token;
 	}
 
-	public void Login(string login, string password)
+	public void Login(string login, string password, Action<string> onLogin)
 	{
 		var url = URL_BASE + "/auth/login";
 		var loginData = new LoginDataDTO() { username = login, password = password };
-		StartCoroutine(PostRequest<AuthDataDTO, LoginDataDTO>(url, loginData, ExtractToken, new()));
+		StartCoroutine(PostRequest<AuthDataDTO, LoginDataDTO>(url, loginData, (data) => {
+			token = data.token;
+			onLogin(token);
+		}, new()));
 	}
 
 	public void Signup(string login, string password, Action<PlayerDTO> action)
