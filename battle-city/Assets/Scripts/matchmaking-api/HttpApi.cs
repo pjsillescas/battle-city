@@ -8,10 +8,9 @@ using UnityEngine.Networking;
 
 public class HttpApi : MonoBehaviour
 {
-	private const string ELEMENT_LIST_FORMAT = "{\"elements\": {0} }";
-
 	protected IEnumerator PostRequest<T, U>(string uri, U data, Action<T> action, Dictionary<string, string> headers)
 	{
+		Debug.Log($"POST {uri}");
 		string jsonData = JsonUtility.ToJson(data);
 		byte[] bodyRaw = Encoding.UTF8.GetBytes(jsonData);
 
@@ -45,18 +44,21 @@ public class HttpApi : MonoBehaviour
 				}
 				else
 				{
-					Debug.LogWarning(string.Format("Failed to deserialize JSON ({0}).", jsonData));
+					Debug.LogWarning(string.Format("Failed to deserialize JSON ({0}).", json));
 				}
 			}
 			catch (System.Exception e)
 			{
-				Debug.LogError("Deserialization error: " + e.Message);
+				Debug.LogError("Deserialization error: " + e.Message + $" with json '{json}'");
 			}
 		}
+
+		yield return null;
 	}
 
 	protected IEnumerator PostRequest<T>(string uri, Action<T> action, Dictionary<string, string> headers)
 	{
+		Debug.Log($"POST {uri}");
 		var request = new UnityWebRequest(uri, "POST")
 		{
 			uploadHandler = new UploadHandlerRaw(null),
@@ -93,10 +95,13 @@ public class HttpApi : MonoBehaviour
 				Debug.LogError("Deserialization error: " + e.Message);
 			}
 		}
+
+		yield return null;
 	}
 
 	protected IEnumerator PutRequest<T,U>(string uri, U data, Action<T> action, Dictionary<string, string> headers)
 	{
+		Debug.Log($"PUT {uri}");
 		string jsonData = JsonUtility.ToJson(data);
 		byte[] bodyRaw = Encoding.UTF8.GetBytes(jsonData);
 
@@ -138,10 +143,13 @@ public class HttpApi : MonoBehaviour
 				Debug.LogError("Deserialization error: " + e.Message);
 			}
 		}
+		
+		yield return null;
 	}
 
 	protected IEnumerator PutRequest<T>(string uri, Action<T> action, Dictionary<string, string> headers)
 	{
+		Debug.Log($"PUT {uri}");
 		var request = new UnityWebRequest(uri, "PUT")
 		{
 			uploadHandler = new UploadHandlerRaw(null),
@@ -179,9 +187,12 @@ public class HttpApi : MonoBehaviour
 				Debug.LogError("Deserialization error: " + e.Message);
 			}
 		}
+		
+		yield return null;
 	}
 	protected IEnumerator GetRequestList<T>(string uri, Action<T> action, Dictionary<string, string> headers)
 	{
+		Debug.Log($"GET list {uri}");
 		using (UnityWebRequest request = UnityWebRequest.Get(uri))
 		{
 			headers.Keys.ToList().ForEach(key => { request.SetRequestHeader(key, headers[key]); });
@@ -194,7 +205,8 @@ public class HttpApi : MonoBehaviour
 			}
 			else
 			{
-				var json = string.Format(format: ELEMENT_LIST_FORMAT, request.downloadHandler.text);
+				var json = "{ \"elements\": " + request.downloadHandler.text + " }";
+				
 				var result = JsonUtility.FromJson<T>(json);
 
 				if (result != null)
@@ -207,10 +219,13 @@ public class HttpApi : MonoBehaviour
 				}
 			}
 		}
+		
+		yield return null;
 	}
 
 	protected IEnumerator GetRequest<T>(string uri, Action<T> action, Dictionary<string, string> headers)
 	{
+		Debug.Log($"GET {uri}");
 		using UnityWebRequest request = UnityWebRequest.Get(uri);
 		headers.Keys.ToList().ForEach(key => { request.SetRequestHeader(key, headers[key]); });
 		yield return request.SendWebRequest();
@@ -222,6 +237,7 @@ public class HttpApi : MonoBehaviour
 		}
 		else
 		{
+			Debug.Log($"GET {request.downloadHandler.text}");
 			var json = request.downloadHandler.text;
 			var result = JsonUtility.FromJson<T>(json);
 
@@ -234,5 +250,7 @@ public class HttpApi : MonoBehaviour
 				Debug.LogWarning(string.Format("Failed to deserialize JSON ({0}).", json));
 			}
 		}
+		
+		yield return null;
 	}
 }

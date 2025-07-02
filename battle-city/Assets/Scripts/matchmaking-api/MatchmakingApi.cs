@@ -1,6 +1,7 @@
 
 using System;
 using System.Collections.Generic;
+using UnityEngine;
 
 public class MatchmakingApi: HttpApi
 {
@@ -66,11 +67,6 @@ public class MatchmakingApi: HttpApi
 		public string joinCode;
 	}
 
-	private void ExtractToken(AuthDataDTO data)
-	{
-		token = data.token;
-	}
-
 	public void Login(string login, string password, Action<string> onLogin)
 	{
 		var url = URL_BASE + "/auth/login";
@@ -90,13 +86,14 @@ public class MatchmakingApi: HttpApi
 
 	private Dictionary<string, string> GetAuthenticationHeaders()
 	{
-		return new () { { "Authentication", string.Format("Bearer {0}", token) } };
+		return new () { { "Authorization", string.Format("Bearer {0}", token) } };
 	}
 	public void GetGames(Action<GameListWrapper> action)
 	{
 		var url = URL_BASE + "/game";
 		StartCoroutine(GetRequestList(url, action, GetAuthenticationHeaders()));
 	}
+
 	public void GetGame(int gameId, Action<GameDTO> action)
 	{
 		var url = URL_BASE + string.Format("/game/{0}", gameId);

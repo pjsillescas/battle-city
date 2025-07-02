@@ -61,4 +61,15 @@ public class MPLogin : MonoBehaviour
 
 		matchmakingApi.Signup(data.username, data.password, OnSignup);
 	}
+
+	public void EnableWidget()
+	{
+		gameObject.SetActive(true);
+	}
+
+	public void DisableWidget()
+	{
+		gameObject.SetActive(false);
+	}
+
 }
