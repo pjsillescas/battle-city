@@ -32,7 +32,7 @@ public class LevelDiagramCell : MonoBehaviour, IPointerEnterHandler, IPointerDow
 
 	private void Start()
 	{
-		clickTracker = FindFirstObjectByType<ClickTracker>();
+		clickTracker = FindAnyObjectByType<ClickTracker>();
 	}
 	
 	private void Activate()

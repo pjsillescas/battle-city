@@ -37,7 +37,7 @@ public class EnemyController : MonoBehaviour
 		agent.speed = tank.GetSpeed();
 		canShoot = true;
 
-		gameManager = FindFirstObjectByType<GameManager>();
+		gameManager = FindAnyObjectByType<GameManager>();
 		navigablePoints = gameManager.GetNavigablePoints();
 
 		SetNewDestination();

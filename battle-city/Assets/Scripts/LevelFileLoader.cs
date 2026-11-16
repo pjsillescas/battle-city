@@ -62,7 +62,7 @@ public class LevelFileLoader : MonoBehaviour
 		instance = this;
 		var playerControllers = Resources.FindObjectsOfTypeAll<PlayerController>();
 		playerController = playerControllers.FirstOrDefault();
-		gameManager = FindFirstObjectByType<GameManager>();
+		gameManager = FindAnyObjectByType<GameManager>();
 
 		if (playerController == null)
 		{

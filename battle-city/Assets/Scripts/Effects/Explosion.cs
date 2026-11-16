@@ -7,7 +7,7 @@ public class Explosion : MonoBehaviour
 	{
 		//var particles = GetComponentsInChildren<ParticleSystem>();
 		//Debug.Log("boom");
-		FindFirstObjectByType<AudioManager>().PlayExplosion();
+		FindAnyObjectByType<AudioManager>().PlayExplosion();
 	}
 
 	// Update is called once per frame

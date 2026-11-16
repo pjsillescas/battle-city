@@ -8,7 +8,7 @@ public class Base : MonoBehaviour
 	void Start()
 	{
 		GetComponent<Damageable>().OnDeath += OnDeath;
-		gameManager = FindFirstObjectByType<GameManager>();
+		gameManager = FindAnyObjectByType<GameManager>();
 	}
 
 	private void OnDeath(object sender, TankBase tank)

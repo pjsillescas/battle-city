@@ -76,7 +76,7 @@ public class GameManager : MonoBehaviour
 			EnemySpawners.Clear();
 		}
 		
-		pickupManager = FindFirstObjectByType<PickupManager>();
+		pickupManager = FindAnyObjectByType<PickupManager>();
 
 		currentEnemySpawner = 0;
 		LevelFileLoader.OnLevelLoaded -= OnLevelLoaded;

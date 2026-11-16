@@ -1,9 +1,11 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "GameConfiguration", menuName = "Data/GameConfiguration")]
 public class GameConfiguration : ScriptableObject
 {
+	[NonSerialized]
 	public List<List<TileType>> levelTiles;
 	public Tanks tanks;
 	public bool enableMusic;

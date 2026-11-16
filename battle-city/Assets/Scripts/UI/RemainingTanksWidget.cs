@@ -18,7 +18,7 @@ public class RemainingTanksWidget : MonoBehaviour
 	// Start is called once before the first execution of Update after the MonoBehaviour is created
 	private void Start()
 	{
-		gameManager = FindFirstObjectByType<GameManager>();
+		gameManager = FindAnyObjectByType<GameManager>();
 
 		Debug.Log("remainingtankswidget start");
 		gameManager.OnEnemiesSet -= OnEnemiesSet;

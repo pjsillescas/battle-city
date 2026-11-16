@@ -10,7 +10,6 @@ public class GameRow : MonoBehaviour
 	[SerializeField]
 	private Button JoinButton;
 
-	private MatchmakingApi api;
 	private int gameId;
 	private Action<MatchmakingApi.GameExtendedDTO> action;
 
@@ -19,16 +18,17 @@ public class GameRow : MonoBehaviour
 		JoinButton.onClick.AddListener(JoinButtonClick);
 	}
 
-	public void Load(MatchmakingApi.GameDTO game, MatchmakingApi api, Action<MatchmakingApi.GameExtendedDTO> action)
+	public void Load(MatchmakingApi.GameDTO game, Action<MatchmakingApi.GameExtendedDTO> action)
 	{
 		GameTitleText.text = game.name;
 		gameId = game.id;
-		this.api = api;
+		//this.api = api;
 		this.action = action;
 	}
 
 	public void JoinButtonClick()
 	{
+		var api = FindAnyObjectByType<MatchmakingApi>();
 		api.JoinGame(gameId, action);
 	}
 }

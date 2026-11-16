@@ -7,7 +7,7 @@ public abstract class Pickup : MonoBehaviour
 
 	private void Start()
 	{
-		gameManager = FindFirstObjectByType<GameManager>();
+		gameManager = FindAnyObjectByType<GameManager>();
 	}
 
 	protected GameManager GetGameManager() => gameManager;

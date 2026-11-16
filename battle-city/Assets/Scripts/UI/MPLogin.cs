@@ -27,7 +27,7 @@ public class MPLogin : MonoBehaviour
 		ButtonLogin.onClick.AddListener(ButtonLoginClick);
 		ButtonSignup.onClick.AddListener(ButtonSignupClick);
 
-		matchmakingApi = FindFirstObjectByType<MatchmakingApi>();
+		matchmakingApi = FindAnyObjectByType<MatchmakingApi>();
 	}
 
 	private LoginDataDTO GetLoginData()

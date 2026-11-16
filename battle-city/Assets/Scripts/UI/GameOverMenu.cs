@@ -20,7 +20,7 @@ public class GameOverMenu : MonoBehaviour
 	{
 		MainMenuButton.onClick.AddListener(MainMenuButtonClick);
 
-		gameManager = FindFirstObjectByType<GameManager>();
+		gameManager = FindAnyObjectByType<GameManager>();
 
 		gameManager.OnLevelStart += OnLevelStart;
 		gameManager.OnGameOver += OnGameOver;
@@ -48,7 +48,7 @@ public class GameOverMenu : MonoBehaviour
 		TitleText.text = "Game Over";
 		WidgetPanel.SetActive(true);
 		
-		var audioManager = FindFirstObjectByType<AudioManager>();
+		var audioManager = FindAnyObjectByType<AudioManager>();
 		audioManager.StopBackground();
 		audioManager.PlayLoseFanfare();
 	}
@@ -58,7 +58,7 @@ public class GameOverMenu : MonoBehaviour
 		Time.timeScale = 0f;
 		TitleText.text = "Level Finished";
 		WidgetPanel.SetActive(true);
-		var audioManager = FindFirstObjectByType<AudioManager>();
+		var audioManager = FindAnyObjectByType<AudioManager>();
 		audioManager.StopBackground();
 		audioManager.PlayWinFanfare();
 	}

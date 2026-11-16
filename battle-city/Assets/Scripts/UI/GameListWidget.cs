@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -6,7 +7,7 @@ using UnityEngine.UIElements;
 public class GameListWidget : MonoBehaviour
 {
 	[SerializeField]
-	private ScrollView GameScrollView;
+	private ScrollView GameScrollView;	
 	[SerializeField]
 	private Transform Content;
 	[SerializeField]
@@ -19,30 +20,34 @@ public class GameListWidget : MonoBehaviour
 	private UnityEngine.UI.Button ButtonBack;
 	[SerializeField]
 	private GameObject MainMenuWidget;
+	[SerializeField]
+	private RelayManager RelayManager;
 
-	private MatchmakingApi api;
+	//private MatchmakingApi api;
 
 	// Start is called once before the first execution of Update after the MonoBehaviour is created
 	void Start()
 	{
-		api = FindFirstObjectByType<MatchmakingApi>();
+		//api = FindFirstObjectByType<MatchmakingApi>();
 		ButtonCreateGame.onClick.AddListener(ButtonCreateGameClick);
 		ButtonRefreshGames.onClick.AddListener(ButtonRefreshGamesClick);
 		ButtonBack.onClick.AddListener(ButtonBackClick);
 	}
 
-	private void CreateGame()
+	private async void CreateGame()
 	{
-		var joinCode = "abc";
-		api.AddGame(joinCode, OnGameCreated);
+		string joinCode = await RelayManager.StartHost();
+		FindAnyObjectByType<MatchmakingApi>().AddGame(joinCode, OnGameCreated);
 	}
+
 	private void ButtonCreateGameClick()
 	{
 		CreateGame();
 	}
 	private void ButtonRefreshGamesClick()
 	{
-		CreateGame();
+		// CreateGame();
+		Fill();
 	}
 	private void ButtonBackClick()
 	{
@@ -83,7 +88,7 @@ public class GameListWidget : MonoBehaviour
 	public void Fill()
 	{
 		ClearList();
-		api = FindFirstObjectByType<MatchmakingApi>();
+		var api = FindAnyObjectByType<MatchmakingApi>();
 		api.GetGames(OnGamesReceived);
 	}
 
@@ -91,7 +96,7 @@ public class GameListWidget : MonoBehaviour
 	{
 		wrapper.elements.ForEach(game => {
 			var row = Instantiate(GameRowPrefab, Content).GetComponent<GameRow>();
-			row.Load(game, api, OnGameJoined);
+			row.Load(game, OnGameJoined);
 		});
 	}
 

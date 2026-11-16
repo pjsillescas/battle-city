@@ -11,7 +11,7 @@ public class LivesWidget : MonoBehaviour
 	// Start is called once before the first execution of Update after the MonoBehaviour is created
 	void Start()
 	{
-		gameManager = FindFirstObjectByType<GameManager>();
+		gameManager = FindAnyObjectByType<GameManager>();
 		gameManager.OnPlayerLivesChanged += OnPlayerLivesChanged;
 	}
 

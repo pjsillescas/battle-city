@@ -5,7 +5,7 @@ public class SingletonEnsurer : MonoBehaviour
 {
 	public void Awake()
 	{
-		var managers = FindObjectsByType<NetworkManager>(FindObjectsSortMode.None);
+		var managers = FindObjectsByType<NetworkManager>();
 		if (managers.Length > 1)
 		{
 			Debug.LogWarning("Duplicate NetworkManager found. Destroying this one.");
@@ -14,5 +14,10 @@ public class SingletonEnsurer : MonoBehaviour
 		}
 
 		DontDestroyOnLoad(gameObject);
+	}
+
+	private void Start()
+	{
+		DontDestroyOnLoad(NetworkManager.Singleton.gameObject);
 	}
 }
